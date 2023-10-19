@@ -17,6 +17,10 @@ module.exports = {
     ],
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
-    "react/no-unknown-property": [2, { "ignore": ["class"] }]
+    "react/no-unknown-property": [2, { "ignore": ["class"] }],
+    "react-refresh/only-export-components": "off",
+  },
+  settings: {
+    react: { version: 'detect' },
   },
 }

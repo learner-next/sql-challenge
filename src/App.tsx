@@ -6,7 +6,7 @@ function App() {
   const navigate = useNavigate()
   useEffect(() => {
     navigate({ to: '/sqlChallenge/$id', params: { id: 'challenge1' } })
-  }, [])
+  }, [navigate])
   return (
     <div className="flex h-screen flex-col justify-between">
       <div className="flex w-screen items-center justify-start gap-4 border border-b-gray-300 p-4">
