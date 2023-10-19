@@ -1,6 +1,6 @@
 import App from '@/App'
 import SqlChallenge from '@/pages/SqlChallenge'
-import Levels from '@/pages/Levels'
+import Challenges from '@/pages/Challenges'
 import { Router, Route, RootRoute } from '@tanstack/react-router'
 
 // Create a root route
@@ -11,18 +11,18 @@ const rootRoute = new RootRoute({
 // create sqlChallenge route
 const sqlChallengeRoute = new Route({
   getParentRoute: () => rootRoute,
-  path: '/sqlChallenge/$id',
+  path: '/sqlChallenge/$challengeId',
   component: SqlChallenge
 })
 
-// create levels route
-const levelsRoute = new Route({
+// create challenges route
+const challengesRoute = new Route({
   getParentRoute: () => rootRoute,
-  path: '/levels',
-  component: Levels
+  path: '/challenges',
+  component: Challenges
 })
 
-const routeTree = rootRoute.addChildren([sqlChallengeRoute, levelsRoute])
+const routeTree = rootRoute.addChildren([sqlChallengeRoute, challengesRoute])
 
 // Create the router using your route tree
 export const router = new Router({ routeTree, defaultPreload: 'intent' })
