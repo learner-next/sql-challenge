@@ -1,34 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect } from 'react'
+import Logo from '/vite.svg'
+import { Outlet, Link, useNavigate } from '@tanstack/react-router'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const navigate = useNavigate()
+  useEffect(() => {
+    navigate({ to: '/sqlChallenge/$id', params: { id: 'challenge1' } })
+  }, [navigate])
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="flex h-screen flex-col justify-between">
+      <div className="flex w-screen items-center justify-start gap-4 border border-b-gray-300 p-4">
+        <img src={Logo} width={28} height={28} />
+        <Link to="/sqlChallenge/$id" params={{ id: 'challenge1' }}>
+          <span className="text-lime-500">Sql Challenge</span>
+        </Link>
+        <Link to="/levels">
+          <span className="text-lime-500">Levels</span>
+        </Link>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount(count => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className="flex-1">
+        <Outlet />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <div className="flex w-screen items-center justify-center py-4 text-slate-500">
+        Copyright © 2023 Talljack.
+      </div>
+    </div>
   )
 }
 
