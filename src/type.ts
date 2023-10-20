@@ -21,4 +21,7 @@ export type Challenge = {
   initSql: string
   /* challenge defaultSql */
   defaultSql: string
+  /* challenge type */
+  type: 'main' | 'custom'
+  /* challenge select */
 }
