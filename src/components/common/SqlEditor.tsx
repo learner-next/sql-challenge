@@ -59,17 +59,7 @@ const SqlEditor: FC<Props> = ({
     }
 
     return () => editor?.dispose()
-  }, [editorRef])
-
-  useEffect(() => {
-    if (editor) {
-      editor.setValue(challenge?.defaultSql)
-    }
-    initSql(challenge?.initSql).then(db => {
-      setDb(db)
-      handleSubmit()
-    })
-  }, [editor, challenge.defaultSql, challenge.initSql])
+  }, [editorRef, editor])
 
   const handleSubmit = () => {
     const value = editor?.getValue()
@@ -99,6 +89,15 @@ const SqlEditor: FC<Props> = ({
   const handleClear = () => {
     editor?.setValue('')
   }
+  useEffect(() => {
+    if (editor) {
+      editor.setValue(challenge?.defaultSql)
+    }
+    initSql(challenge?.initSql).then(db => {
+      setDb(db)
+      handleSubmit()
+    })
+  }, [editor, challenge.defaultSql, challenge.initSql, handleSubmit])
   return (
     <div className={className}>
       <div ref={editorRef} style={{ ...editorStyle }} />
