@@ -1,7 +1,7 @@
 import type { Challenge } from '@/type'
 import * as monaco from 'monaco-editor'
 import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
-import { FC, useRef, useState, useEffect } from 'react'
+import { FC, useRef, useState, useEffect, useCallback } from 'react'
 import type { CSSProperties } from 'react'
 import { Button } from '@components/ui/button'
 import { format } from 'sql-formatter'
@@ -61,9 +61,8 @@ const SqlEditor: FC<Props> = ({
     return () => editor?.dispose()
   }, [editorRef, editor])
 
-  const handleSubmit = () => {
+  const handleSubmit = useCallback(() => {
     const value = editor?.getValue()
-    console.log('value', value, db)
     if (value && db) {
       try {
         const userResult = runSql(db, value)
@@ -79,7 +78,7 @@ const SqlEditor: FC<Props> = ({
         onSubmit(value, [], [], (error as Error).message)
       }
     }
-  }
+  }, [editor, db, challenge.answer, challenge.answerSql, onSubmit, toast])
   const handleFormat = () => {
     const value = editor?.getValue()
     if (value) {
