@@ -1,47 +1,117 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { Challenge } from '@/type'
 import * as monaco from 'monaco-editor'
-// import { format } from "sql-formatter";
-import { loader } from '@monaco-editor/react'
-import { useRef } from 'react'
-import Editor from '@monaco-editor/react'
-import editorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
+import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
+import { FC, useRef, useState, useEffect } from 'react'
+import type { CSSProperties } from 'react'
+import { Button } from '@components/ui/button'
+import { format } from 'sql-formatter'
+import { initSql, runSql } from '@/sql/db'
+import type { Database, QueryExecResult } from 'sql.js'
+import { useToast } from '@/components/ui/use-toast'
+
+interface Props {
+  challenge: Challenge
+  editorStyle?: CSSProperties
+  className?: string
+  onSubmit: (
+    sql: string,
+    result: QueryExecResult[],
+    answerResult: QueryExecResult[],
+    message?: string
+  ) => void
+}
 
 self.MonacoEnvironment = {
-  getWorker() {
-    return new editorWorker()
+  getWorker: function () {
+    return new EditorWorker()
   }
 }
-loader.config({ monaco })
 
-const SqlEditor = ({ content }: { content: string }) => {
-  const monacoRef = useRef<typeof monaco | null>(null)
+const SqlEditor: FC<Props> = ({
+  challenge,
+  editorStyle,
+  onSubmit,
+  className
+}) => {
+  const editorRef = useRef<HTMLDivElement>(null)
+  const [db, setDb] = useState<Database>() // [db, setDb]
+  const [editor, setEditor] =
+    useState<monaco.editor.IStandaloneCodeEditor | null>(null)
+  const { toast } = useToast()
 
-  function handleEditorWillMount(monaco: any) {
-    monaco.languages.typescript.javascriptDefaults.setEagerModelSync(true)
-  }
+  useEffect(() => {
+    if (editorRef) {
+      setEditor(editor => {
+        if (editor) return editor
 
-  function handleEditorDidMount(monaco: any) {
-    monacoRef.current = monaco
-    // monacoRef.current = editor.create()
-  }
+        return monaco.editor.create(editorRef.current!, {
+          value: '',
+          language: 'sql',
+          theme: 'vs-dark',
+          formatOnPaste: true,
+          automaticLayout: true,
+          fontSize: 16,
+          minimap: {
+            enabled: false
+          }
+        })
+      })
+    }
 
-  function handleEditorChange(value: string | undefined) {
-    if (value) {
-      // const formatted = format(value);
-      // monacoRef.current?.editor.setModelLanguage(event, 'sql');
-      // monacoRef.current?.editor.setValue(value);
+    return () => editor?.dispose()
+  }, [editorRef])
+
+  useEffect(() => {
+    if (editor) {
+      editor.setValue(challenge?.defaultSql)
+    }
+    initSql(challenge?.initSql).then(db => {
+      setDb(db)
+      handleSubmit()
+    })
+  }, [editor, challenge.defaultSql, challenge.initSql])
+
+  const handleSubmit = () => {
+    const value = editor?.getValue()
+    console.log('value', value, db)
+    if (value && db) {
+      try {
+        const userResult = runSql(db, value)
+        const answerResult = runSql(db, challenge.answer ?? challenge.answerSql)
+        console.log('userResult', userResult)
+        console.log('answerResult', answerResult)
+        onSubmit(value, userResult, answerResult)
+      } catch (error) {
+        toast({
+          description: (error as Error).message,
+          duration: 5000
+        })
+        onSubmit(value, [], [], (error as Error).message)
+      }
     }
   }
-
+  const handleFormat = () => {
+    const value = editor?.getValue()
+    if (value) {
+      editor?.setValue(format(value, { language: 'sql' }))
+    }
+  }
+  const handleClear = () => {
+    editor?.setValue('')
+  }
   return (
-    <Editor
-      height={500}
-      defaultLanguage="sql"
-      defaultValue={content}
-      beforeMount={handleEditorWillMount}
-      onMount={handleEditorDidMount}
-      onChange={handleEditorChange}
-    />
+    <div className={className}>
+      <div ref={editorRef} style={{ ...editorStyle }} />
+      <div className="mt-4 flex items-center gap-2">
+        <Button onClick={() => handleSubmit()}>运行</Button>
+        <Button variant="outline" onClick={() => handleFormat()}>
+          格式化
+        </Button>
+        <Button variant="outline" onClick={() => handleClear()}>
+          清空
+        </Button>
+      </div>
+    </div>
   )
 }
 

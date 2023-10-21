@@ -8,7 +8,7 @@ const challenge1: Challenge = {
   difficulty: 1,
   category: '创建表',
   tags: ['create'],
-  answer: `CREATE TABLE student (
+  answerSql: `CREATE TABLE student (
     id integer not null primary key,
     name varchar(256) not null,
     age int not null default 20,
@@ -16,10 +16,12 @@ const challenge1: Challenge = {
     birthday date null,
     address varchar(256) null
   );`,
+  answer: 'SELECT * FROM student;',
   author: 'Talljack',
   initSql: '',
   defaultSql: 'CREATE TABLE student (id integer);',
-  type: 'main'
+  type: 'main',
+  sqlType: 'create'
 }
 
 export default challenge1

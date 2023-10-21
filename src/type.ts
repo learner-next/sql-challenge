@@ -11,8 +11,10 @@ export type Challenge = {
   category: string
   /* challenge tags */
   tags: string[]
+  /* challenge answerSql */
+  answerSql: string
   /* challenge answer */
-  answer: string
+  answer?: string
   /* challenge author */
   author: string
   /* challenge hit */
@@ -23,5 +25,13 @@ export type Challenge = {
   defaultSql: string
   /* challenge type */
   type: 'main' | 'custom'
-  /* challenge select */
+  /* challenge sqlType */
+  sqlType:
+    | 'select'
+    | 'update'
+    | 'insert'
+    | 'delete'
+    | 'create'
+    | 'drop'
+    | 'alter'
 }
