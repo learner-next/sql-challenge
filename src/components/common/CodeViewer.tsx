@@ -37,7 +37,11 @@ const CodeViewer: FC<CodeViewerProps> = ({ initSql }) => {
       })
     }
     return () => editor?.dispose()
+<<<<<<< HEAD
   }, [editorRef, initSql, editor])
+=======
+  }, [editorRef, initSql])
+>>>>>>> fix: update sql
 
   return (
     <div className="rounded-md border border-gray-300 p-2">
