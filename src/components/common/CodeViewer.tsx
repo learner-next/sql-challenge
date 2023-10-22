@@ -37,7 +37,7 @@ const CodeViewer: FC<CodeViewerProps> = ({ initSql }) => {
       })
     }
     return () => editor?.dispose()
-  }, [editorRef, initSql])
+  }, [editorRef, initSql, editor])
 
   return (
     <div className="rounded-md border border-gray-300 p-2">
