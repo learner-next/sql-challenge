@@ -18,6 +18,7 @@ function SqlChallenge() {
   )
   const [errorMessage, setErrorMessage] = useState<string>()
   const [challenge, setChallenge] = useState<Challenge>()
+  const [collapsedUserResult, setCollapsedUserOpenResult] = useState(true)
   const params = useParams({
     from: '/sqlChallenge/$challengeId'
   })
@@ -38,6 +39,7 @@ function SqlChallenge() {
     setResultStatus(
       checkedSqlResult(userResults, answerResults, challenge, message)
     )
+    setCollapsedUserOpenResult(false)
   }
   const getAllTableResults = (allTableResults: QueryExecResult[]) => {
     setAllTableResults(allTableResults)
@@ -53,7 +55,7 @@ function SqlChallenge() {
           className="border border-gray-300 pb-2"
           editorStyle={{ height: '300px' }}
         />
-        <AccordionResult title="查看执行结果">
+        <AccordionResult title="查看执行结果" collapsed={collapsedUserResult}>
           <SqlResult
             // 创建的时候主动展示结果表
             sqlResults={userResults.length > 0 ? userResults : answerResults}
@@ -66,7 +68,11 @@ function SqlChallenge() {
           <div>{challenge?.hit ?? '请仔细阅读示例中的相关 SQL 语句'}</div>
         </AccordionResult>
         <AccordionResult title="查看数据表">
-          <SqlResult sqlResults={allTableResults} type="system" />
+          {allTableResults.length > 0 ? (
+            <SqlResult sqlResults={allTableResults} type="system" />
+          ) : (
+            <div>请先创建数据表</div>
+          )}
         </AccordionResult>
         <AccordionResult title="查看建表语句">
           <CodeViewer initSql={challenge.initSql || challenge.answerSql} />

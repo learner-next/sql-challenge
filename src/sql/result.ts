@@ -24,8 +24,8 @@ export const checkedSqlResult = (
   challenge: Challenge,
   message?: string
 ) => {
-  // does't throw error is success when create table or insert into
-  if (challenge.sqlType === 'create' && !message) {
+  // does't throw error is success when create table and insert into values
+  if (challenge.sqlType === 'create' && !message && answerResults.length > 0) {
     return RESULT_STATUS_ENUM.SUCCEED
   }
   if (!userResults?.[0] || !answerResults?.[0]) {

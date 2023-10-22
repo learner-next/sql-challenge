@@ -68,9 +68,7 @@ const SqlEditor: FC<Props> = ({
     if (value && db) {
       try {
         const userResult = runSql(db, value)
-        const answerResult = runSql(db, challenge.answer ?? challenge.answerSql)
-        console.log('userResult', userResult)
-        console.log('answerResult', answerResult)
+        const answerResult = runSql(db, challenge.answer || challenge.answerSql)
         onSubmit(value, userResult, answerResult)
       } catch (error) {
         toast({
@@ -104,7 +102,7 @@ const SqlEditor: FC<Props> = ({
       }
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [editor, challenge?.initSql, challenge?.showTableSql])
   return (
     <div className={className}>
       <div ref={editorRef} style={{ ...editorStyle }} />

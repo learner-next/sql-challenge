@@ -32,7 +32,7 @@ SQL 需要学习的非常多，重点也是在查询，而我们这篇将会先�
 创建数据表的基本语句
 
 ```sql
-CREATE TABLE table_name (column_name column_type);
+CREATE TABLE IF NOT EXIST table_name (column_name column_type);
 ```
 
 接下来就可以插入数据了，请插入以下数据：
@@ -49,9 +49,9 @@ INSERT INTO table_name (column_name) VALUES (column_value),(column_value2);
 ```
 
 
-接下来请完成一下的训练吧～
+接下来请完成以下的挑战吧～
 
-## 训练
+## 挑战
 请结合上面的创建数据表的基础语句去创建上面👆的`student`表以及插入对应的数据吧（一定要先创建表哦💜）～
 
 

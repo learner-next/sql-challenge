@@ -57,20 +57,34 @@ const SqlQuestion: FC<SqlQuestionProps> = ({ resultStatus, challenge }) => {
         <MdViewer content={challenge.content} />
       </ScrollArea>
       <div className={btnClassName}>
-        {challengeNum > 0 && (
-          <Button onClick={() => jumpTo('prev')}>上一关</Button>
+        {challengeNum !== mainChallenges.length - 1 && (
+          <>
+            <Button
+              className="w-[80px]"
+              style={{ visibility: challengeNum > 0 ? 'visible' : 'hidden' }}
+              onClick={() => jumpTo('prev')}
+            >
+              上一关
+            </Button>
+            <Button
+              className="w-[80px]"
+              style={{
+                visibility:
+                  challengeNum < mainChallenges.length - 1
+                    ? 'visible'
+                    : 'hidden'
+              }}
+              disabled={resultStatus !== RESULT_STATUS_ENUM.SUCCEED}
+              onClick={() => jumpTo('next')}
+            >
+              下一关
+            </Button>
+          </>
         )}
-        {challengeNum < mainChallenges.length - 1 && (
-          <Button
-            disabled={resultStatus !== RESULT_STATUS_ENUM.SUCCEED}
-            onClick={() => jumpTo('next')}
-          >
-            下一关
-          </Button>
-        )}
-        {challengeNum === mainChallenges.length - 1 && (
-          <Button onClick={() => handleWin}>恭喜通关</Button>
-        )}
+        {challengeNum === mainChallenges.length - 1 &&
+          resultStatus === RESULT_STATUS_ENUM.SUCCEED && (
+            <Button onClick={handleWin}>恭喜通关</Button>
+          )}
       </div>
     </div>
   ) : (

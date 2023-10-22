@@ -1,15 +1,18 @@
 import { useEffect } from 'react'
 import Logo from '/vite.svg'
-import { Outlet, Link, useNavigate } from '@tanstack/react-router'
+import { Outlet, Link, useNavigate, useParams } from '@tanstack/react-router'
 
 function App() {
   const navigate = useNavigate()
+  const params = useParams({
+    from: '/sqlChallenge/$challengeId'
+  })
   useEffect(() => {
     navigate({
       to: '/sqlChallenge/$challengeId',
-      params: { challengeId: 'challenge1' }
+      params: { challengeId: params.challengeId ?? 'challenge1' }
     })
-  }, [navigate])
+  }, [navigate, params])
   return (
     <div className="flex h-screen flex-col justify-between">
       <div className="flex w-screen items-center justify-start gap-4 border border-b-gray-300 p-4">
