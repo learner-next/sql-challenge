@@ -96,8 +96,12 @@ const SqlEditor: FC<Props> = ({
     }
     initSql(challenge?.initSql).then(db => {
       setDb(db)
-      const allTableResults = runSql(db, challenge.showTableSql)
-      getAllTableResults?.(allTableResults)
+      try {
+        const allTableResults = runSql(db, challenge.showTableSql)
+        getAllTableResults?.(allTableResults)
+      } catch (error) {
+        console.error(error)
+      }
     })
   }, [editor, challenge, getAllTableResults])
   return (

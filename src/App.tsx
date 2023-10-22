@@ -21,7 +21,7 @@ function App() {
           <span className="text-lime-500">Sql Challenge</span>
         </Link>
         <Link to="/challenges">
-          <span className="text-lime-500">Levels</span>
+          <span className="text-lime-500">Challenges</span>
         </Link>
       </div>
       <div className="flex-1">
