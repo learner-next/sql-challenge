@@ -11,6 +11,7 @@ import {
 import { RESULT_STATUS_ENUM } from '@/sql/result'
 import mainChallenges from '@/challenges/mainChallenges'
 import { useNavigate } from '@tanstack/react-router'
+import clsx from 'clsx'
 
 interface SqlQuestionProps {
   resultStatus: number
@@ -44,15 +45,18 @@ const SqlQuestion: FC<SqlQuestionProps> = ({ resultStatus, challenge }) => {
     alert('恭喜通关，如果对你有帮助，欢迎给个star')
     window.open('https://github.com/learner-next/sql-challenge')
   }
+  const btnClassName = clsx(
+    'mt-4 flex mb-4',
+    challengeNum === mainChallenges.length - 1
+      ? 'justify-center'
+      : 'px-2 justify-between'
+  )
   return challenge ? (
     <div className="mr-2 w-1/2 rounded-md border border-gray-300">
-      <ScrollArea
-        className="border border-gray-300"
-        style={{ height: 'calc(100vh - 125px)' }}
-      >
+      <ScrollArea className="p-2" style={{ height: 'calc(100vh - 125px)' }}>
         <MdViewer content={challenge.content} />
       </ScrollArea>
-      <div className="mt-4 flex justify-between">
+      <div className={btnClassName}>
         {challengeNum > 0 && (
           <Button onClick={() => jumpTo('prev')}>上一关</Button>
         )}

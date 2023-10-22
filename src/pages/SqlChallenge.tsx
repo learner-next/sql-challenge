@@ -69,7 +69,7 @@ function SqlChallenge() {
           <SqlResult sqlResults={allTableResults} type="system" />
         </AccordionResult>
         <AccordionResult title="查看建表语句">
-          <CodeViewer initSql={challenge.initSql ?? challenge.answerSql} />
+          <CodeViewer initSql={challenge.initSql || challenge.answerSql} />
         </AccordionResult>
         <AccordionResult title="查看答案">
           <CodeViewer initSql={challenge.answerSql} />

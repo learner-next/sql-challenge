@@ -1,6 +1,6 @@
 import type { Challenge } from '@/type'
 import * as monaco from 'monaco-editor'
-import { FC, useRef, useEffect } from 'react'
+import { FC, useRef, useEffect, useState } from 'react'
 import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
 import { format } from 'sql-formatter'
 
@@ -16,20 +16,27 @@ self.MonacoEnvironment = {
 
 const CodeViewer: FC<CodeViewerProps> = ({ initSql }) => {
   const editorRef = useRef<HTMLDivElement>(null)
+  const [editor, setEditor] =
+    useState<monaco.editor.IStandaloneCodeEditor | null>(null)
   useEffect(() => {
     if (editorRef) {
-      monaco.editor.create(editorRef.current!, {
-        value: format(initSql, { language: 'sql' }),
-        language: 'sql',
-        theme: 'vs-dark',
-        formatOnPaste: true,
-        automaticLayout: true,
-        fontSize: 16,
-        minimap: {
-          enabled: false
-        }
+      setEditor(editor => {
+        if (editor) return editor
+
+        return monaco.editor.create(editorRef.current!, {
+          value: format(initSql, { language: 'sql' }),
+          language: 'sql',
+          theme: 'vs-dark',
+          formatOnPaste: true,
+          automaticLayout: true,
+          fontSize: 16,
+          minimap: {
+            enabled: false
+          }
+        })
       })
     }
+    return () => editor?.dispose()
   }, [editorRef, initSql])
 
   return (
