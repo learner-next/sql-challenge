@@ -8,9 +8,11 @@ import type { Challenge } from '@/type'
 import SqlQuestion from '@/components/common/SqlQuestion'
 import SqlResult from '@/components/common/SqlResult'
 import AccordionResult from '@/components/common/AccordionResult'
+import CodeViewer from '@/components/common/CodeViewer'
 function SqlChallenge() {
   const [userResults, setUserResults] = useState<QueryExecResult[]>([])
   const [answerResults, setAnswerResults] = useState<QueryExecResult[]>([])
+  const [allTableResults, setAllTableResults] = useState<QueryExecResult[]>([])
   const [resultStatus, setResultStatus] = useState<number>(
     RESULT_STATUS_ENUM.DEFAULT
   )
@@ -33,7 +35,12 @@ function SqlChallenge() {
     setUserResults(userResults)
     setAnswerResults(answerResults)
     setErrorMessage(message)
-    setResultStatus(checkedSqlResult(userResults, answerResults, challenge))
+    setResultStatus(
+      checkedSqlResult(userResults, answerResults, challenge, message)
+    )
+  }
+  const getAllTableResults = (allTableResults: QueryExecResult[]) => {
+    setAllTableResults(allTableResults)
   }
   return (
     <div className="my-4 ml-4 flex p-2">
@@ -42,15 +49,30 @@ function SqlChallenge() {
         <SqlEditor
           challenge={challenge}
           onSubmit={onSubmit}
-          className="border border-gray-300 py-2"
+          getAllTableResults={getAllTableResults}
+          className="border border-gray-300 pb-2"
           editorStyle={{ height: '300px' }}
         />
         <AccordionResult title="查看执行结果">
           <SqlResult
+            // 创建的时候主动展示结果表
             sqlResults={userResults.length > 0 ? userResults : answerResults}
             resultStatus={resultStatus}
             errorMessage={errorMessage}
+            type="user"
           />
+        </AccordionResult>
+        <AccordionResult title="查看提示">
+          <div>{challenge?.hit ?? '请仔细阅读示例中的相关 SQL 语句'}</div>
+        </AccordionResult>
+        <AccordionResult title="查看数据表">
+          <SqlResult sqlResults={allTableResults} type="system" />
+        </AccordionResult>
+        <AccordionResult title="查看建表语句">
+          <CodeViewer initSql={challenge.initSql ?? challenge.answerSql} />
+        </AccordionResult>
+        <AccordionResult title="查看答案">
+          <CodeViewer initSql={challenge.answerSql} />
         </AccordionResult>
       </div>
     </div>

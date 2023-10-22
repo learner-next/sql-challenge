@@ -39,15 +39,13 @@ CREATE TABLE table_name (column_name column_type);
 
 | name | age | gender | birthday   | address      |
 | ---- | --- | ------ | ---------- | ------------ |
-| 小明 | 20  | 男     | 1998-12-20 | 北京市朝阳区 |
-| 小王 | 25  | 男     | 2000-08-19 | 北京市海淀区 |
-| 小丽 | 18  | 女     | 2001-07-12 | 上海市浦东区 |
-| 小黑 | 30  | 男     | 1990-09-10 | 广东省深圳市 |
+| 小明 | 20  | 男     | 1998-12-20 | null |
+| 小丽 | 18  | 女     | null | 上海市浦东区 |
 
 插入数据表的基本语句
 
 ```sql
-INSERT INTO table_name (column_name) VALUES (column_value);
+INSERT INTO table_name (column_name) VALUES (column_value),(column_value2);
 ```
 
 

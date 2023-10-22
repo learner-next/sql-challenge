@@ -21,13 +21,11 @@ export const RESULT_STATUS_MAP = {
 export const checkedSqlResult = (
   userResults: QueryExecResult[],
   answerResults: QueryExecResult[],
-  challenge: Challenge
+  challenge: Challenge,
+  message?: string
 ) => {
-  if (
-    challenge.sqlType === 'create' &&
-    userResults.length === 0 &&
-    answerResults.length > 0
-  ) {
+  // does't throw error is success when create table or insert into
+  if (challenge.sqlType === 'create' && !message) {
     return RESULT_STATUS_ENUM.SUCCEED
   }
   if (!userResults?.[0] || !answerResults?.[0]) {

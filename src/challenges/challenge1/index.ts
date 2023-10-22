@@ -15,8 +15,11 @@ const challenge1: Challenge = {
     gender char(4) not null,
     birthday date null,
     address varchar(256) null
-  );`,
+  );
+  INSERT INTO student (name, age, gender, birthday, address) values('小明',20,'男','1998-12-20',null),('小丽',18,'女',null,'上海市浦东区');
+  `,
   answer: 'SELECT * FROM student;',
+  showTableSql: 'SELECT * FROM student;',
   author: 'Talljack',
   initSql: '',
   defaultSql: 'CREATE TABLE student (id integer);',
