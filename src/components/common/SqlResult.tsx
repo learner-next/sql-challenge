@@ -12,38 +12,52 @@ import {
 } from '@/components/ui/table'
 
 interface SqlResultProps {
-  resultStatus: number
+  resultStatus?: number
   errorMessage?: string
   sqlResults: QueryExecResult[]
+  type: 'user' | 'system'
+  className?: string
 }
 
 const SqlResult: FC<SqlResultProps> = ({
   resultStatus,
   errorMessage,
-  sqlResults
+  sqlResults,
+  type = 'user',
+  className
 }) => {
   return (
-    <Card className="h-[420px] w-1/2 rounded-md border border-gray-300 p-2">
+    <Card
+      className={`max-h-[420px] w-full rounded-md border border-gray-300 p-2 ${className}`}
+    >
       <CardHeader>
         <div className="flex justify-between">
-          <div className="text-lg font-bold">执行结果</div>
-          <div className="">
-            {RESULT_STATUS_MAP[resultStatus as keyof typeof RESULT_STATUS_MAP]}
+          <div className="text-lg font-bold">
+            {type === 'user' ? '查看执行结果' : '数据表'}
           </div>
+          {resultStatus && (
+            <div className="text-lg font-bold">
+              {
+                RESULT_STATUS_MAP[
+                  resultStatus as keyof typeof RESULT_STATUS_MAP
+                ]
+              }
+            </div>
+          )}
         </div>
       </CardHeader>
-      {errorMessage ? (
+      {!errorMessage ? (
         <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
-                {sqlResults[0].columns.map((column, index) => (
+                {sqlResults?.[0]?.columns?.map((column, index) => (
                   <TableHead key={index}>{column}</TableHead>
                 ))}
               </TableRow>
             </TableHeader>
             <TableBody>
-              {sqlResults[0].values.map((row, index) => (
+              {sqlResults?.[0]?.values?.map((row, index) => (
                 <TableRow key={index}>
                   {row.map((value, index) => (
                     <TableCell key={index}>{value}</TableCell>
@@ -54,7 +68,7 @@ const SqlResult: FC<SqlResultProps> = ({
           </Table>
         </CardContent>
       ) : (
-        <div>❌ 语句错误：{errorMessage}</div>
+        type === 'user' && <div>❌ 语句错误：{errorMessage}</div>
       )}
     </Card>
   )

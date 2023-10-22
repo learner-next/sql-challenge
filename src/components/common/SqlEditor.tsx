@@ -1,7 +1,7 @@
 import type { Challenge } from '@/type'
 import * as monaco from 'monaco-editor'
 import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
-import { FC, useRef, useState, useEffect, useCallback } from 'react'
+import { FC, useRef, useState, useEffect } from 'react'
 import type { CSSProperties } from 'react'
 import { Button } from '@components/ui/button'
 import { format } from 'sql-formatter'
@@ -19,6 +19,7 @@ interface Props {
     answerResult: QueryExecResult[],
     message?: string
   ) => void
+  getAllTableResults?: (allTableResults: QueryExecResult[]) => void
 }
 
 self.MonacoEnvironment = {
@@ -31,7 +32,8 @@ const SqlEditor: FC<Props> = ({
   challenge,
   editorStyle,
   onSubmit,
-  className
+  className,
+  getAllTableResults
 }) => {
   const editorRef = useRef<HTMLDivElement>(null)
   const [db, setDb] = useState<Database>() // [db, setDb]
@@ -61,7 +63,7 @@ const SqlEditor: FC<Props> = ({
     return () => editor?.dispose()
   }, [editorRef, editor])
 
-  const handleSubmit = useCallback(() => {
+  const handleSubmit = () => {
     const value = editor?.getValue()
     if (value && db) {
       try {
@@ -78,7 +80,7 @@ const SqlEditor: FC<Props> = ({
         onSubmit(value, [], [], (error as Error).message)
       }
     }
-  }, [editor, db, challenge.answer, challenge.answerSql, onSubmit, toast])
+  }
   const handleFormat = () => {
     const value = editor?.getValue()
     if (value) {
@@ -94,14 +96,17 @@ const SqlEditor: FC<Props> = ({
     }
     initSql(challenge?.initSql).then(db => {
       setDb(db)
-      handleSubmit()
+      const allTableResults = runSql(db, challenge.showTableSql)
+      getAllTableResults?.(allTableResults)
     })
-  }, [editor, challenge.defaultSql, challenge.initSql, handleSubmit])
+  }, [editor, challenge, getAllTableResults])
   return (
     <div className={className}>
       <div ref={editorRef} style={{ ...editorStyle }} />
-      <div className="mt-4 flex items-center gap-2">
-        <Button onClick={() => handleSubmit()}>运行</Button>
+      <div className="ml-2 mt-2 flex items-center gap-2">
+        <Button className="w-[120px]" onClick={() => handleSubmit()}>
+          运行
+        </Button>
         <Button variant="outline" onClick={() => handleFormat()}>
           格式化
         </Button>

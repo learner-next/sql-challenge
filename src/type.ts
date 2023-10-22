@@ -34,4 +34,6 @@ export type Challenge = {
     | 'create'
     | 'drop'
     | 'alter'
+  /* challenge showTableSql */
+  showTableSql: string
 }
