@@ -103,7 +103,8 @@ const SqlEditor: FC<Props> = ({
         console.error(error)
       }
     })
-  }, [editor, challenge, getAllTableResults])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   return (
     <div className={className}>
       <div ref={editorRef} style={{ ...editorStyle }} />
