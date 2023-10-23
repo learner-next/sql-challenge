@@ -35,7 +35,7 @@ const SqlResult: FC<SqlResultProps> = ({
           <div className="text-lg font-bold">
             {type === 'user' ? '查看执行结果' : '数据表'}
           </div>
-          {resultStatus && (
+          {typeof resultStatus === 'number' && (
             <div className="text-lg font-bold">
               {
                 RESULT_STATUS_MAP[
