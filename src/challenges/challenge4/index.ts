@@ -16,7 +16,7 @@ const challenge: Challenge = {
   showTableSql: 'SELECT * FROM student;',
   author: 'Talljack',
   initSql,
-  defaultSql: 'SELECT name, age FROM student;',
+  defaultSql: 'SELECT * FROM student;',
   type: 'main',
   sqlType: 'select'
 }
