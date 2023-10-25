@@ -14,7 +14,7 @@
 * `IS NOT NULL`: 当列的值不为 `NULL`, 运算符返回 `true`
 * `<=>`: 比较操作符（不同于 = 运算符），当比较的的两个值相等或者都为 `NULL` 时返回 `true`
 
-接下来我们就先看看`NULL`查询。
+接下来我们就来看看`NULL`查询。
 
 ## 示例
 
@@ -30,7 +30,7 @@
 | 小宁 | 16  | 男     | 2002-06-12 | null         |
 | 小张 | 32  | 男     | null       | 广东省深圳市 |
 
-接下来我们想要查询出 `address` 不为 `NULL` 的表格数据；：
+接下来我们想要查询出 `address` 不为 `NULL` 的表格数据，那么我们可以使用`IS NOT NULL`来进行查询，如下：
 
 ```sql
 SELECT * FROM student WHERE address IS NOT NULL;
