@@ -1,0 +1,24 @@
+import content from './content.md?raw'
+import initSql from './initSql.sql?raw'
+import type { Challenge } from '@/type'
+
+const challenge: Challenge = {
+  id: 'challenge8',
+  title: '基础语法 - 条件查询 - 模糊查询',
+  content,
+  difficulty: 1,
+  category: '条件查询',
+  hit: '请仔细查看示例中的基本语句，WHERE关键字为条件查询，LIKE为模糊查询，%为任意字符，_为单个字符。',
+  tags: ['select'],
+  answerSql:
+    'SELECT name, age, gender, address FROM student WHERE address LIKE "%北京市%";',
+  answer: '',
+  showTableSql: 'SELECT * FROM student;',
+  author: 'Talljack',
+  initSql,
+  defaultSql: 'SELECT * FROM student;',
+  type: 'main',
+  sqlType: 'select'
+}
+
+export default challenge
