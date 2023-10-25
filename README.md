@@ -1,2 +1,2 @@
 # sql-challenge
-SQL exercises for beginners(MySQL)
+SQL exercises for beginners(Base MySQL)
