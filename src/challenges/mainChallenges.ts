@@ -5,6 +5,7 @@ import challenge4 from './challenge4'
 import challenge5 from './challenge5'
 import challenge6 from './challenge6'
 import challenge7 from './challenge7'
+import challenge8 from './challenge8'
 
 const mainChallenges = [
   challenge1,
@@ -13,7 +14,8 @@ const mainChallenges = [
   challenge4,
   challenge5,
   challenge6,
-  challenge7
+  challenge7,
+  challenge8
 ]
 
 export default mainChallenges
