@@ -8,6 +8,7 @@ import challenge7 from './challenge7'
 import challenge8 from './challenge8'
 import whereAndOr from './Where-And-Or'
 import SelectDistinct from './select-distinct'
+import SelectOrderBy from './select-order-by'
 
 const mainChallenges = [
   challenge1,
@@ -19,7 +20,8 @@ const mainChallenges = [
   challenge7,
   challenge8,
   whereAndOr,
-  SelectDistinct
+  SelectDistinct,
+  SelectOrderBy
 ]
 
 export default mainChallenges
