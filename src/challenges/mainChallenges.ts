@@ -10,6 +10,7 @@ import whereAndOr from './select-and-or'
 import SelectDistinct from './select-distinct'
 import SelectOrderBy from './select-order-by'
 import SelectGroupBy from './select-group-by'
+import SelectLimitOffset from './select-limit-offset'
 
 const mainChallenges = [
   challenge1,
@@ -23,7 +24,8 @@ const mainChallenges = [
   whereAndOr,
   SelectDistinct,
   SelectOrderBy,
-  SelectGroupBy
+  SelectGroupBy,
+  SelectLimitOffset
 ]
 
 export default mainChallenges
