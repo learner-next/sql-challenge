@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS `student` (
   name VARCHAR(256) NOT NULL,
   age INT NOT NULL,
   gender CHAR(4) NOT NULL,
-  birthdate DATE NULL,
+  birthday DATE NULL,
   address VARCHAR(256) NULL
 );
 

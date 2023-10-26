@@ -10,6 +10,7 @@ import {
   TableHeader,
   TableRow
 } from '@/components/ui/table'
+import { ScrollArea } from '@/components/ui/scroll-area'
 
 interface SqlResultProps {
   resultStatus?: number
@@ -48,24 +49,26 @@ const SqlResult: FC<SqlResultProps> = ({
       </CardHeader>
       {!errorMessage ? (
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                {sqlResults?.[0]?.columns?.map((column, index) => (
-                  <TableHead key={index}>{column}</TableHead>
-                ))}
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {sqlResults?.[0]?.values?.map((row, index) => (
-                <TableRow key={index}>
-                  {row.map((value, index) => (
-                    <TableCell key={index}>{value}</TableCell>
+          <ScrollArea className="h-[300px]">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  {sqlResults?.[0]?.columns?.map((column, index) => (
+                    <TableHead key={index}>{column}</TableHead>
                   ))}
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {sqlResults?.[0]?.values?.map((row, index) => (
+                  <TableRow key={index}>
+                    {row.map((value, index) => (
+                      <TableCell key={index}>{value}</TableCell>
+                    ))}
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </ScrollArea>
         </CardContent>
       ) : (
         type === 'user' && <div>❌ 语句错误：{errorMessage}</div>
