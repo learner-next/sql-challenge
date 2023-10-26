@@ -36,4 +36,6 @@ export type Challenge = {
     | 'alter'
   /* challenge showTableSql */
   showTableSql: string
+  /* challenge position of index */
+  index?: number
 }
