@@ -11,9 +11,11 @@
 查询的 SQL 语法是 `SELECT fieldName FROM tableName WHERE filedName > xxx`，`fieldName` 代表所需要查询的字段，`tableName` 代表表名。
 
 常用语法是：
+
 ```sql
 SELECT fieldName, fieldName2 FROM tableName WHERE 条件;
 ```
+
 查询列也可以查询所有的字段，直接用 `*` 就可以查询出来。
 
 SQL 支持的条件有多种类型比如：  
@@ -33,37 +35,38 @@ SELECT * FROM student WHERE age BETWEEN 20 AND 40;
 SELECT * FROM student WHERE age > 20 AND age < 40;
 ```
 
-
 接下来我们就先看看运算符条件查询。
-
 
 ## 示例
 
 假设我们已经有了一张名为`student`表，表中包含学生的`name`，`age`，`gender`，`birthday`，`address`等字段。
 
 `student`表如下：
-| name | age | gender | birthday   | address      |
+| name | age | gender | birthday | address |
 | ---- | --- | ------ | ---------- | ------------ |
-| 小明 | 20  | 男     | 1998-12-20 | null         |
-| 小丽 | 18  | 女     | null       | 上海市浦东区 |
-| 小王 | 28  | 男     | 1997-08-11 | 北京市海淀区 |
-| 小李 | 36  | 男     | 1989-02-18 | 北京市朝阳区 |
-| 小宁 | 16  | 男     | 2002-06-12 | null         |
-| 小张 | 32  | 男     | null       | 广东省深圳市 |
+| 小明 | 20 | 男 | 1998-12-20 | null |
+| 小丽 | 18 | 女 | null | 上海市浦东区 |
+| 小王 | 28 | 男 | 1997-08-11 | 北京市海淀区 |
+| 小李 | 36 | 男 | 1989-02-18 | 北京市朝阳区 |
+| 小宁 | 16 | 男 | 2002-06-12 | null |
+| 小张 | 32 | 男 | null | 广东省深圳市 |
 
 接下来我们想要查询`age > 20`岁的表格数据：
+
 ```sql
 SELECT * FROM student WHERE age > 20;
 ```
+
 可以得到如下结果：
-| name | age | gender | birthday   | address      |
+| name | age | gender | birthday | address |
 | ---- | --- | ------ | ---------- | ------------ |
-| 小王 | 28  | 男     | 1997-08-11 | 北京市海淀区 |
-| 小李 | 36  | 男     | 1989-02-18 | 北京市朝阳区 |
-| 小张 | 32  | 男     | null       | 广东省深圳市 |
+| 小王 | 28 | 男 | 1997-08-11 | 北京市海淀区 |
+| 小李 | 36 | 男 | 1989-02-18 | 北京市朝阳区 |
+| 小张 | 32 | 男 | null | 广东省深圳市 |
 
 接下来请完成以下的挑战吧～
 
 ## 挑战
+
 请结合上面👆的案例中的`运算符查询`去查询数据表中`age`在 17 和 30 之间的数据吧🌈～
 PS（数据表已经创建好了，你可以在右下侧查看数据表中查看数据以及其他相关信息）

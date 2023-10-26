@@ -6,6 +6,7 @@ import challenge5 from './challenge5'
 import challenge6 from './challenge6'
 import challenge7 from './challenge7'
 import challenge8 from './challenge8'
+import whereAndOr from './Where-And-Or'
 
 const mainChallenges = [
   challenge1,
@@ -15,7 +16,8 @@ const mainChallenges = [
   challenge5,
   challenge6,
   challenge7,
-  challenge8
+  challenge8,
+  whereAndOr
 ]
 
 export default mainChallenges

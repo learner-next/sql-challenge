@@ -39,8 +39,8 @@ CREATE TABLE IF NOT EXIST table_name (column_name column_type);
 
 | name | age | gender | birthday   | address      |
 | ---- | --- | ------ | ---------- | ------------ |
-| 小明 | 20  | 男     | 1998-12-20 | null |
-| 小丽 | 18  | 女     | null | 上海市浦东区 |
+| 小明 | 20  | 男     | 1998-12-20 | null         |
+| 小丽 | 18  | 女     | null       | 上海市浦东区 |
 
 插入数据表的基本语句
 
@@ -48,10 +48,8 @@ CREATE TABLE IF NOT EXIST table_name (column_name column_type);
 INSERT INTO table_name (column_name) VALUES (column_value),(column_value2);
 ```
 
-
 接下来请完成以下的挑战吧～
 
 ## 挑战
+
 请结合上面的创建数据表的基础语句去创建上面👆的`student`表以及插入对应的数据吧（一定要先创建表哦💜）～
-
-
