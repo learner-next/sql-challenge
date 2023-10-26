@@ -48,7 +48,7 @@ const SqlResult: FC<SqlResultProps> = ({
         </div>
       </CardHeader>
       {!errorMessage ? (
-        <CardContent>
+        <CardContent className="p-2">
           <ScrollArea className="h-[300px]">
             <Table>
               <TableHeader>

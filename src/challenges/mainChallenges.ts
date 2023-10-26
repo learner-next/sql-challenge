@@ -11,6 +11,7 @@ import SelectDistinct from './select-distinct'
 import SelectOrderBy from './select-order-by'
 import SelectGroupBy from './select-group-by'
 import SelectLimitOffset from './select-limit-offset'
+import SelectUnion from './select-union'
 
 const mainChallenges = [
   challenge1,
@@ -25,7 +26,8 @@ const mainChallenges = [
   SelectDistinct,
   SelectOrderBy,
   SelectGroupBy,
-  SelectLimitOffset
+  SelectLimitOffset,
+  SelectUnion
 ]
 
 export default mainChallenges
