@@ -13,6 +13,7 @@ import SelectGroupBy from './select-group-by'
 import SelectLimitOffset from './select-limit-offset'
 import SelectUnion from './select-union'
 import SelectSubquery from './select-subquery'
+import SelectAllAny from './select-all-any'
 
 const mainChallenges = [
   challenge1,
@@ -29,7 +30,8 @@ const mainChallenges = [
   SelectGroupBy,
   SelectLimitOffset,
   SelectUnion,
-  SelectSubquery
+  SelectSubquery,
+  SelectAllAny
 ]
 
 export default mainChallenges
