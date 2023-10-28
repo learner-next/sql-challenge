@@ -16,6 +16,7 @@ import selectSubquery from './select-subquery'
 import selectAllAny from './select-all-any'
 import selectCase from './select-case'
 import selectHaving from './select-having'
+import selectExists from './select-exists'
 
 const mainChallenges = [
   challenge1,
@@ -35,7 +36,8 @@ const mainChallenges = [
   selectSubquery,
   selectAllAny,
   selectCase,
-  selectHaving
+  selectHaving,
+  selectExists
 ]
 
 export default mainChallenges
