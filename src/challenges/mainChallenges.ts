@@ -18,6 +18,7 @@ import selectCase from './select-case'
 import selectHaving from './select-having'
 import selectExists from './select-exists'
 import selectInnerJoin from './select-inner-join'
+import selectLeftJoin from './select-left-join'
 
 const mainChallenges = [
   challenge1,
@@ -39,7 +40,8 @@ const mainChallenges = [
   selectCase,
   selectHaving,
   selectExists,
-  selectInnerJoin
+  selectInnerJoin,
+  selectLeftJoin
 ]
 
 export default mainChallenges
