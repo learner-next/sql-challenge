@@ -17,6 +17,7 @@ import selectAllAny from './select-all-any'
 import selectCase from './select-case'
 import selectHaving from './select-having'
 import selectExists from './select-exists'
+import selectInnerJoin from './select-inner-join'
 
 const mainChallenges = [
   challenge1,
@@ -37,7 +38,8 @@ const mainChallenges = [
   selectAllAny,
   selectCase,
   selectHaving,
-  selectExists
+  selectExists,
+  selectInnerJoin
 ]
 
 export default mainChallenges
