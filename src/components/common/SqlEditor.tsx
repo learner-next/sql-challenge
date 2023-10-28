@@ -90,7 +90,10 @@ const SqlEditor: FC<Props> = ({
   }
   useEffect(() => {
     if (editor) {
-      editor.setValue(challenge?.defaultSql)
+      editor.setValue(
+        `-- 请在此处输入SQL语句
+${challenge.defaultSql}`
+      )
     }
     initSql(challenge?.initSql).then(db => {
       setDb(db)
