@@ -7,13 +7,14 @@ import challenge6 from './challenge6'
 import challenge7 from './challenge7'
 import challenge8 from './challenge8'
 import whereAndOr from './select-and-or'
-import SelectDistinct from './select-distinct'
-import SelectOrderBy from './select-order-by'
-import SelectGroupBy from './select-group-by'
-import SelectLimitOffset from './select-limit-offset'
-import SelectUnion from './select-union'
-import SelectSubquery from './select-subquery'
-import SelectAllAny from './select-all-any'
+import selectDistinct from './select-distinct'
+import selectOrderBy from './select-order-by'
+import selectGroupBy from './select-group-by'
+import selectLimitOffset from './select-limit-offset'
+import selectUnion from './select-union'
+import selectSubquery from './select-subquery'
+import selectAllAny from './select-all-any'
+import selectCase from './select-case'
 
 const mainChallenges = [
   challenge1,
@@ -25,13 +26,14 @@ const mainChallenges = [
   challenge7,
   challenge8,
   whereAndOr,
-  SelectDistinct,
-  SelectOrderBy,
-  SelectGroupBy,
-  SelectLimitOffset,
-  SelectUnion,
-  SelectSubquery,
-  SelectAllAny
+  selectDistinct,
+  selectOrderBy,
+  selectGroupBy,
+  selectLimitOffset,
+  selectUnion,
+  selectSubquery,
+  selectAllAny,
+  selectCase
 ]
 
 export default mainChallenges
