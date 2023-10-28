@@ -15,6 +15,7 @@ import selectUnion from './select-union'
 import selectSubquery from './select-subquery'
 import selectAllAny from './select-all-any'
 import selectCase from './select-case'
+import selectHaving from './select-having'
 
 const mainChallenges = [
   challenge1,
@@ -33,7 +34,8 @@ const mainChallenges = [
   selectUnion,
   selectSubquery,
   selectAllAny,
-  selectCase
+  selectCase,
+  selectHaving
 ]
 
 export default mainChallenges
