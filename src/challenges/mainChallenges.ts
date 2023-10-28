@@ -19,6 +19,7 @@ import selectHaving from './select-having'
 import selectExists from './select-exists'
 import selectInnerJoin from './select-inner-join'
 import selectLeftJoin from './select-left-join'
+import selectFullJoin from './select-full-join'
 
 const mainChallenges = [
   challenge1,
@@ -41,7 +42,8 @@ const mainChallenges = [
   selectHaving,
   selectExists,
   selectInnerJoin,
-  selectLeftJoin
+  selectLeftJoin,
+  selectFullJoin
 ]
 
 export default mainChallenges
