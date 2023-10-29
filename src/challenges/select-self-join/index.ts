@@ -22,7 +22,7 @@ LEFT JOIN family_members AS father ON child.father_id = father.member_id
 LEFT JOIN family_members AS mother ON child.mother_id = mother.member_id;`,
   answer: '',
   category: '高级查询',
-  hit: '请仔细查看示例中的基本语句，ORDER BY关键字用于排序查询。',
+  hit: '请仔细查看示例中的基本语句。',
   showTableSql: 'select * from family_members;'
 }
 

@@ -21,6 +21,7 @@ import selectInnerJoin from './select-inner-join'
 import selectLeftJoin from './select-left-join'
 import selectFullJoin from './select-full-join'
 import selectSelfJoin from './select-self-join'
+import selectCrossJoin from './select-cross-join'
 
 const mainChallenges = [
   challenge1,
@@ -45,7 +46,8 @@ const mainChallenges = [
   selectInnerJoin,
   selectLeftJoin,
   selectFullJoin,
-  selectSelfJoin
+  selectSelfJoin,
+  selectCrossJoin
 ]
 
 export default mainChallenges
