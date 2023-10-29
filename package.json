@@ -9,6 +9,7 @@
     "build": "tsc && vite build",
     "check": "tsc --incremental --noEmit && rm -f tsconfig.tsbuildinfo",
     "lint": "eslint . --cache --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
     "format": "prettier --cache --write \"src/**/*.{ts,tsx,json,css,scss,md}\"",
     "preview": "vite preview",
     "preinstall": "npx only-allow bun",
