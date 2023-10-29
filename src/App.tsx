@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import Logo from '/vite.svg'
+import SqlChallenge from '/sql-challenge.svg'
 import { Outlet, Link, useNavigate, useParams } from '@tanstack/react-router'
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="flex h-screen flex-col justify-between">
       <div className="flex w-screen items-center justify-start gap-4 border border-b-gray-300 p-4">
-        <img src={Logo} width={28} height={28} />
+        <img src={SqlChallenge} width={28} height={28} />
         <Link
           to="/create-challenge/$challengeId"
           params={{ challengeId: 'challenge1' }}

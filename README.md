@@ -1,2 +1,84 @@
 # sql-challenge
-SQL exercises for beginners(Base MySQL)
+
+<img src="/public/sql-challenge.svg" alt="sql-challenge" width="100%">
+
+![截图](image.png)
+
+SQL exercises for beginners(Base MySQL).
+
+## ✨ Features
+
+### 1. Create exercise
+
+- Create a table
+- Insert data into the table
+- Create Views
+
+### 2. Select exercise
+
+- Basic select
+- Select with where
+- Select with like
+- Select with in
+- Select with between
+- Select with order by
+- Select with group by
+- Select with having
+- Select with join
+- Select with union
+- Select with case
+- Select with limit
+- Select with offset
+- Select with subquery
+- Select with exists
+- Select with any, all
+- ...
+
+### 3. Update exercise
+
+- Update Table
+- Update Data
+
+### 4. Delete exercise
+
+- Delete Table
+- Delete Data
+
+## 🏗 Development
+
+`sql-challenge` is built using a modern tech stack: React + Vite + TailwindCSS.
+
+### Prerequisites
+
+[Node.js](https://nodejs.org/)
+[bun](https://bun.sh/)
+
+### Getting Started
+
+```bash
+# Clone the repo
+git clone git@github.com:learner-next/sql-challenge.git
+```
+
+```bash
+# Install dependencies
+bun install
+```
+
+```bash
+# Start the dev server
+bun dev
+```
+
+Then open http://localhost:5173/ to see your app.
+
+## 🌸 Thanks
+
+This project is heavily inspired by the following awesome projects.
+
+- [sql-mother](https://github.com/liyupi/sql-mother)
+- [SQL Tutorial](https://www.programiz.com/sql)
+
+## 📝 License
+
+[MIT License](https://github.com/learner-next/sql-challenge/blob/main/LICENSE) © 2021-PRESENT [Talljack](https://github.com/Talljack)
