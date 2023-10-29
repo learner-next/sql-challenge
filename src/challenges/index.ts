@@ -1,4 +1,4 @@
-import mainChallenges from './mainChallenges'
+import mainChallenges from './selectChallenges'
 import type { Challenge } from '@/type'
 
 /**
