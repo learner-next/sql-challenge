@@ -22,6 +22,7 @@ import selectLeftJoin from './select-left-join'
 import selectFullJoin from './select-full-join'
 import selectSelfJoin from './select-self-join'
 import selectCrossJoin from './select-cross-join'
+import selectWindow from './select-window'
 
 const selectChallenges = [
   selectBase,
@@ -47,7 +48,8 @@ const selectChallenges = [
   selectLeftJoin,
   selectFullJoin,
   selectSelfJoin,
-  selectCrossJoin
+  selectCrossJoin,
+  selectWindow
 ]
 
 export default selectChallenges

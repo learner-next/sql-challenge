@@ -1,4 +1,3 @@
-import mainChallenges from './selectChallenges'
 import type { Challenge } from '@/type'
 
 /**
@@ -6,10 +5,12 @@ import type { Challenge } from '@/type'
  * @param keyId The key ID of the challenge to retrieve.
  * @returns The challenge object with the specified key ID, or undefined if not found.
  */
-export const getChallengeByKey = (keyId: string) => {
+export const getChallengeByKey = (
+  keyId: string,
+  allChallenges: Challenge[]
+) => {
   return (
-    mainChallenges.find(challenge => challenge.id === keyId) ||
-    mainChallenges[0]
+    allChallenges.find(challenge => challenge.id === keyId) || allChallenges[0]
   )
 }
 
@@ -18,8 +19,11 @@ export const getChallengeByKey = (keyId: string) => {
  * @param currentChallenge The current challenge to find the index of.
  * @returns The index of the current challenge in the mainChallenges array.
  */
-export const getCurrentChallengeNum = (currentChallenge: Challenge) => {
-  return mainChallenges.findIndex(
+export const getCurrentChallengeNum = (
+  currentChallenge: Challenge,
+  allChallenges: Challenge[]
+) => {
+  return allChallenges.findIndex(
     challenge => challenge.id === currentChallenge.id
   )
 }
@@ -29,10 +33,16 @@ export const getCurrentChallengeNum = (currentChallenge: Challenge) => {
  * @param currentChallenge - The current challenge object.
  * @returns The previous challenge object.
  */
-export const getPrevChallenge = (currentChallenge: Challenge) => {
-  const currentChallengeNum = getCurrentChallengeNum(currentChallenge)
-  if (currentChallengeNum <= 0) return mainChallenges[0]
-  return mainChallenges[currentChallengeNum - 1]
+export const getPrevChallenge = (
+  currentChallenge: Challenge,
+  allChallenges: Challenge[]
+) => {
+  const currentChallengeNum = getCurrentChallengeNum(
+    currentChallenge,
+    allChallenges
+  )
+  if (currentChallengeNum <= 0) return allChallenges[0]
+  return allChallenges[currentChallengeNum - 1]
 }
 
 /**
@@ -40,9 +50,15 @@ export const getPrevChallenge = (currentChallenge: Challenge) => {
  * @param currentChallenge - The current challenge object.
  * @returns The next challenge object.
  */
-export const getNextChallenge = (currentChallenge: Challenge) => {
-  const currentChallengeNum = getCurrentChallengeNum(currentChallenge)
-  if (currentChallengeNum >= mainChallenges.length - 1)
-    return mainChallenges[mainChallenges.length - 1]
-  return mainChallenges[currentChallengeNum + 1]
+export const getNextChallenge = (
+  currentChallenge: Challenge,
+  allChallenges: Challenge[]
+) => {
+  const currentChallengeNum = getCurrentChallengeNum(
+    currentChallenge,
+    allChallenges
+  )
+  if (currentChallengeNum >= allChallenges.length - 1)
+    return allChallenges[allChallenges.length - 1]
+  return allChallenges[currentChallengeNum + 1]
 }
