@@ -61,7 +61,7 @@ const SqlQuestion: FC<SqlQuestionProps> = ({
   )
   return challenge ? (
     <div className="mr-2 w-1/2 rounded-md border border-gray-300">
-      <ScrollArea className="p-2" style={{ height: 'calc(100vh - 145px)' }}>
+      <ScrollArea className="p-2" style={{ height: 'calc(100vh - 165px)' }}>
         <MdViewer content={challenge.content} />
       </ScrollArea>
       <div className={btnClassName}>

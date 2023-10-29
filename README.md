@@ -1,10 +1,16 @@
 # sql-challenge
 
-<img src="/public/sql-challenge.svg" alt="sql-challenge" width="100%">
+<div align=center>
+    <img src="/public/sql-challenge.svg" alt="sql-challenge" width="120">
+</div>
 
-![截图](image.png)
+<p align=center>
+    <font size=4>SQL exercises for beginners(Base MySQL).</font>
+</p>
 
-SQL exercises for beginners(Base MySQL).
+### 展示效果
+
+![展示图片](image-2.png)
 
 ## ✨ Features
 
