@@ -9,7 +9,7 @@ import {
   getPrevChallenge
 } from '@/challenges'
 import { RESULT_STATUS_ENUM } from '@/sql/result'
-import { useNavigate } from '@tanstack/react-router'
+import { useNavigate, useRouter } from '@tanstack/react-router'
 import clsx from 'clsx'
 
 interface SqlQuestionProps {
@@ -24,6 +24,8 @@ const SqlQuestion: FC<SqlQuestionProps> = ({
   allChallenges
 }) => {
   const navigate = useNavigate()
+  const router = useRouter()
+  const [, path] = router.history.location.pathname.split('/')
   const challengeNum = useMemo(() => {
     return getCurrentChallengeNum(challenge)
   }, [challenge])
@@ -37,13 +39,15 @@ const SqlQuestion: FC<SqlQuestionProps> = ({
         willToChallenge = getNextChallenge(challenge)
       }
       navigate({
-        to: `/select-challenge/$challengeId`,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        to: `/${path}/$challengeId`,
         params: {
           challengeId: willToChallenge.id
         }
       })
     },
-    [challenge, navigate]
+    [challenge, navigate, path]
   )
   const handleWin = () => {
     alert('恭喜通关，如果对你有帮助，欢迎给个star')

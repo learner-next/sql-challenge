@@ -25,7 +25,13 @@ function SqlChallenge() {
   })
 
   useEffect(() => {
+    // 重置状态
     setChallenge(getChallengeByKey(params.challengeId))
+    setUserResults([])
+    setAnswerResults([])
+    setAllTableResults([])
+    setResultStatus(RESULT_STATUS_ENUM.DEFAULT)
+    setErrorMessage('')
   }, [params.challengeId])
   if (!challenge) return null
   const onSubmit = (
