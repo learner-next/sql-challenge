@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "check": "tsc --incremental --noEmit && rm -f tsconfig.tsbuildinfo",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint . --cache --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint . --ext ts,tsx --fix",
     "format": "prettier --cache --write \"src/**/*.{ts,tsx,json,css,scss,md}\"",
     "preview": "vite preview",
@@ -20,12 +20,12 @@
     "commit-msg": "node scripts/verifyCommit.js"
   },
   "lint-staged": {
-    "*.{js,json}": [
-      "prettier --write"
+    "*.{js,json,md,css,scss}": [
+      "prettier --cache --write"
     ],
     "*.ts?(x)": [
-      "eslint",
-      "prettier --parser=typescript --write"
+      "eslint --cache --fix",
+      "prettier --cache --parser=typescript --write"
     ]
   },
   "engines": {
