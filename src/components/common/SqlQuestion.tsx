@@ -33,7 +33,7 @@ const SqlQuestion: FC<SqlQuestionProps> = ({ resultStatus, challenge }) => {
         willToChallenge = getNextChallenge(challenge)
       }
       navigate({
-        to: `/sqlChallenge/$challengeId`,
+        to: `/select-challenge/$challengeId`,
         params: {
           challengeId: willToChallenge.id
         }

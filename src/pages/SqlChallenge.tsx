@@ -20,7 +20,7 @@ function SqlChallenge() {
   const [challenge, setChallenge] = useState<Challenge>()
   const [collapsedUserResult, setCollapsedUserOpenResult] = useState(true)
   const params = useParams({
-    from: '/sqlChallenge/$challengeId'
+    from: '/select-challenge/$challengeId'
   })
 
   useEffect(() => {
