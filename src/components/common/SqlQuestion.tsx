@@ -9,16 +9,20 @@ import {
   getPrevChallenge
 } from '@/challenges'
 import { RESULT_STATUS_ENUM } from '@/sql/result'
-import mainChallenges from '@/challenges/mainChallenges'
 import { useNavigate } from '@tanstack/react-router'
 import clsx from 'clsx'
 
 interface SqlQuestionProps {
   resultStatus: number
   challenge: Challenge
+  allChallenges: Challenge[]
 }
 
-const SqlQuestion: FC<SqlQuestionProps> = ({ resultStatus, challenge }) => {
+const SqlQuestion: FC<SqlQuestionProps> = ({
+  resultStatus,
+  challenge,
+  allChallenges
+}) => {
   const navigate = useNavigate()
   const challengeNum = useMemo(() => {
     return getCurrentChallengeNum(challenge)
@@ -47,17 +51,17 @@ const SqlQuestion: FC<SqlQuestionProps> = ({ resultStatus, challenge }) => {
   }
   const btnClassName = clsx(
     'mt-4 flex mb-4',
-    challengeNum === mainChallenges.length - 1
+    challengeNum === allChallenges.length - 1
       ? 'justify-center'
       : 'px-2 justify-between'
   )
   return challenge ? (
     <div className="mr-2 w-1/2 rounded-md border border-gray-300">
-      <ScrollArea className="p-2" style={{ height: 'calc(100vh - 125px)' }}>
+      <ScrollArea className="p-2" style={{ height: 'calc(100vh - 145px)' }}>
         <MdViewer content={challenge.content} />
       </ScrollArea>
       <div className={btnClassName}>
-        {challengeNum !== mainChallenges.length - 1 && (
+        {challengeNum !== allChallenges.length - 1 && (
           <>
             <Button
               className="w-[80px]"
@@ -70,9 +74,7 @@ const SqlQuestion: FC<SqlQuestionProps> = ({ resultStatus, challenge }) => {
               className="w-[80px]"
               style={{
                 visibility:
-                  challengeNum < mainChallenges.length - 1
-                    ? 'visible'
-                    : 'hidden'
+                  challengeNum < allChallenges.length - 1 ? 'visible' : 'hidden'
               }}
               disabled={resultStatus !== RESULT_STATUS_ENUM.SUCCEED}
               onClick={() => jumpTo('next')}
@@ -81,7 +83,7 @@ const SqlQuestion: FC<SqlQuestionProps> = ({ resultStatus, challenge }) => {
             </Button>
           </>
         )}
-        {challengeNum === mainChallenges.length - 1 &&
+        {challengeNum === allChallenges.length - 1 &&
           resultStatus === RESULT_STATUS_ENUM.SUCCEED && (
             <Button onClick={handleWin}>恭喜通关</Button>
           )}
