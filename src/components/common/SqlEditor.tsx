@@ -105,7 +105,7 @@ ${challenge.defaultSql}`
       }
     })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [editor, challenge?.initSql, challenge?.showTableSql])
+  }, [editor, challenge])
   return (
     <div className={className}>
       <div ref={editorRef} style={{ ...editorStyle }} />
