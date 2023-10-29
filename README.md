@@ -46,12 +46,23 @@ SQL exercises for beginners(Base MySQL).
 
 ## 🏗 Development
 
-`sql-challenge` is built using a modern tech stack: React + Vite + TailwindCSS.
+`sql-challenge` is built using a modern tech stack:
+
+- [React](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [bun](https://bun.sh/)
+- [sql.js](https://github.com/sql-js/sql.js)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [TanStack Router](https://tanstack.com/router/v1)
+- [monaco-editor](https://github.com/microsoft/monaco-editor)
+- [@bytemd/react](https://github.com/bytedance/bytemd)
 
 ### Prerequisites
 
-[Node.js](https://nodejs.org/)
-[bun](https://bun.sh/)
+- [Node.js](https://nodejs.org/)
+- [bun](https://bun.sh/)
 
 ### Getting Started
 
