@@ -26,7 +26,7 @@ function SqlChallenge() {
 
   useEffect(() => {
     // 重置状态
-    setChallenge(getChallengeByKey(params.challengeId))
+    setChallenge(getChallengeByKey(params.challengeId, allChallenges))
     setUserResults([])
     setAnswerResults([])
     setAllTableResults([])

@@ -27,16 +27,16 @@ const SqlQuestion: FC<SqlQuestionProps> = ({
   const router = useRouter()
   const [, path] = router.history.location.pathname.split('/')
   const challengeNum = useMemo(() => {
-    return getCurrentChallengeNum(challenge)
-  }, [challenge])
+    return getCurrentChallengeNum(challenge, allChallenges)
+  }, [challenge, allChallenges])
 
   const jumpTo = useCallback(
     (type: 'prev' | 'next') => {
       let willToChallenge
       if (type === 'prev') {
-        willToChallenge = getPrevChallenge(challenge)
+        willToChallenge = getPrevChallenge(challenge, allChallenges)
       } else {
-        willToChallenge = getNextChallenge(challenge)
+        willToChallenge = getNextChallenge(challenge, allChallenges)
       }
       navigate({
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -47,7 +47,7 @@ const SqlQuestion: FC<SqlQuestionProps> = ({
         }
       })
     },
-    [challenge, navigate, path]
+    [challenge, navigate, path, allChallenges]
   )
   const handleWin = () => {
     alert('恭喜通关，如果对你有帮助，欢迎给个star')
