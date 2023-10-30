@@ -11,3 +11,17 @@ export const pathParamMap = {
   'delete-challenge': 'delete-table',
   'update-challenge': 'update-table'
 }
+
+// remove space and \n \t, chinese, --, SQL
+export const removeSpace = (str: string) => {
+  return str
+    .toLowerCase()
+    .replace(/\s+/g, '')
+    .replace(/\\n/g, '')
+    .replace(/\\t/g, '')
+    .replace(/[\u4e00-\u9fa5]/g, '')
+    .replace(/--/g, '')
+    .replace(/sql/g, '')
+    .trimStart()
+    .trimEnd()
+}
