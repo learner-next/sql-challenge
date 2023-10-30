@@ -10,7 +10,7 @@
 
 ### 展示效果
 
-![展示图片](image-2.png)
+![展示图片](/public/show-select.png)
 
 ## ✨ Features
 
