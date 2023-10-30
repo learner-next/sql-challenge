@@ -7,5 +7,8 @@ export default defineConfig({
   plugins: [react(), tsconfigPaths()],
   esbuild: {
     drop: ['console', 'debugger']
+  },
+  build: {
+    sourcemap: true
   }
 })
