@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import SqlChallenge from '/sql-challenge.svg'
 import { Outlet, Link, useNavigate, useRouter } from '@tanstack/react-router'
 import { pathParamMap } from '@/utils'
@@ -36,6 +36,12 @@ function App() {
     const [, path] = pathName.split('/')
     setActiveName(path)
   })
+  const getActiveColor = useCallback(
+    (linkPath: string) => {
+      return activeName === linkPath ? 'text-green-500' : 'text-zinc-600'
+    },
+    [activeName]
+  )
   return (
     <div className="flex h-screen flex-col justify-between">
       <div className="flex w-screen items-center justify-between border border-b-gray-300 p-4">
@@ -46,9 +52,9 @@ function App() {
             params={{ challengeId: 'create-table' }}
           >
             <span
-              className={`text-zinc-600 hover:text-green-500 ${
-                activeName === 'create-challenge' ? 'text-green-500' : ''
-              }`}
+              className={` hover:text-green-500 ${getActiveColor(
+                'create-challenge'
+              )}`}
             >
               Create
             </span>
@@ -58,9 +64,9 @@ function App() {
             params={{ challengeId: 'select-base' }}
           >
             <span
-              className={`text-zinc-600 hover:text-green-500 ${
-                activeName === 'select-challenge' ? 'text-green-500' : ''
-              }`}
+              className={`hover:text-green-500 ${getActiveColor(
+                'select-challenge'
+              )}`}
             >
               Select
             </span>
@@ -70,9 +76,9 @@ function App() {
             params={{ challengeId: 'challenge1' }}
           >
             <span
-              className={`text-zinc-600 hover:text-green-500 ${
-                activeName === 'update-challenge' ? 'text-green-500' : ''
-              }`}
+              className={`hover:text-green-500 ${getActiveColor(
+                'update-challenge'
+              )}`}
             >
               Update
             </span>
@@ -82,18 +88,16 @@ function App() {
             params={{ challengeId: 'challenge1' }}
           >
             <span
-              className={`text-zinc-600 hover:text-green-500 ${
-                activeName === 'delete-challenge' ? 'text-green-500' : ''
-              }`}
+              className={`hover:text-green-500 ${getActiveColor(
+                'delete-challenge'
+              )}`}
             >
               Delete
             </span>
           </Link>
           <Link to="/challenges">
             <span
-              className={`text-zinc-600 hover:text-green-500 ${
-                activeName === 'challenges' ? 'text-green-500' : ''
-              }`}
+              className={`hover:text-green-500 ${getActiveColor('challenges')}`}
             >
               Challenges
             </span>

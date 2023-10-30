@@ -1,4 +1,5 @@
 import type { Challenge } from '@/type'
+import { removeSpace } from '@/utils'
 import type { QueryExecResult } from 'sql.js'
 /**
  * 结果状态枚举
@@ -22,10 +23,18 @@ export const checkedSqlResult = (
   userResults: QueryExecResult[],
   answerResults: QueryExecResult[],
   challenge: Challenge,
-  message?: string
+  message?: string,
+  userSql?: string
 ) => {
+  console.log(removeSpace(userSql ?? ''))
+  console.log(removeSpace(challenge.answerSql))
   // does't throw error is success when create table and insert into values
-  if (challenge.sqlType === 'create' && !message && answerResults.length > 0) {
+  if (
+    challenge.sqlType === 'create' &&
+    !message &&
+    userSql &&
+    removeSpace(userSql) === removeSpace(challenge.answerSql)
+  ) {
     return RESULT_STATUS_ENUM.SUCCEED
   }
   if (!userResults?.[0] || !answerResults?.[0]) {
@@ -42,4 +51,11 @@ export const checkedSqlResult = (
     return RESULT_STATUS_ENUM.ERROR
   }
   return RESULT_STATUS_ENUM.SUCCEED
+}
+
+export const checkedCreateResult = (userAnswer: string, answer: string) => {
+  if (userAnswer === answer) {
+    return RESULT_STATUS_ENUM.SUCCEED
+  }
+  return RESULT_STATUS_ENUM.ERROR
 }

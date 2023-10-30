@@ -98,7 +98,7 @@ ${challenge.defaultSql}`
     initSql(challenge?.initSql).then(db => {
       setDb(db)
       try {
-        const allTableResults = runSql(db, challenge.showTableSql)
+        const allTableResults = runSql(db, challenge?.showTableSql)
         getAllTableResults?.(allTableResults)
       } catch (error) {
         console.error(error)
