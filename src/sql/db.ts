@@ -7,7 +7,7 @@ export const initSql = async (initSql?: string) => {
   if (!SQL) {
     SQL = await initSqlJs({
       locateFile: () => {
-        return 'https://cdn.bootcdn.net/ajax/libs/sql.js/1.8.0/sql-wasm.js'
+        return '/static/sql-wasm.wasm'
       }
     })
   }
