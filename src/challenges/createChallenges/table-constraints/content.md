@@ -1,4 +1,4 @@
-# 基础语法 - 创建 - SQL 约束
+# 创建 - SQL Constraints
 
 ## 简介
 
@@ -165,5 +165,5 @@ CREATE TABLE IF NOT EXISTS student (
 
 ## 挑战
 
-假设我们需要一张`class`表，表中包含班级的`id`(唯一主键)，`name`（非空约束）, `manager`（唯一约束）等字段。
-并且还有一张`student`表，表中包含学生的`id`，`name`，`age`（默认值为20），`class_id`（外键）等字段。复合主键为`id`和`name`。
+假设我们需要一张`class`表，表中包含班级的`id`(唯一主键,自增)，`name`（非空约束）, `manager`（唯一非空约束）等字段。
+并且还有一张`student`表，表中包含学生的`id`，`name`(非空约束)，`age`（默认值为20），`class_id`（外键、非空约束）等字段。复合主键为`id`和`class_id`。
