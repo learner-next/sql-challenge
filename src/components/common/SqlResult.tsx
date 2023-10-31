@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import type { QueryExecResult } from 'sql.js'
 import { RESULT_STATUS_MAP } from '@/sql/result'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import {
@@ -11,11 +10,12 @@ import {
   TableRow
 } from '@/components/ui/table'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import type { SqlResultType } from '@/type'
 
 interface SqlResultProps {
   resultStatus?: number
   errorMessage?: string
-  sqlResults: QueryExecResult[]
+  sqlResults: SqlResultType[]
   type: 'user' | 'system'
   className?: string
 }
@@ -53,16 +53,19 @@ const SqlResult: FC<SqlResultProps> = ({
             <Table>
               <TableHeader>
                 <TableRow>
-                  {sqlResults?.[0]?.columns?.map((column, index) => (
-                    <TableHead key={index}>{column}</TableHead>
-                  ))}
+                  {sqlResults?.[0] &&
+                    Object.keys(sqlResults?.[0])?.map((column, index) => (
+                      <TableHead key={index}>{column}</TableHead>
+                    ))}
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {sqlResults?.[0]?.values?.map((row, index) => (
+                {sqlResults?.map((row, index) => (
                   <TableRow key={index}>
-                    {row.map((value, index) => (
-                      <TableCell key={index}>{value}</TableCell>
+                    {Object.keys(row)?.map((key, index) => (
+                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                      // @ts-ignore
+                      <TableCell key={index}>{row?.[key]}</TableCell>
                     ))}
                   </TableRow>
                 ))}

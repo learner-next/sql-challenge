@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS users (
-    user_id INT,
+    user_id INT AUTOINCREMENT,
     name VARCHAR(256) NOT NULL,
     card_id INT NOT NULL,
     address VARCHAR(256) NOT NULL,

@@ -1,19 +1,18 @@
 import SqlEditor from '@/components/common/SqlEditor'
 import { useParams } from '@tanstack/react-router'
 import { getChallengeByKey } from '@/challenges'
-import type { QueryExecResult } from 'sql.js'
 import { useEffect, useState } from 'react'
 import { RESULT_STATUS_ENUM, checkedSqlResult } from '@/sql/result'
-import type { Challenge } from '@/type'
+import type { Challenge, SqlResultType } from '@/type'
 import SqlQuestion from '@/components/common/SqlQuestion'
 import SqlResult from '@/components/common/SqlResult'
 import AccordionResult from '@/components/common/AccordionResult'
 import CodeViewer from '@/components/common/CodeViewer'
 import allChallenges from '@/challenges/createChallenges'
 function SqlChallenge() {
-  const [userResults, setUserResults] = useState<QueryExecResult[]>([])
-  const [answerResults, setAnswerResults] = useState<QueryExecResult[]>([])
-  const [allTableResults, setAllTableResults] = useState<QueryExecResult[]>([])
+  const [userResults, setUserResults] = useState<SqlResultType[]>([])
+  const [answerResults, setAnswerResults] = useState<SqlResultType[]>([])
+  const [allTableResults, setAllTableResults] = useState<SqlResultType[]>([])
   const [resultStatus, setResultStatus] = useState<number>(
     RESULT_STATUS_ENUM.DEFAULT
   )
@@ -36,8 +35,8 @@ function SqlChallenge() {
   if (!challenge) return null
   const onSubmit = (
     _sql: string,
-    userResults: QueryExecResult[],
-    answerResults: QueryExecResult[],
+    userResults: SqlResultType[],
+    answerResults: SqlResultType[],
     message?: string
   ) => {
     setUserResults(userResults)
@@ -48,7 +47,7 @@ function SqlChallenge() {
     )
     setCollapsedUserOpenResult(false)
   }
-  const getAllTableResults = (allTableResults: QueryExecResult[]) => {
+  const getAllTableResults = (allTableResults: SqlResultType[]) => {
     setAllTableResults(allTableResults)
   }
   return (

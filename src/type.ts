@@ -39,3 +39,5 @@ export type Challenge = {
   /* challenge position of index */
   index?: number
 }
+
+export type SqlResultType = Record<string, string | number>[]
