@@ -3,14 +3,14 @@ import content from './content.md?raw'
 import initSql from './initSql.sql?raw'
 
 const challenge: Challenge = {
-  id: 'create-table',
-  title: '创建 - 创建数据表',
+  id: 'table-constraints',
+  title: '创建 - SQL Constraints',
   content: content,
-  difficulty: 1,
+  difficulty: 2,
   category: '创建表',
-  tags: ['create'],
+  tags: ['create', 'constraints'],
   answerSql: initSql,
-  answer: 'SELECT * FROM student;',
+  answer: '',
   showTableSql: '',
   author: 'Talljack',
   initSql: '',
