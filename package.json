@@ -16,7 +16,7 @@
     "postinstall": "simple-git-hooks"
   },
   "simple-git-hooks": {
-    "pre-commit": "bun lint-staged && bun check",
+    "pre-commit": "bun run lint && bun check && bun lint-staged",
     "commit-msg": "node scripts/verifyCommit.js"
   },
   "lint-staged": {
