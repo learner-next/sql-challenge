@@ -1,4 +1,4 @@
-# 创建 - SQL Constraints
+# 创建表 - SQL Constraints
 
 ## 简介
 

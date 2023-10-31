@@ -4,13 +4,13 @@ import initSql from './initSql.sql?raw'
 
 const challenge: Challenge = {
   id: 'create-table',
-  title: '创建 - 创建数据表',
+  title: '创建表 - 创建数据表',
   content: content,
   difficulty: 1,
   category: '创建表',
   tags: ['create'],
   answerSql: initSql,
-  answer: 'SELECT * FROM student;',
+  answer: '',
   showTableSql: '',
   author: 'Talljack',
   initSql: '',
