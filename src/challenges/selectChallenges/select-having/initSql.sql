@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS `student` (
-  `id` INT AUTO_INCREMENT,
+  `id` INT AUTOINCREMENT,
   `name` varchar(255) NOT NULL,
   `class` VARCHAR(20) NOT NULL,
   `score` INT NOT NULL,

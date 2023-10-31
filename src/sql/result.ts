@@ -1,6 +1,4 @@
-import type { Challenge } from '@/type'
-import { removeSpace } from '@/utils'
-import type { QueryExecResult } from 'sql.js'
+import type { Challenge, SqlResultType } from '@/type'
 /**
  * 结果状态枚举
  */
@@ -20,42 +18,33 @@ export const RESULT_STATUS_MAP = {
 }
 
 export const checkedSqlResult = (
-  userResults: QueryExecResult[],
-  answerResults: QueryExecResult[],
+  userResults: SqlResultType[],
+  answerResults: SqlResultType[],
   challenge: Challenge,
   message?: string,
   userSql?: string
 ) => {
-  console.log(removeSpace(userSql ?? ''))
-  console.log(removeSpace(challenge.answerSql))
   // does't throw error is success when create table and insert into values
   if (
     challenge.sqlType === 'create' &&
     !message &&
     userSql &&
-    removeSpace(userSql) === removeSpace(challenge.answerSql)
+    JSON.stringify(userResults) === JSON.stringify(answerResults)
   ) {
     return RESULT_STATUS_ENUM.SUCCEED
   }
-  if (!userResults?.[0] || !answerResults?.[0]) {
+  if (!userResults || !answerResults) {
     return RESULT_STATUS_ENUM.ERROR
   }
-  const userColumns = userResults[0].columns
-  const answerColumns = answerResults[0].columns
-  if (JSON.stringify(userColumns) !== JSON.stringify(answerColumns)) {
+  const userColumns = Object.keys(userResults)
+  const answerColumns = Object.keys(answerResults)
+  if (
+    JSON.stringify(userColumns.sort()) !== JSON.stringify(answerColumns.sort())
+  ) {
     return RESULT_STATUS_ENUM.ERROR
   }
-  const userValues = userResults[0].values
-  const answerValues = answerResults[0].values
-  if (JSON.stringify(userValues) !== JSON.stringify(answerValues)) {
+  if (JSON.stringify(userResults) !== JSON.stringify(userResults)) {
     return RESULT_STATUS_ENUM.ERROR
   }
   return RESULT_STATUS_ENUM.SUCCEED
-}
-
-export const checkedCreateResult = (userAnswer: string, answer: string) => {
-  if (userAnswer === answer) {
-    return RESULT_STATUS_ENUM.SUCCEED
-  }
-  return RESULT_STATUS_ENUM.ERROR
 }

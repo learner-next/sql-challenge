@@ -1,4 +1,4 @@
-import type { Challenge } from '@/type'
+import type { Challenge, SqlResultType } from '@/type'
 import * as monaco from 'monaco-editor'
 import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
 import { FC, useRef, useState, useEffect } from 'react'
@@ -6,7 +6,6 @@ import type { CSSProperties } from 'react'
 import { Button } from '@components/ui/button'
 import { format } from 'sql-formatter'
 import { initSql, runSql } from '@/sql/db'
-import type { Database, QueryExecResult } from 'sql.js'
 import { useToast } from '@/components/ui/use-toast'
 
 interface Props {
@@ -15,11 +14,11 @@ interface Props {
   className?: string
   onSubmit: (
     sql: string,
-    result: QueryExecResult[],
-    answerResult: QueryExecResult[],
+    result: SqlResultType[],
+    answerResult: SqlResultType[],
     message?: string
   ) => void
-  getAllTableResults?: (allTableResults: QueryExecResult[]) => void
+  getAllTableResults?: (allTableResults: SqlResultType[]) => void
 }
 
 self.MonacoEnvironment = {
@@ -36,7 +35,6 @@ const SqlEditor: FC<Props> = ({
   getAllTableResults
 }) => {
   const editorRef = useRef<HTMLDivElement>(null)
-  const [db, setDb] = useState<Database>() // [db, setDb]
   const [editor, setEditor] =
     useState<monaco.editor.IStandaloneCodeEditor | null>(null)
   const { toast } = useToast()
@@ -65,10 +63,11 @@ const SqlEditor: FC<Props> = ({
 
   const handleSubmit = () => {
     const value = editor?.getValue()
-    if (value && db) {
+    if (value) {
       try {
-        const userResult = runSql(db, value)
-        const answerResult = runSql(db, challenge.answer || challenge.answerSql)
+        const userResult = runSql(value)
+        const answerResult = runSql(challenge.answer || challenge.answerSql)
+        console.log('userResults', userResult, answerResult)
         onSubmit(value, userResult, answerResult)
       } catch (error) {
         toast({
@@ -94,18 +93,17 @@ const SqlEditor: FC<Props> = ({
         `-- 请在此处输入SQL语句
 ${challenge.defaultSql}`
       )
-    }
-    initSql(challenge?.initSql).then(db => {
-      setDb(db)
+      console.log('initSql')
+      initSql(challenge?.initSql)
       try {
-        const allTableResults = runSql(db, challenge?.showTableSql)
+        const allTableResults = runSql(challenge?.showTableSql)
         getAllTableResults?.(allTableResults)
       } catch (error) {
         console.error(error)
       }
-    })
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [editor, challenge])
+  }, [editor, challenge.initSql, challenge.showTableSql, challenge.defaultSql])
   return (
     <div className={className}>
       <div ref={editorRef} style={{ ...editorStyle }} />

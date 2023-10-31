@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS family_members (
-    member_id INT PRIMARY KEY,
+    member_id INT PRIMARY KEY AUTOINCREMENT,
     member_name VARCHAR(50),
     father_id INT,
     mother_id INT,
