@@ -115,15 +115,20 @@ function App() {
               Playground
             </span>
           </Link>
-          <SqlChallengeSearch />
         </div>
-        <a
-          href="https://github.com/learner-next/sql-challenge"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="text-zinc-600 hover:text-green-500">Github ⭐️</span>
-        </a>
+        <div className="flex justify-end gap-4">
+          <SqlChallengeSearch />
+          <a
+            href="https://github.com/learner-next/sql-challenge"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="basis-28"
+          >
+            <span className="text-zinc-600 hover:text-green-500">
+              Github ⭐️
+            </span>
+          </a>
+        </div>
       </div>
       <div className="flex-1">
         <Outlet />

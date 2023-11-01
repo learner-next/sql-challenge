@@ -1,4 +1,4 @@
-import { useState, type FC, useEffect } from 'react'
+import { useState, type FC, useEffect, useRef } from 'react'
 import { Input } from '@/components/ui/input'
 import type { InputProps } from '@/components/ui/input'
 import {
@@ -12,6 +12,8 @@ import { Separator } from '@/components/ui/separator'
 import createChallenges from '@/challenges/createChallenges'
 import selectChallenges from '@/challenges/selectChallenges'
 import type { Challenge } from '@/type'
+import { Link } from '@tanstack/react-router'
+import Tag from '@/components/ui/tag'
 
 const sqlChallengeTypePathMap = {
   create: '/create-challenge',
@@ -28,7 +30,35 @@ const SqlChallengeSearch: FC<SqlChallengeSearchProps> = ({
 }) => {
   const [value, setValue] = useState('')
   const [filteredChallenges, setFilteredChallenges] = useState<Challenge[]>([])
-  const [open, setOpen] = useState(false)
+  const inputRef = useRef<HTMLInputElement>(null)
+  const onInteractOutside = (e: Event) => {
+    const target = e.target as Node
+    if (target && inputRef.current && inputRef.current.contains(target)) {
+      return
+    } else {
+      setFilteredChallenges([])
+    }
+  }
+  const getSearchChallenges = () => {
+    if (!value) {
+      setFilteredChallenges([])
+      return
+    }
+    const filteredChallenges = allChallenges.filter(challenge => {
+      const titleInclude = challenge.title
+        .toLowerCase()
+        .includes(value.toLowerCase())
+      const pathInclude = challenge.id
+        .toLowerCase()
+        .includes(value.toLowerCase())
+      return titleInclude || pathInclude
+    })
+    setFilteredChallenges(filteredChallenges)
+  }
+  const handleFocus = () => {
+    getSearchChallenges()
+  }
+
   useEffect(() => {
     if (!value) {
       setFilteredChallenges([])
@@ -44,39 +74,52 @@ const SqlChallengeSearch: FC<SqlChallengeSearchProps> = ({
       return titleInclude || pathInclude
     })
     setFilteredChallenges(filteredChallenges)
-    if (filteredChallenges.length) {
-      setOpen(true)
-    }
   }, [value])
   return (
-    <Popover open={open}>
+    <Popover open={true}>
       <PopoverTrigger asChild>
         <Input
+          ref={inputRef}
+          className="h-8 rounded-2xl focus-visible:border-none focus-visible:outline-none focus-visible:ring-1"
           type={type}
           placeholder={placeholder}
           value={value}
           onChange={e => setValue(e.target.value)}
+          onFocus={handleFocus}
         />
       </PopoverTrigger>
-      <PopoverContent className="w-80">
-        <ScrollArea className="h-72 rounded-md">
+
+      <PopoverContent
+        className={` max-w-sm ${
+          filteredChallenges.length === 0 ? 'hidden' : 'visible'
+        }`}
+        onInteractOutside={onInteractOutside}
+      >
+        <ScrollArea className="max-h-72 rounded-md">
           <div>
             {filteredChallenges.map((challenge, index) => (
               <div key={challenge.id}>
-                <a
-                  href={`${
+                <Link
+                  to={`${
                     sqlChallengeTypePathMap[
                       challenge.sqlType as keyof typeof sqlChallengeTypePathMap
                     ]
-                  }?id=${challenge.id}`}
+                  }/$challengeId`}
+                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                  // @ts-ignore
+                  params={{ challengeId: challenge.id }}
+                  onClick={() => setFilteredChallenges([])}
                 >
                   <div className="flex items-center justify-between p-2 hover:bg-gray-100">
                     <span className="text-sm font-bold">{challenge.title}</span>
-                    <span className="text-xs text-gray-400">
+                    <Tag
+                      className="rounded-2xl text-xs text-gray-400"
+                      backgroundColor="bg-gray-400"
+                    >
                       {challenge.type}
-                    </span>
+                    </Tag>
                   </div>
-                </a>
+                </Link>
                 {index !== filteredChallenges.length - 1 && <Separator />}
               </div>
             ))}
