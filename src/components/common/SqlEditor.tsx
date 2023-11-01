@@ -19,6 +19,7 @@ interface Props {
     message?: string
   ) => void
   getAllTableResults?: (allTableResults: SqlResultType[]) => void
+  sqlDefaultHit?: string
 }
 
 self.MonacoEnvironment = {
@@ -32,7 +33,8 @@ const SqlEditor: FC<Props> = ({
   editorStyle,
   onSubmit,
   className,
-  getAllTableResults
+  getAllTableResults,
+  sqlDefaultHit = '-- 请在此处输入SQL语句'
 }) => {
   const editorRef = useRef<HTMLDivElement>(null)
   const [editor, setEditor] =
@@ -90,7 +92,7 @@ const SqlEditor: FC<Props> = ({
   useEffect(() => {
     if (editor) {
       editor.setValue(
-        `-- 请在此处输入SQL语句
+        `${sqlDefaultHit}
 ${challenge.defaultSql}`
       )
       console.log('initSql')

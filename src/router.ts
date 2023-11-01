@@ -4,6 +4,7 @@ import Challenges from '@/pages/Challenges'
 import CreateChallenge from '@/pages/CreateChallenge'
 import UpdateChallenge from '@/pages/UpdateChallenge'
 import DeleteChallenge from '@/pages/DeleteChallenge'
+import SqlPlayground from '@/pages/SqlPlayground'
 import { Router, Route, RootRoute } from '@tanstack/react-router'
 
 // Create a root route
@@ -21,7 +22,7 @@ const sqlChallengeRoute = new Route({
 // create challenges route
 const challengesRoute = new Route({
   getParentRoute: () => rootRoute,
-  path: '/challenges',
+  path: '/sql-challenges',
   component: Challenges
 })
 
@@ -46,12 +47,20 @@ const deleteChallengeRoute = new Route({
   component: DeleteChallenge
 })
 
+// create sqlPlayground route
+const sqlPlaygroundRoute = new Route({
+  getParentRoute: () => rootRoute,
+  path: '/sql-playground',
+  component: SqlPlayground
+})
+
 const routeTree = rootRoute.addChildren([
   sqlChallengeRoute,
   challengesRoute,
   createChallengeRoute,
   updateChallengeRoute,
-  deleteChallengeRoute
+  deleteChallengeRoute,
+  sqlPlaygroundRoute
 ])
 
 // Create the router using your route tree
