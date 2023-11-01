@@ -5,7 +5,7 @@
 </div>
 
 <p align=center>
-    <font size=4>SQL exercises for beginners(Base MySQL).</font>
+    <font size=4>CRUD SQL exercises for beginners(Base MySQL).</font>
 </p>
 
 ### 展示效果
