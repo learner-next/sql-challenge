@@ -1,6 +1,6 @@
 import App from '@/App'
 import SelectChallenge from '@/pages/SelectChallenge'
-import Challenges from '@/pages/Challenges'
+import SqlChallenges from '@/pages/SqlChallenges'
 import CreateChallenge from '@/pages/CreateChallenge'
 import UpdateChallenge from '@/pages/UpdateChallenge'
 import DeleteChallenge from '@/pages/DeleteChallenge'
@@ -23,7 +23,7 @@ const sqlChallengeRoute = new Route({
 const challengesRoute = new Route({
   getParentRoute: () => rootRoute,
   path: '/sql-challenges',
-  component: Challenges
+  component: SqlChallenges
 })
 
 // create createChallenge route
