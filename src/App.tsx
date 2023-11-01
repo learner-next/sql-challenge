@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from 'react'
 import SqlChallenge from '/sql-challenge.svg'
 import { Outlet, Link, useNavigate, useRouter } from '@tanstack/react-router'
 import { pathParamMap } from '@/utils'
+import SqlChallengeSearch from '@/components/common/SqlChallengeSearch'
 
 function App() {
   const navigate = useNavigate()
@@ -114,6 +115,7 @@ function App() {
               Playground
             </span>
           </Link>
+          <SqlChallengeSearch />
         </div>
         <a
           href="https://github.com/learner-next/sql-challenge"
