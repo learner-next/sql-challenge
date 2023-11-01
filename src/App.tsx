@@ -19,12 +19,13 @@ function App() {
     } else if (!paramChallengeId) {
       // path map -> challengeId
       const challengeId = pathParamMap[path as keyof typeof pathParamMap]
-      navigate({
-        to: `${path}/$challengeId`,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        params: { challengeId }
-      })
+      challengeId &&
+        navigate({
+          to: `${path}/$challengeId`,
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          params: { challengeId }
+        })
       return
     }
   }, [navigate, router])
@@ -68,7 +69,7 @@ function App() {
                 'select-challenge'
               )}`}
             >
-              Select
+              Retrieve
             </span>
           </Link>
           <Link
@@ -95,11 +96,22 @@ function App() {
               Delete
             </span>
           </Link>
-          <Link to="/challenges">
+          <Link to="/sql-challenges">
             <span
-              className={`hover:text-green-500 ${getActiveColor('challenges')}`}
+              className={`hover:text-green-500 ${getActiveColor(
+                'sql-challenges'
+              )}`}
             >
               Challenges
+            </span>
+          </Link>
+          <Link to="/sql-playground">
+            <span
+              className={`hover:text-green-500 ${getActiveColor(
+                'sql-playground'
+              )}`}
+            >
+              Playground
             </span>
           </Link>
         </div>
