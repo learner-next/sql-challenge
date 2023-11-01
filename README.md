@@ -17,6 +17,8 @@
 ### 1. Create exercise
 
 - Create a table
+- Create a table with constraints
+- Create a table with indexes
 - Insert data into the table
 - Create Views
 
@@ -54,12 +56,12 @@
 
 `sql-challenge` is built using a modern tech stack:
 
-- [React](https://reactjs.org/)
+- [React](https://react.dev/learn)
 - [Vite](https://vitejs.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [bun](https://bun.sh/)
-- [sql.js](https://github.com/sql-js/sql.js)
+- [alasql](https://github.com/AlaSQL/alasql)
 - [shadcn/ui](https://ui.shadcn.com/)
 - [TanStack Router](https://tanstack.com/router/v1)
 - [monaco-editor](https://github.com/microsoft/monaco-editor)
