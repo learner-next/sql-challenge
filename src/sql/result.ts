@@ -1,16 +1,13 @@
 import type { Challenge, SqlResultType } from '@/type'
-/**
- * 结果状态枚举
- */
+
+// user result status enum
 export const RESULT_STATUS_ENUM = {
   DEFAULT: -1,
   ERROR: 0,
   SUCCEED: 1
 }
 
-/*
- * 结果状态信息映射
- */
+// user result status map
 export const RESULT_STATUS_MAP = {
   '-1': '未执行',
   0: '❌ 错误',
