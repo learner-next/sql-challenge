@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from 'react'
 import SqlChallenge from '/sql-challenge.svg'
 import { Outlet, Link, useNavigate, useRouter } from '@tanstack/react-router'
 import { pathParamMap } from '@/utils'
+import SqlChallengeSearch from '@/components/common/SqlChallengeSearch'
 
 function App() {
   const navigate = useNavigate()
@@ -115,13 +116,19 @@ function App() {
             </span>
           </Link>
         </div>
-        <a
-          href="https://github.com/learner-next/sql-challenge"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className="text-zinc-600 hover:text-green-500">Github ⭐️</span>
-        </a>
+        <div className="flex justify-end gap-4">
+          <SqlChallengeSearch />
+          <a
+            href="https://github.com/learner-next/sql-challenge"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="basis-28"
+          >
+            <span className="text-zinc-600 hover:text-green-500">
+              Github ⭐️
+            </span>
+          </a>
+        </div>
       </div>
       <div className="flex-1">
         <Outlet />

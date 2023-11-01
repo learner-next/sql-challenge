@@ -26,14 +26,7 @@ export type Challenge = {
   /* challenge type */
   type: 'main' | 'custom'
   /* challenge sqlType */
-  sqlType:
-    | 'select'
-    | 'update'
-    | 'insert'
-    | 'delete'
-    | 'create'
-    | 'drop'
-    | 'alter'
+  sqlType: 'create' | 'select' | 'delete' | 'update'
   /* challenge showTableSql */
   showTableSql: string
   /* challenge position of index */
