@@ -12,13 +12,11 @@ const challenge: Challenge = {
   sqlType: 'select',
   answerSql:
     'SELECT class, subject, SUM(score) AS total_score FROM student GROUP by class, subject;',
-  answer: '',
   defaultSql: 'SELECT * FROM student;',
   tags: ['select', 'group by'],
   category: 'select',
   type: 'main',
-  showTableSql: 'SELECT * FROM student;',
-  index: 13
+  showTableSql: 'SELECT * FROM student;'
 }
 
 export default challenge

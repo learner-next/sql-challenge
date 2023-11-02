@@ -11,13 +11,11 @@ const challenge: Challenge = {
   difficulty: 2,
   sqlType: 'select',
   answerSql: 'SELECT * FROM student LIMIT 5 OFFSET 5;',
-  answer: '',
   defaultSql: 'SELECT * FROM student;',
   tags: ['select', 'limit', 'offset'],
   category: 'select',
   type: 'main',
-  showTableSql: 'SELECT * FROM student;',
-  index: 11
+  showTableSql: 'SELECT * FROM student;'
 }
 
 export default challenge

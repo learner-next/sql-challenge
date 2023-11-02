@@ -19,9 +19,9 @@ const SqlChallengePage: FC<SqlChallengePageProps> = ({
   fromPath = '/select-challenge',
   allChallenges = []
 }) => {
-  const [userResults, setUserResults] = useState<SqlResultType[]>([])
-  const [answerResults, setAnswerResults] = useState<SqlResultType[]>([])
-  const [allTableResults, setAllTableResults] = useState<SqlResultType[]>([])
+  const [userResults, setUserResults] = useState<SqlResultType>([])
+  const [answerResults, setAnswerResults] = useState<SqlResultType>([])
+  const [allTableResults, setAllTableResults] = useState<SqlResultType>([])
   const [resultStatus, setResultStatus] = useState<number>(
     RESULT_STATUS_ENUM.DEFAULT
   )
@@ -44,8 +44,8 @@ const SqlChallengePage: FC<SqlChallengePageProps> = ({
   if (!challenge) return null
   const onSubmit = (
     _sql: string,
-    userResults: SqlResultType[],
-    answerResults: SqlResultType[],
+    userResults: SqlResultType,
+    answerResults: SqlResultType,
     message?: string
   ) => {
     setUserResults(userResults)
@@ -56,7 +56,7 @@ const SqlChallengePage: FC<SqlChallengePageProps> = ({
     )
     setCollapsedUserOpenResult(false)
   }
-  const getAllTableResults = (allTableResults: SqlResultType[]) => {
+  const getAllTableResults = (allTableResults: SqlResultType) => {
     setAllTableResults(allTableResults)
   }
   return (

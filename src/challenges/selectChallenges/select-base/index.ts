@@ -10,14 +10,12 @@ const challenge: Challenge = {
   category: '查询',
   tags: ['select'],
   answerSql: 'SELECT * FROM student;',
-  answer: '',
   showTableSql: 'SELECT * FROM student;',
   author: 'Talljack',
   initSql,
   defaultSql: 'SELECT * FROM student;',
   type: 'main',
-  sqlType: 'select',
-  index: 1
+  sqlType: 'select'
 }
 
 export default challenge

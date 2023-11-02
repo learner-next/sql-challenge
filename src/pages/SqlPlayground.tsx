@@ -26,8 +26,7 @@ VALUES ('小李', 36, '男', '1989-02-18', '北京市朝阳区');
 const challenge: Challenge = {
   id: 'sql-playground',
   title: 'Playground',
-  content: '',
-  answer: '',
+  content: 'playground content',
   difficulty: 0,
   category: 'playground',
   tags: ['playground'],
@@ -41,18 +40,18 @@ const challenge: Challenge = {
 }
 
 const SqlPlayground = () => {
-  const [userResults, setUserResults] = useState<SqlResultType[]>([])
+  const [userResults, setUserResults] = useState<SqlResultType>([])
   const [errorMessage, setErrorMessage] = useState<string>()
   const onSubmit = (
     _sql: string,
-    userResults: SqlResultType[],
-    _answerResults: SqlResultType[],
+    userResults: SqlResultType,
+    _answerResults: SqlResultType,
     message?: string
   ) => {
     setUserResults(userResults)
     setErrorMessage(message)
   }
-  const getAllTableResults = (allTableResults: SqlResultType[]) => {
+  const getAllTableResults = (allTableResults: SqlResultType) => {
     setUserResults(allTableResults)
   }
   return (

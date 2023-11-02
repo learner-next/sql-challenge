@@ -17,7 +17,6 @@ const challenge: Challenge = {
   defaultSql: 'SELECT name, class, score FROM student;',
   showTableSql: 'SELECT * FROM student;',
   type: 'main',
-  index: 18,
   hit: 'Having 子句用于在 GROUP BY 语句中指定过滤条件。可使用多个聚合函数，如 COUNT()、SUM()、AVG() 等来进行过滤。'
 }
 

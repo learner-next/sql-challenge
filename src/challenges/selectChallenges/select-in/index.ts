@@ -12,14 +12,12 @@ const challenge: Challenge = {
   tags: ['select'],
   answerSql:
     'SELECT name, age, gender, address FROM student WHERE address IN ("北京市", "上海市");',
-  answer: '',
   showTableSql: 'SELECT * FROM student;',
   author: 'Talljack',
   initSql,
   defaultSql: 'SELECT * FROM student;',
   type: 'main',
-  sqlType: 'select',
-  index: 8
+  sqlType: 'select'
 }
 
 export default challenge

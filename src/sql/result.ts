@@ -16,8 +16,8 @@ export const RESULT_STATUS_MAP = {
 }
 
 export const checkedSqlResult = (
-  userResults: SqlResultType[],
-  answerResults: SqlResultType[],
+  userResults: SqlResultType,
+  answerResults: SqlResultType,
   challenge: Challenge,
   message?: string,
   userSql?: string

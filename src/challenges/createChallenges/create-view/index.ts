@@ -14,7 +14,6 @@ const challenge: Challenge = {
   FROM employees e
   INNER JOIN departments d
   ON e.department_id = d.id;`,
-  answer: '',
   showTableSql:
     'SELECT * FROM employees e INNER JOIN departments d ON e.department_id = d.id;',
   author: 'Talljack',

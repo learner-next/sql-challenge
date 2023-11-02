@@ -14,10 +14,8 @@ const challenge: Challenge = {
   sqlType: 'select',
   defaultSql: 'select * from fruit;',
   answerSql: 'select distinct name, price from fruit;',
-  answer: '',
   category: '基础查询',
   hit: '请仔细查看示例中的基本语句，DISTINCT关键字用于去重查询。',
-  showTableSql: 'select * from fruit;',
-  index: 5
+  showTableSql: 'select * from fruit;'
 }
 export default challenge

@@ -12,14 +12,12 @@ const challenge: Challenge = {
   tags: ['select', '聚合函数'],
   answerSql:
     'SELECT AVG(age) AS 平均年龄, COUNT(name) AS 总人数, MAX(age) AS 最大年龄 FROM student;',
-  answer: '',
   showTableSql: 'SELECT * FROM student;',
   author: 'Talljack',
   initSql,
   defaultSql: 'SELECT * FROM student;',
   type: 'main',
-  sqlType: 'select',
-  index: 4
+  sqlType: 'select'
 }
 
 export default challenge
