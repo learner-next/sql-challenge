@@ -68,9 +68,12 @@ const SqlEditor: FC<Props> = ({
     if (value) {
       try {
         const userResult = runSql(value)
-        const answerResult = runSql(challenge.answer || challenge.answerSql)
-        console.log('userResults', userResult, answerResult)
-        onSubmit(value, userResult, answerResult)
+        // create or update run twice sql will throw error, only validate user's sql return 1
+        let answerResult = 0
+        if (challenge?.needRunAnswerSql) {
+          answerResult = runSql(challenge.answer || challenge.answerSql)
+        }
+        onSubmit(value, userResult, answerResult as unknown as SqlResultType[])
       } catch (error) {
         toast({
           description: (error as Error).message,

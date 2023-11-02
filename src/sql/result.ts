@@ -23,7 +23,7 @@ export const checkedSqlResult = (
 ) => {
   // does't throw error is success when create table and insert into values
   if (
-    challenge.sqlType === 'create' &&
+    challenge.sqlType !== 'select' &&
     !message &&
     userSql &&
     (JSON.stringify(userResults) === JSON.stringify(answerResults) ||
