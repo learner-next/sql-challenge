@@ -49,7 +49,7 @@ const SqlResult: FC<SqlResultProps> = ({
       </CardHeader>
       {!errorMessage ? (
         <CardContent className="p-2">
-          <ScrollArea className="h-[300px]">
+          <ScrollArea className="max-h-[300px]">
             <Table>
               <TableHeader>
                 <TableRow>

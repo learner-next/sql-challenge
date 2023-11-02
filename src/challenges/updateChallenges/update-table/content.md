@@ -76,5 +76,5 @@ alter table student add address varchar(255), add birthday date;
 
 假设我们有一张名为`user`表，表中包含用户的`id`，`name`，`age`，`gender`，`email`等字段。
 现在请你增加一个`address`字段，类型为`varchar(255)`，并且将`email`字段的类型修改为`text`类型吧🌈～
-备注：**该在线运行只支持单列添加或修改**
+备注：**该在线运行只支持单列添加或修改, 同时也要加上 COLUMN关键字**
 PS（数据表已经创建好了，你可以在右下侧查看数据表中查看数据以及其他相关信息）

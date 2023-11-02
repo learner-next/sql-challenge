@@ -98,7 +98,6 @@ const SqlEditor: FC<Props> = ({
         `${sqlDefaultHit}
 ${challenge.defaultSql}`
       )
-      console.log('initSql')
       initSql(challenge?.initSql)
       try {
         const allTableResults = runSql(challenge?.showTableSql)
