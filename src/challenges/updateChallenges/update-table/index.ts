@@ -9,7 +9,7 @@ const challenge: Challenge = {
   difficulty: 1,
   category: '更新',
   hit: '请仔细查看示例中的基本语句。',
-  tags: ['select'],
+  tags: ['update'],
   answerSql: `ALTER TABLE user ADD COLUMN address VARCHAR(255);
 ALTER TABLE user MODIFY COLUMN email TEXT;`,
   showTableSql: 'SELECT * FROM user;',
@@ -18,7 +18,6 @@ ALTER TABLE user MODIFY COLUMN email TEXT;`,
   defaultSql: 'ALTER TABLE user;',
   type: 'main',
   sqlType: 'update',
-  index: 1,
   needRunAnswerSql: false
 }
 

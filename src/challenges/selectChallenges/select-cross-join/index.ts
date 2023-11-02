@@ -18,7 +18,6 @@ const challenge: Challenge = {
   category: '高级查询',
   defaultSql: 'SELECT * FROM employees CROSS JOIN departments d;',
   hit: '使用CROSS JOIN关键字，查询工资大于等于3000的员工和部门名称。',
-  index: 24,
   type: 'main'
 }
 

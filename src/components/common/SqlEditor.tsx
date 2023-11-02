@@ -14,11 +14,11 @@ interface Props {
   className?: string
   onSubmit: (
     sql: string,
-    result: SqlResultType[],
-    answerResult: SqlResultType[],
+    result: SqlResultType,
+    answerResult: SqlResultType,
     message?: string
   ) => void
-  getAllTableResults?: (allTableResults: SqlResultType[]) => void
+  getAllTableResults?: (allTableResults: SqlResultType) => void
   sqlDefaultHit?: string
 }
 
@@ -70,10 +70,10 @@ const SqlEditor: FC<Props> = ({
         const userResult = runSql(value)
         // create or update run twice sql will throw error, only validate user's sql return 1
         let answerResult = 0
-        if (challenge?.needRunAnswerSql) {
-          answerResult = runSql(challenge.answer || challenge.answerSql)
+        if (challenge?.needRunAnswerSql !== false) {
+          answerResult = runSql(challenge.answerSql)
         }
-        onSubmit(value, userResult, answerResult as unknown as SqlResultType[])
+        onSubmit(value, userResult, answerResult as unknown as SqlResultType)
       } catch (error) {
         toast({
           description: (error as Error).message,

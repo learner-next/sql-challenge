@@ -11,14 +11,12 @@ const challenge: Challenge = {
   difficulty: 1,
   sqlType: 'select',
   answerSql: 'SELECT age FROM student UNION ALL SELECT age FROM teacher;',
-  answer: '',
   defaultSql: 'SELECT * FROM student;',
   tags: ['select', 'union', 'union all'],
   category: 'select',
   type: 'main',
   showTableSql:
-    'SELECT student.id AS student_id, student.name AS student_name, student.age AS student_age, teacher.id AS teacher_id, teacher.name AS teacher_name, teacher.age AS teacher_age FROM student, teacher;',
-  index: 14
+    'SELECT student.id AS student_id, student.name AS student_name, student.age AS student_age, teacher.id AS teacher_id, teacher.name AS teacher_name, teacher.age AS teacher_age FROM student, teacher;'
 }
 
 export default challenge

@@ -11,14 +11,12 @@ const challenge: Challenge = {
   hit: '请仔细查看示例中的基本语句，WHERE关键字为条件查询，=为等于，<>为不等于，>为大于，<为小于，>=为大于等于，<=为小于等于，BETWEEN xx AND xx代码在某个区间内。',
   tags: ['select'],
   answerSql: 'SELECT * FROM student WHERE age BETWEEN 17 AND 30;',
-  answer: '',
   showTableSql: 'SELECT * FROM student;',
   author: 'Talljack',
   initSql,
   defaultSql: 'SELECT * FROM student;',
   type: 'main',
-  sqlType: 'select',
-  index: 6
+  sqlType: 'select'
 }
 
 export default challenge

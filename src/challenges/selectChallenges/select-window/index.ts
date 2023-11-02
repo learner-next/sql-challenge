@@ -20,7 +20,6 @@ const challenge: Challenge = {
   category: '查询进阶',
   defaultSql: 'SELECT * FROM employees;',
   hit: 'LAG() 用于获取前一行的数据，FIRST_VALUE() 用于获取分组中第一行的数据，LAST_VALUE() 用于获取分组中最后一行的数据。',
-  index: 25,
   type: 'main'
 }
 

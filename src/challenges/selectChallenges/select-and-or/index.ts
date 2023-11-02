@@ -10,15 +10,13 @@ const challenge: Challenge = {
   difficulty: 1,
   type: 'main',
   sqlType: 'select',
-  answer: '',
   answerSql:
     'SELECT name, age, gender, address FROM student WHERE age <= 20 AND address LIKE "%北京市%";',
   tags: ['where', 'select'],
   category: '基础语法',
   author: 'Talljack',
   showTableSql: 'SELECT * FROM student;',
-  defaultSql: 'SELECT name, age, gender, address FROM student;',
-  index: 10
+  defaultSql: 'SELECT name, age, gender, address FROM student;'
 }
 
 export default challenge

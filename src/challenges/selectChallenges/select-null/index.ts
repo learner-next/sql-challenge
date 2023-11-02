@@ -11,14 +11,12 @@ const challenge: Challenge = {
   hit: '请仔细查看示例中的基本语句，WHERE关键字为条件查询，IS NULL为为空，IS NOT NULL为不为空。',
   tags: ['select'],
   answerSql: 'SELECT * FROM student WHERE birthday IS NOT NULL;',
-  answer: '',
   showTableSql: 'SELECT * FROM student;',
   author: 'Talljack',
   initSql,
   defaultSql: 'SELECT * FROM student;',
   type: 'main',
-  sqlType: 'select',
-  index: 7
+  sqlType: 'select'
 }
 
 export default challenge

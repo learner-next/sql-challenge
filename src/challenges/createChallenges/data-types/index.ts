@@ -10,7 +10,6 @@ const challenge: Challenge = {
   category: '创建表 - 数据类型',
   tags: ['create', 'insert'],
   answerSql: initSql,
-  answer: '',
   showTableSql: '',
   author: 'Talljack',
   initSql: '',

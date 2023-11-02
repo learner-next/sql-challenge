@@ -15,7 +15,7 @@ import type { SqlResultType } from '@/type'
 interface SqlResultProps {
   resultStatus?: number
   errorMessage?: string
-  sqlResults: SqlResultType[]
+  sqlResults: SqlResultType
   type: 'user' | 'system'
   className?: string
 }

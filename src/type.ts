@@ -13,8 +13,6 @@ export type Challenge = {
   tags: string[]
   /* challenge answerSql */
   answerSql: string
-  /* challenge answer */
-  answer?: string
   /* challenge author */
   author: string
   /* challenge hit */
@@ -29,8 +27,6 @@ export type Challenge = {
   sqlType: 'create' | 'select' | 'delete' | 'update'
   /* challenge showTableSql */
   showTableSql: string
-  /* challenge position of index */
-  index?: number
   /* challenge need run answerSql */
   needRunAnswerSql?: boolean
 }

@@ -11,7 +11,6 @@ const challenge: Challenge = {
   tags: ['create', 'insert'],
   answerSql: `INSERT INTO students (first_name, last_name, age) VALUES('John', 'Doe', 25);
 INSERT INTO students (first_name, last_name, age) VALUES ('Jane', 'Doe', null), ('Richard', null, 30);`,
-  answer: '',
   showTableSql: 'SELECT * FROM students;',
   author: 'Talljack',
   initSql,
