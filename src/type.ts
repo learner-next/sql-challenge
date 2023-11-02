@@ -31,6 +31,8 @@ export type Challenge = {
   showTableSql: string
   /* challenge position of index */
   index?: number
+  /* challenge need run answerSql */
+  needRunAnswerSql?: boolean
 }
 
 export type SqlResultType = Record<string, string | number>[]

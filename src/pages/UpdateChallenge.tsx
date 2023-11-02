@@ -1,8 +1,11 @@
+import SqlChallengePage from '@components/common/SqlChallengePage'
+import allChallenges from '@/challenges/updateChallenges'
 const UpdateChallenge = () => {
   return (
-    <div>
-      <h1>Update Challenge</h1>
-    </div>
+    <SqlChallengePage
+      fromPath="/update-challenge"
+      allChallenges={allChallenges}
+    />
   )
 }
 

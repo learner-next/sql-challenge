@@ -1,4 +1,5 @@
 import type { Challenge, SqlResultType } from '@/type'
+import { removeSqlSpace } from '@/utils'
 
 // user result status enum
 export const RESULT_STATUS_ENUM = {
@@ -23,12 +24,10 @@ export const checkedSqlResult = (
 ) => {
   // does't throw error is success when create table and insert into values
   if (
-    challenge.sqlType === 'create' &&
+    challenge.sqlType !== 'select' &&
     !message &&
     userSql &&
-    (JSON.stringify(userResults) === JSON.stringify(answerResults) ||
-      ((userResults as unknown as number) === 1 &&
-        (answerResults as unknown as number) === 0))
+    removeSqlSpace(userSql) === removeSqlSpace(challenge.answerSql)
   ) {
     return RESULT_STATUS_ENUM.SUCCEED
   }
