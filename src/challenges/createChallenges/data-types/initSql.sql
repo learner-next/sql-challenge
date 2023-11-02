@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS students (
+  id INT NOT NULL PRIMARY KEY AUTOINCREMENT,
+  first_name VARCHAR(50),
+  last_name VARCHAR(50),
+  age INT,
+  create_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  info JSON
+);
