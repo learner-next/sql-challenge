@@ -75,7 +75,7 @@ function App() {
           </Link>
           <Link
             to="/update-challenge/$challengeId"
-            params={{ challengeId: 'challenge1' }}
+            params={{ challengeId: 'update-table' }}
           >
             <span
               className={`hover:text-green-500 ${getActiveColor(
@@ -87,7 +87,7 @@ function App() {
           </Link>
           <Link
             to="/delete-challenge/$challengeId"
-            params={{ challengeId: 'challenge1' }}
+            params={{ challengeId: 'delete-table' }}
           >
             <span
               className={`hover:text-green-500 ${getActiveColor(
