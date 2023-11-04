@@ -47,6 +47,20 @@ alter table user modify email text;
 alter table user modify email text not null;
 ```
 
+### 更新约束
+
+如果我们要将 email 字段的 not null 约束修改为 null 约束，那么我们可以这样写：
+
+```sql
+alter table user modify email text null;
+```
+
+如果我们要修改主键约束，比如从 id 字段修改为 user_id 字段，那么我们可以这样写：
+
+```sql
+alter table user modify id int not null, modify user_id int primary key not null auto_increment;
+```
+
 #### 删除字段
 
 如果我们要删除 email 字段，那么我们可以这样写：

@@ -201,6 +201,15 @@ ALTER TABLE table_name DROP INDEX index_name;
 ALTER TABLE table_name ADD INDEX index_name (column1, column2, ...);
 ```
 
+#### 更新索引
+
+在 `MySQL` 中，直接修改现有索引是不可能的，但可以通过删除旧索引再创建新索引的方式来实现索引的修改。
+
+```sql
+ALTER TABLE table_name DROP INDEX index_name;
+ALTER TABLE table_name ADD INDEX index_name (column1);
+```
+
 ### 索引使用技巧
 
 - 索引选择性：具有高唯一性的列是最佳的索引候选，因为它们提供了更好的选择性。
