@@ -11,16 +11,25 @@ import { Separator } from '@/components/ui/separator'
 
 import createChallenges from '@/challenges/createChallenges'
 import selectChallenges from '@/challenges/selectChallenges'
+import updateChallenges from '@/challenges/updateChallenges'
+import deleteChallenges from '@/challenges/deleteChallenges'
 import type { Challenge } from '@/type'
 import { Link } from '@tanstack/react-router'
 import Tag from '@/components/ui/tag'
 
 const sqlChallengeTypePathMap = {
   create: '/create-challenge',
-  select: '/select-challenge'
+  select: '/select-challenge',
+  update: '/update-challenge',
+  delete: '/delete-challenge'
 }
 
-const allChallenges = [...createChallenges, ...selectChallenges]
+const allChallenges = [
+  ...createChallenges,
+  ...selectChallenges,
+  ...updateChallenges,
+  ...deleteChallenges
+]
 
 interface SqlChallengeSearchProps extends InputProps {}
 
