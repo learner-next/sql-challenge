@@ -6,6 +6,7 @@ import Tag from '@/components/ui/tag'
 import createChallenges from '@/challenges/createChallenges'
 import selectChallenges from '@/challenges/selectChallenges'
 import updateChallenges from '@/challenges/updateChallenges'
+import deleteChallenges from '@/challenges/deleteChallenges'
 import { AiFillStar } from 'react-icons/ai'
 import { BsStarHalf } from 'react-icons/bs'
 import { useNavigate } from '@tanstack/react-router'
@@ -13,13 +14,15 @@ import { useNavigate } from '@tanstack/react-router'
 const tabChallengesMap = {
   Create: createChallenges,
   Select: selectChallenges,
-  Update: updateChallenges
+  Update: updateChallenges,
+  Delete: deleteChallenges
 }
 
 const tabChallengePathMap = {
   Create: '/create-challenge',
   Select: '/select-challenge',
-  Update: '/update-challenge'
+  Update: '/update-challenge',
+  Delete: '/delete-challenge'
 }
 
 function SqlChallenges() {
