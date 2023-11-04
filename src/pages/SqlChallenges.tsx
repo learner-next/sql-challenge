@@ -13,14 +13,14 @@ import { useNavigate } from '@tanstack/react-router'
 
 const tabChallengesMap = {
   Create: createChallenges,
-  Select: selectChallenges,
+  Retrieve: selectChallenges,
   Update: updateChallenges,
   Delete: deleteChallenges
 }
 
 const tabChallengePathMap = {
   Create: '/create-challenge',
-  Select: '/select-challenge',
+  Retrieve: '/select-challenge',
   Update: '/update-challenge',
   Delete: '/delete-challenge'
 }
@@ -38,7 +38,7 @@ function SqlChallenges() {
   return (
     <div className="my-4 ml-4 flex p-2">
       <div className="w-full ">
-        <Tabs defaultValue="Select" className="w-full">
+        <Tabs defaultValue="Retrieve" className="w-full">
           <TabsList>
             {Object.keys(tabChallengesMap).map(tab => (
               <TabsTrigger value={tab} key={tab}>
