@@ -12,7 +12,7 @@ const challenge: Challenge = {
   answerSql:
     'SELECT name, subject, score FROM student WHERE score > (SELECT AVG(score) FROM student GROUP BY class);',
   tags: ['select', 'subquery'],
-  type: 'main',
+
   category: '子查询',
   sqlType: 'select',
   showTableSql: 'SELECT * FROM student;',

@@ -15,7 +15,7 @@ INSERT INTO students (first_name, last_name, age) VALUES ('Jane', 'Doe', null), 
   author: 'Talljack',
   initSql,
   defaultSql: `INSERT INTO students () VALUES();`,
-  type: 'main',
+
   sqlType: 'create'
 }
 

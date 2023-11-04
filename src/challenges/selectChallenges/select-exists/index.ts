@@ -16,7 +16,7 @@ const challenge: Challenge = {
   defaultSql: 'SELECT * FROM student;',
   showTableSql:
     'SELECT student.name AS s_name, student.class AS s_class, student.score as s_score, class.class_name AS c_class_name, class.teacher AS c_teacher  FROM student FULL JOIN class ON class.class_name = student.class;',
-  type: 'main',
+
   hit: 'EXISTS 用于判断子查询是否存在，如果子查询返回结果集，则返回 true，否则返回 false。'
 }
 

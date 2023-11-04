@@ -16,7 +16,7 @@ ALTER TABLE customers DROP COLUMN birthday;`,
   author: 'Talljack',
   initSql,
   defaultSql: `ALTER TABLE customers;`,
-  type: 'main',
+
   sqlType: 'delete',
   needRunAnswerSql: false
 }

@@ -14,7 +14,7 @@ const challenge: Challenge = {
   author: 'Talljack',
   initSql,
   defaultSql: 'SELECT * FROM student;',
-  type: 'main',
+
   sqlType: 'select'
 }
 

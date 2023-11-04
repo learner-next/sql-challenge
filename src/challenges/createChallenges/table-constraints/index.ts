@@ -14,7 +14,7 @@ const challenge: Challenge = {
   author: 'Talljack',
   initSql: '',
   defaultSql: 'CREATE TABLE IF NOT EXISTS student (id INTEGER);',
-  type: 'main',
+
   sqlType: 'create'
 }
 

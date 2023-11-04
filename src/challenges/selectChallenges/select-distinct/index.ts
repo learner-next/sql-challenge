@@ -10,7 +10,7 @@ const challenge: Challenge = {
   author: 'Talljack',
   difficulty: 1,
   tags: ['select', 'distinct'],
-  type: 'main',
+
   sqlType: 'select',
   defaultSql: 'select * from fruit;',
   answerSql: 'select distinct name, price from fruit;',

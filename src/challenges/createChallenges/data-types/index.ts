@@ -14,7 +14,7 @@ const challenge: Challenge = {
   author: 'Talljack',
   initSql: '',
   defaultSql: `CREATE TABLE students (id INT NOT NULL PRIMARY KEY AUTOINCREMENT);`,
-  type: 'main',
+
   sqlType: 'create'
 }
 

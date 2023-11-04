@@ -8,7 +8,7 @@ const challenge: Challenge = {
   content,
   initSql,
   difficulty: 1,
-  type: 'main',
+
   sqlType: 'select',
   answerSql:
     'SELECT name, age, gender, address FROM student WHERE age <= 20 AND address LIKE "%北京市%";',

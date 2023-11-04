@@ -15,7 +15,7 @@ const challenge: Challenge = {
   author: 'Talljack',
   initSql,
   defaultSql: `UPDATE user SET email = '';`,
-  type: 'main',
+
   sqlType: 'update'
 }
 
