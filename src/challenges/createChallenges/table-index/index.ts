@@ -17,7 +17,7 @@ const challenge: Challenge = {
     id INT NOT NULL AUTOINCREMENT,
     PRIMARY KEY (id)
 );`,
-  type: 'main',
+
   sqlType: 'create'
 }
 

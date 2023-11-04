@@ -16,7 +16,7 @@ ALTER TABLE user MODIFY COLUMN email TEXT;`,
   author: 'Talljack',
   initSql,
   defaultSql: 'ALTER TABLE user;',
-  type: 'main',
+
   sqlType: 'update',
   needRunAnswerSql: false
 }

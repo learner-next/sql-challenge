@@ -16,7 +16,7 @@ const challenge: Challenge = {
     'SELECT name, class, AVG(score) AS avg_score FROM student GROUP BY class HAVING avg_score > 80 OR avg_score < 20 ORDER BY avg_score DESC;',
   defaultSql: 'SELECT name, class, score FROM student;',
   showTableSql: 'SELECT * FROM student;',
-  type: 'main',
+
   hit: 'Having 子句用于在 GROUP BY 语句中指定过滤条件。可使用多个聚合函数，如 COUNT()、SUM()、AVG() 等来进行过滤。'
 }
 

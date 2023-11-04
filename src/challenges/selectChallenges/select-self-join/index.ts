@@ -10,7 +10,7 @@ const challenge: Challenge = {
   author: 'Talljack',
   difficulty: 2,
   tags: ['select', 'self join'],
-  type: 'main',
+
   sqlType: 'select',
   defaultSql: 'select * from family_members;',
   answerSql: `SELECT

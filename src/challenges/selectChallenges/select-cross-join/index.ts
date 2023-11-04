@@ -17,8 +17,7 @@ const challenge: Challenge = {
     'SELECT e.name employee_name, e.salary employee_salary, d.name department_name FROM employees e CROSS JOIN departments d WHERE e.salary >= 3000;',
   category: '高级查询',
   defaultSql: 'SELECT * FROM employees CROSS JOIN departments d;',
-  hit: '使用CROSS JOIN关键字，查询工资大于等于3000的员工和部门名称。',
-  type: 'main'
+  hit: '使用CROSS JOIN关键字，查询工资大于等于3000的员工和部门名称。'
 }
 
 export default challenge

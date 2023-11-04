@@ -34,7 +34,6 @@ const challenge: Challenge = {
   initSql,
   author: '',
   defaultSql: 'SELECT * FROM students;',
-  type: 'custom',
   sqlType: 'select',
   showTableSql: 'SELECT * FROM students;'
 }

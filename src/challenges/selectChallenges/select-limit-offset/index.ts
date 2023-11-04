@@ -14,7 +14,7 @@ const challenge: Challenge = {
   defaultSql: 'SELECT * FROM student;',
   tags: ['select', 'limit', 'offset'],
   category: 'select',
-  type: 'main',
+
   showTableSql: 'SELECT * FROM student;'
 }
 

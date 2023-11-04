@@ -19,7 +19,7 @@ const challenge: Challenge = {
   author: 'Talljack',
   initSql,
   defaultSql: `CREATE VIEW employee_department AS SELECT * FROM employees;`,
-  type: 'main',
+
   sqlType: 'create'
 }
 

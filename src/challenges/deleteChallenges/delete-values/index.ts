@@ -15,7 +15,7 @@ const challenge: Challenge = {
   author: 'Talljack',
   initSql,
   defaultSql: `DELETE FROM users;`,
-  type: 'main',
+
   sqlType: 'delete'
 }
 

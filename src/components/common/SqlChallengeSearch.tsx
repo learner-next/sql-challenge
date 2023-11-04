@@ -15,7 +15,6 @@ import updateChallenges from '@/challenges/updateChallenges'
 import deleteChallenges from '@/challenges/deleteChallenges'
 import type { Challenge } from '@/type'
 import { Link } from '@tanstack/react-router'
-import Tag from '@/components/ui/tag'
 
 const sqlChallengeTypePathMap = {
   create: '/create-challenge',
@@ -121,12 +120,6 @@ const SqlChallengeSearch: FC<SqlChallengeSearchProps> = ({
                 >
                   <div className="flex items-center justify-between p-2 hover:bg-gray-100">
                     <span className="text-sm font-bold">{challenge.title}</span>
-                    <Tag
-                      className="rounded-2xl text-xs text-gray-400"
-                      backgroundColor="bg-gray-400"
-                    >
-                      {challenge.type}
-                    </Tag>
                   </div>
                 </Link>
                 {index !== filteredChallenges.length - 1 && <Separator />}

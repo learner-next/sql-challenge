@@ -49,10 +49,6 @@ const SqlQuestion: FC<SqlQuestionProps> = ({
     },
     [challenge, navigate, path, allChallenges]
   )
-  const handleWin = () => {
-    alert('恭喜通关，如果对你有帮助，欢迎给个star')
-    window.open('https://github.com/learner-next/sql-challenge')
-  }
   const btnClassName = clsx(
     'mt-4 flex mb-4',
     challengeNum === allChallenges.length - 1
@@ -89,7 +85,7 @@ const SqlQuestion: FC<SqlQuestionProps> = ({
         )}
         {challengeNum === allChallenges.length - 1 &&
           resultStatus === RESULT_STATUS_ENUM.SUCCEED && (
-            <Button onClick={handleWin}>恭喜通关</Button>
+            <Button>恭喜通关</Button>
           )}
       </div>
     </div>

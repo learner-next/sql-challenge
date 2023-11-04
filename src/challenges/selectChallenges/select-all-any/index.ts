@@ -11,7 +11,7 @@ const challenge: Challenge = {
   difficulty: 2,
   answerSql: `SELECT product_name, price FROM products WHERE price <> (SELECT sale_price FROM sales);`,
   tags: ['select', 'subquery', 'any', 'all'],
-  type: 'main',
+
   category: '子查询',
   sqlType: 'select',
   showTableSql:
