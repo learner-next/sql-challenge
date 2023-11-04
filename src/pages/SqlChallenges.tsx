@@ -5,18 +5,21 @@ import { ScrollArea } from '@/components/ui/scroll-area'
 import Tag from '@/components/ui/tag'
 import createChallenges from '@/challenges/createChallenges'
 import selectChallenges from '@/challenges/selectChallenges'
+import updateChallenges from '@/challenges/updateChallenges'
 import { AiFillStar } from 'react-icons/ai'
 import { BsStarHalf } from 'react-icons/bs'
 import { useNavigate } from '@tanstack/react-router'
 
 const tabChallengesMap = {
   Create: createChallenges,
-  Select: selectChallenges
+  Select: selectChallenges,
+  Update: updateChallenges
 }
 
 const tabChallengePathMap = {
   Create: '/create-challenge',
-  Select: '/select-challenge'
+  Select: '/select-challenge',
+  Update: '/update-challenge'
 }
 
 function SqlChallenges() {
