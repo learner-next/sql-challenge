@@ -39,6 +39,14 @@ alter table user rename email to mail varchar(255);
 alter table user modify email text;
 ```
 
+### 修改字段增加约束
+
+如果我们要给 email 字段增加 not null 约束，那么我们可以这样写：
+
+```sql
+alter table user modify email text not null;
+```
+
 #### 删除字段
 
 如果我们要删除 email 字段，那么我们可以这样写：
