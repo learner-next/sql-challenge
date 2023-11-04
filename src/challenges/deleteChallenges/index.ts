@@ -1,5 +1,6 @@
-import deleteTable from './delete-table'
+import deleteColumns from './delete-columns'
+import deleteValues from './delete-values'
 
-const deleteChallenges = [deleteTable]
+const deleteChallenges = [deleteColumns, deleteValues]
 
 export default deleteChallenges
