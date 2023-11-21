@@ -5,7 +5,7 @@
 </div>
 
 <p align=center>
-    <font size=4>CRUD SQL exercises for beginners(Base MySQL).</font>
+    <font size=6>CRUD SQL exercises for beginners(Base MySQL).</font>
 </p>
 
 ### 展示效果
@@ -100,4 +100,4 @@ This project is heavily inspired by the following awesome projects.
 
 ## 📝 License
 
-[MIT License](https://github.com/learner-next/sql-challenge/blob/main/LICENSE) © 2021-PRESENT [Talljack](https://github.com/Talljack)
+[MIT License](https://github.com/learner-next/sql-challenge/blob/main/LICENSE) © 2023-PRESENT [Talljack](https://github.com/Talljack)
