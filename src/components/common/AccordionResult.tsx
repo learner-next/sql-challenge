@@ -12,16 +12,10 @@ interface AccordionResultProps extends PropsWithChildren {
   collapsed?: boolean
 }
 
-const AccordionResult: FC<AccordionResultProps> = ({
-  children,
-  title,
-  collapsed = true
-}) => {
+const AccordionResult: FC<AccordionResultProps> = ({ children, title }) => {
   // need to fixed: https://github.com/radix-ui/primitives/issues/2296
   const [value, setValue] = useState<'item-1'>()
-  useEffect(() => {
-    setValue(collapsed ? undefined : 'item-1')
-  }, [collapsed])
+  useEffect(() => {})
   const handleTrigger = useCallback(() => {
     setValue(value === 'item-1' ? undefined : 'item-1')
   }, [value])

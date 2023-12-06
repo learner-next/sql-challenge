@@ -25,16 +25,16 @@ const SqlResult: FC<SqlResultProps> = ({
   errorMessage,
   sqlResults,
   type = 'user',
-  className
+  className = ''
 }) => {
   return (
     <Card
-      className={`max-h-[420px] w-full rounded-md border border-gray-300 p-2 ${className}`}
+      className={`max-h-[420px] w-full rounded-md border border-gray-300 p-2 ${className} overflow-scroll`}
     >
       <CardHeader>
         <div className="flex justify-between">
           <div className="text-lg font-bold">
-            {type === 'user' ? '查看执行结果' : '数据表'}
+            {type === 'user' ? ' 查看执行结果 ' : ' 数据表 '}
           </div>
           {typeof resultStatus === 'number' && (
             <div className="text-lg font-bold">

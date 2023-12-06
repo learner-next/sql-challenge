@@ -4,16 +4,16 @@ import type { Challenge } from '@/type'
 
 const challenge: Challenge = {
   id: 'select-and-or',
-  title: '条件查询 - And 和 Or',
+  title: ' 条件查询 - And 和 Or',
   content,
   initSql,
   difficulty: 1,
 
   sqlType: 'select',
   answerSql:
-    'SELECT name, age, gender, address FROM student WHERE age <= 20 AND address LIKE "%北京市%";',
+    'SELECT name, age, gender, address FROM student WHERE age >= 20 AND address LIKE "%北京市%";',
   tags: ['where', 'select'],
-  category: '基础语法',
+  category: ' 基础语法 ',
   author: 'Talljack',
   showTableSql: 'SELECT * FROM student;',
   defaultSql: 'SELECT name, age, gender, address FROM student;'
