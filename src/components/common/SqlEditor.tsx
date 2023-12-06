@@ -34,7 +34,7 @@ const SqlEditor: FC<Props> = ({
   onSubmit,
   className,
   getAllTableResults,
-  sqlDefaultHit = '-- 请在此处输入SQL语句'
+  sqlDefaultHit = '-- 请在此处输入 SQL 语句'
 }) => {
   const editorRef = useRef<HTMLDivElement>(null)
   const [editor, setEditor] =

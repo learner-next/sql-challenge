@@ -10,8 +10,8 @@ export const RESULT_STATUS_ENUM = {
 
 // user result status map
 export const RESULT_STATUS_MAP = {
-  '-1': '未执行',
-  0: '❌ 错误',
+  '-1': ' 未执行 ',
+  0: '❌ 错误 ',
   1: '✅ 正确'
 }
 
@@ -31,17 +31,17 @@ export const checkedSqlResult = (
   ) {
     return RESULT_STATUS_ENUM.SUCCEED
   }
-  if (!userResults || !answerResults) {
+  if (!userResults?.length || !answerResults?.length) {
     return RESULT_STATUS_ENUM.ERROR
   }
-  const userColumns = Object.keys(userResults)
-  const answerColumns = Object.keys(answerResults)
+  const userColumns = Object.keys(userResults?.[0])
+  const answerColumns = Object.keys(answerResults?.[0])
   if (
     JSON.stringify(userColumns.sort()) !== JSON.stringify(answerColumns.sort())
   ) {
     return RESULT_STATUS_ENUM.ERROR
   }
-  if (JSON.stringify(userResults) !== JSON.stringify(userResults)) {
+  if (JSON.stringify(userResults) !== JSON.stringify(answerResults)) {
     return RESULT_STATUS_ENUM.ERROR
   }
   return RESULT_STATUS_ENUM.SUCCEED

@@ -2,7 +2,7 @@
 
 ## 简介
 
-SQL 别名是给**表或列的临时名称**，主要用于使列名更有可读性或者在涉及多个表的查询中为表提供更简短的引用名称。
+SQL 别名是给 ** 表或列的临时名称 **，主要用于使列名更有可读性或者在涉及多个表的查询中为表提供更简短的引用名称。
 
 ### 列别名
 
@@ -12,7 +12,7 @@ SQL 别名是给**表或列的临时名称**，主要用于使列名更有可读
 SELECT fieldName AS xxx FROM tableName;
 ```
 
-列别名的关键字是 `AS`，但是在大多数情况下，你可以**省略它**。
+列别名的关键字是 `AS`，但是在大多数情况下，你可以 ** 省略它 **。
 
 ### 表别名
 
@@ -22,11 +22,11 @@ SELECT fieldName AS xxx FROM tableName;
 SELECT * FROM tableName AS xxx;
 ```
 
-表别名的关键字是 `AS`，但是在大多数情况下，你可以**省略它**。
+表别名的关键字是 `AS`，但是在大多数情况下，你可以 ** 省略它 **。
 
 ## 示例
 
-假设我们已经有了一张名为`student`表，表中包含学生的`name`，`age`，`gender`，`birthday`，`address`等字段。
+假设我们已经有了一张名为 `student` 表，表中包含学生的 `name`，`age`，`gender`，`birthday`，`address` 等字段。
 
 | name | age | gender | birthday   | address      |
 | ---- | --- | ------ | ---------- | ------------ |
@@ -35,10 +35,10 @@ SELECT * FROM tableName AS xxx;
 | 小王 | 28  | 男     | 1997-08-11 | 北京市海淀区 |
 | 小李 | 36  | 男     | 1989-02-18 | 北京市朝阳区 |
 
-接下来我们需要查询`student`表中的`name`、`age`、`gender`、`birthday`、`address`字段，但是我们想要将`address`字段展示为`家庭住址`，`birthday`字段展示为`生日`。
+接下来我们需要查询 `student` 表中的 `name`、`age`、`gender`、`birthday`、`address` 字段，但是我们想要将 `address` 字段展示为 `家庭住址`，`birthday` 字段展示为 `生日`。
 
 ```sql
-SELECT name, age, birthday AS 生日, address AS 家庭住址 FROM student;
+SELECT name, age, birthday AS `生日`, address AS `家庭住址` FROM student;
 ```
 
 查询结果如下：
@@ -50,12 +50,12 @@ SELECT name, age, birthday AS 生日, address AS 家庭住址 FROM student;
 | 小王 | 28  | 1997-08-11 | 北京市海淀区 |
 | 小李 | 36  | 1989-02-18 | 北京市朝阳区 |
 
-可以看到返回的数据的`address`字段已经变成了`家庭住址`，`birthday`字段已经变成了`生日`。
+可以看到返回的数据的 `address` 字段已经变成了 `家庭住址`，`birthday` 字段已经变成了 `生日`。
 
 接下来请完成以下的挑战吧～
 
 ## 挑战
 
-假设我们有一张名为`student`表，表中包含学生的`name`，`age`，`gender`，`birthday`，`address`等字段。请你在查询的时候将`student`表别名为`s`，并且将`name`字段别名为`姓名`，`age`字段别名为`年龄`，`gender`字段别名为`性别`，`birthday`，`address`。
+假设我们有一张名为 `student` 表，表中包含学生的 `name`，`age`，`gender`，`birthday`，`address` 等字段。请你在查询的时候将 `student` 表别名为 `s`，并且将 `name` 字段别名为 `姓名`，`age` 字段别名为 `年龄`，`gender` 字段别名为 `性别`，`birthday`，`address`。
 
 PS（数据表已经创建好了，你可以在右下侧查看数据表中查看数据以及其他相关信息）

@@ -11,7 +11,7 @@ const challenge: Challenge = {
   difficulty: 2,
   sqlType: 'select',
   answerSql:
-    'SELECT class, subject, SUM(score) AS total_score FROM student GROUP by class, subject;',
+    'SELECT class, subject, SUM(score) `total_score` FROM student GROUP by subject;',
   defaultSql: 'SELECT * FROM student;',
   tags: ['select', 'group by'],
   category: 'select',

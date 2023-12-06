@@ -21,6 +21,7 @@ const CodeViewer: FC<CodeViewerProps> = ({ initSql }) => {
   useEffect(() => {
     if (editorRef) {
       setEditor(editor => {
+        console.log(editor)
         if (editor) return editor
 
         return monaco.editor.create(editorRef.current!, {
@@ -38,6 +39,11 @@ const CodeViewer: FC<CodeViewerProps> = ({ initSql }) => {
     }
     return () => editor?.dispose()
   }, [editorRef, initSql, editor])
+
+  useEffect(() => {
+    console.log('sql', initSql, editor)
+    editor?.setValue(format(initSql, { language: 'sql' }))
+  }, [initSql, editor])
 
   return (
     <div className="rounded-md border border-gray-300 p-2">
