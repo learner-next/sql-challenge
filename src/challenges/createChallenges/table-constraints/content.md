@@ -135,7 +135,7 @@ CREATE TABLE Orders (
     FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
-### 复合主键约束
+###复合主键约束
 
 复合主键约束是用来 **保证多个字段的值组合起来唯一**，比如我们的 `student` 表中有一个 `classId` 字段，我们希望它的值必须在 `class` 表中存在，这样的话我们就可以使用外键约束。
 
@@ -165,5 +165,5 @@ CREATE TABLE IF NOT EXISTS student (
 
 ## 挑战
 
-假设我们需要一张 `class` 表，表中包含班级的 `id`(唯一主键，自增)，`name`（非空约束）, `manager`（唯一非空约束）等字段。
+假设我们需要一张 `class_info` 表，表中包含班级的 `id`(唯一主键，自增)，`name`（非空约束）, `manager`（唯一非空约束）等字段。
 并且还有一张 `student` 表，表中包含学生的 `id`，`name`(非空约束)，`age`（默认值为 20），`class_id`（外键、非空约束）等字段。复合主键为 `id` 和 `class_id`。
