@@ -2,7 +2,7 @@
 
 ## 简介
 
-`FULL JOIN`，也被称为 `FULL OUTER JOIN`，在 SQL 中是一种特殊类型的外连接。它用于返回两个表中的所有记录，如果**某个表中没有匹配的记录**，那么其他表的相应字段将显示为 NULL。就是说全连接会返回左表和右表中的所有记录行，如果左表中的某行在右表中没有关联行，则右表的字段值为空，反之亦然。
+`FULL JOIN`，也被称为 `FULL OUTER JOIN`，在 SQL 中是一种特殊类型的外连接。它用于返回两个表中的所有记录，如果 ** 某个表中没有匹配的记录 **，那么其他表的相应字段将显示为 NULL。就是说全连接会返回左表和右表中的所有记录行，如果左表中的某行在右表中没有关联行，则右表的字段值为空，反之亦然。
 
 ### 语法
 
@@ -15,7 +15,7 @@ ON table1.column = table2.column;
 
 ### 示例
 
-示例: 假设我们有两个表：`students` 和 `registrations`。我们想要列出**所有**的学生和所有的注册记录，**即使某些学生没有注册，或某些注册没有对应的学生**。
+示例：假设我们有两个表：`students` 和 `registrations`。我们想要列出 ** 所有 ** 的学生和所有的注册记录，** 即使某些学生没有注册，或某些注册没有对应的学生 **。
 
 ```sql
 SELECT students.student_name, registrations.course_name
@@ -37,7 +37,7 @@ FULL JOIN (FULL OUTER JOIN): 返回两个表中的所有记录，不论是否有
 
 ## 挑战
 
-假设我们有一个学生表`student`包含 `id` `name` `age` `course` 4个字段，一个成绩表`score`包含 `id` `name` `score` 3个字段，请查询所有学生的信息以及他们的成绩，如果没有成绩则显示为0。
+假设我们有一个学生表 `student` 包含 `id` `name` `age` `course` 4 个字段，一个成绩表 `score` 包含 `id` `name` `score` 3 个字段，请查询所有学生的信息以及他们的成绩，如果没有成绩则显示为 0。
 字段包括：`id`(student.id) `name`(student.name) `age` `course` `score`
 
-PS (数据表在右下侧可查看，使用的就是FULL JOIN进行展示的)
+PS (数据表在右下侧可查看，使用的就是 FULL JOIN 进行展示的)

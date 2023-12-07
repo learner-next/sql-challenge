@@ -2,25 +2,25 @@
 
 ## 简介
 
-上一节我们学完 `WHERE` 语法的基本运算符查询，我们可以使用运算符`=`、`>`、`<`等运算符，通过运算符可以查询出我们需要的数据，那么如果我们的数据中存在`NULL`该怎么处理呢？
+上一节我们学完 `WHERE` 语法的基本运算符查询，我们可以使用运算符 `=`、`>`、`<` 等运算符，通过运算符可以查询出我们需要的数据，那么如果我们的数据中存在 `NULL` 该怎么处理呢？
 
 很多时候 `NULL` 值并没有什么实际的意义。所以我门有过滤它的需求。所以 `SQL` 给我们提供了对应的运算符来查询值是否为 `NULL` 值。
 
-关于 `NULL` 的条件比较运算是比较特殊的。你不能使用 = `NULL` 或 != `NULL` 在列中查找 `NULL` 值 。
+关于 `NULL` 的条件比较运算是比较特殊的。你不能使用 = `NULL` 或！= `NULL` 在列中查找 `NULL` 值 。
 
-为了处理这种情况，MySQL提供了三大运算符:
+为了处理这种情况，MySQL 提供了三大运算符:
 
-- `IS NULL`: 当列的值是 `NULL`,此运算符返回 `true`
+- `IS NULL`: 当列的值是 `NULL`, 此运算符返回 `true`
 - `IS NOT NULL`: 当列的值不为 `NULL`, 运算符返回 `true`
 - `<=>`: 比较操作符（不同于 = 运算符），当比较的的两个值相等或者都为 `NULL` 时返回 `true`
 
-接下来我们就来看看`NULL`查询。
+接下来我们就来看看 `NULL` 查询。
 
 ## 示例
 
-假设我们已经有了一张名为`student`表，表中包含学生的`name`，`age`，`gender`，`birthday`，`address`等字段。
+假设我们已经有了一张名为 `student` 表，表中包含学生的 `name`，`age`，`gender`，`birthday`，`address` 等字段。
 
-`student`表如下：
+`student` 表如下：
 | name | age | gender | birthday | address |
 | ---- | --- | ------ | ---------- | ------------ |
 | 小明 | 20 | 男 | 1998-12-20 | null |
@@ -30,7 +30,7 @@
 | 小宁 | 16 | 男 | 2002-06-12 | null |
 | 小张 | 32 | 男 | null | 广东省深圳市 |
 
-接下来我们想要查询出 `address` 不为 `NULL` 的表格数据，那么我们可以使用`IS NOT NULL`来进行查询，如下：
+接下来我们想要查询出 `address` 不为 `NULL` 的表格数据，那么我们可以使用 `IS NOT NULL` 来进行查询，如下：
 
 ```sql
 SELECT * FROM student WHERE address IS NOT NULL;
@@ -48,5 +48,5 @@ SELECT * FROM student WHERE address IS NOT NULL;
 
 ## 挑战
 
-请结合上面👆的案例中的`NULL查询`去查询数据表中`birthday`不为`NULL`的数据吧🌈～
+请结合上面👆的案例中的 `NULL 查询` 去查询数据表中 `birthday` 不为 `NULL` 的数据吧🌈～
 PS（数据表已经创建好了，你可以在右下侧查看数据表中查看数据以及其他相关信息）

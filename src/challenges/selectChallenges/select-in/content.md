@@ -1,10 +1,10 @@
-# 条件查询 - IN查询
+# 条件查询 - IN 查询
 
 ## 简介
 
-上一节我们学完`NULL`查询，通关运用`IS NULL`或者 `IS NOT NULL`可以进行`NULL`相关的查询，接下来我们学习一个简单但常用的查询语句。
+上一节我们学完 `NULL` 查询，通关运用 `IS NULL` 或者 `IS NOT NULL` 可以进行 `NULL` 相关的查询，接下来我们学习一个简单但常用的查询语句。
 
-举一个🌰，比如我们页面上有一个多选下拉框，那么我们通常需要支持用户选择一个或者多个选项，然后判断数据表中的数据是否属于多选中的情况，那么`IN`就派上用场了。
+举一个🌰，比如我们页面上有一个多选下拉框，那么我们通常需要支持用户选择一个或者多个选项，然后判断数据表中的数据是否属于多选中的情况，那么 `IN` 就派上用场了。
 
 IN 查询相关的语法是：
 
@@ -16,9 +16,9 @@ SELECT name, age from student WHERE name IN ("小王", "小丽");
 
 ## 示例
 
-假设我们已经有了一张名为`student`表，表中包含学生的`name`，`age`，`gender`，`birthday`，`address`等字段。
+假设我们已经有了一张名为 `student` 表，表中包含学生的 `name`，`age`，`gender`，`birthday`，`address` 等字段。
 
-`student`表如下：
+`student` 表如下：
 | name | age | gender | birthday | address |
 | ---- | --- | ------ | ---------- | ------------ |
 | 小明 | 20 | 男 | 1998-12-20 | null |
@@ -28,7 +28,7 @@ SELECT name, age from student WHERE name IN ("小王", "小丽");
 | 小宁 | 16 | 男 | 2002-06-12 | null |
 | 小张 | 32 | 男 | null | 广东省深圳市 |
 
-接下来我们想要查询出 `age` 不在 `16` 或者 `20`中的表格数据，那么我们可以使用`NOT IN`来进行查询，如下：
+接下来我们想要查询出 `age` 不在 `16` 或者 `20` 中的表格数据，那么我们可以使用 `NOT IN` 来进行查询，如下：
 
 ```sql
 SELECT name, ag, gender from student WHERE age NOT IN (16, 20);
@@ -46,5 +46,5 @@ SELECT name, ag, gender from student WHERE age NOT IN (16, 20);
 
 ## 挑战
 
-请结合上面👆的案例中的`IN查询`去查询数据表中`address`在`北京市`和`上海市`中并且查询`name`、`age`、`gender`和`address`字段吧🌈～
+请结合上面👆的案例中的 `IN 查询` 去查询数据表中 `address` 在 `北京市` 和 `上海市` 中并且查询 `name`、`age`、`gender` 和 `address` 字段吧🌈～
 PS（数据表已经创建好了，你可以在右下侧查看数据表中查看数据以及其他相关信息）

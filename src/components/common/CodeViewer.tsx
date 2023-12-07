@@ -41,8 +41,8 @@ const CodeViewer: FC<CodeViewerProps> = ({ initSql }) => {
   }, [editorRef, initSql, editor])
 
   useEffect(() => {
-    console.log('sql', initSql, editor)
-    editor?.setValue(format(initSql, { language: 'sql' }))
+    const model = editor?.getModel()
+    model?.setValue(format(initSql, { language: 'sql' }))
   }, [initSql, editor])
 
   return (

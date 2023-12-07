@@ -8,7 +8,7 @@
 
 分组可以对一列或者多列进行分组，分组后可以对分组后的数据进行处理。
 
-**分组后的数据是无序的，如果需要对分组后的数据进行排序，可以使用 `ORDER BY` 子句。**
+** 分组后的数据是无序的，如果需要对分组后的数据进行排序，可以使用 `ORDER BY` 子句。**
 
 分组的语法：
 
@@ -20,20 +20,20 @@ SELECT * FROM table_name GROUP BY column_name1, column_name2, ...;
 
 ## 示例
 
-假设我们已经有一张名为`fruit`表，表中包含水果的`name`，`price`，`supplier`等字段。
+假设我们已经有一张名为 `fruit` 表，表中包含水果的 `name`，`price`，`supplier` 等字段。
 
-`fruit`表如下：
+`fruit` 表如下：
 | name | price | supplier |
 | ---- | ----- | -------- |
-| 苹果 | 5.00 | 供应商A |
-| 香蕉 | 4.00 | 供应商B |
-| 梨 | 4.00 | 供应商C |
-| 西瓜 | 2.00 | 供应商E |
-| 苹果 | 6.00 | 供应商B |
-| 香蕉 | 4.00 | 供应商A |
-| 梨 | 3.00 | 供应商D |
+| 苹果 | 5.00 | 供应商 A |
+| 香蕉 | 4.00 | 供应商 B |
+| 梨 | 4.00 | 供应商 C |
+| 西瓜 | 2.00 | 供应商 E |
+| 苹果 | 6.00 | 供应商 B |
+| 香蕉 | 4.00 | 供应商 A |
+| 梨 | 3.00 | 供应商 D |
 
-接下来我们想要查询出`fruit`表中的所有数据，并且按照`supplier`字段进行分组，那么我们可以使用`GROUP BY`来进行查询，如下：
+接下来我们想要查询出 `fruit` 表中的所有数据，并且按照 `supplier` 字段进行分组，那么我们可以使用 `GROUP BY` 来进行查询，如下：
 
 ```sql
 SELECT name, SUM(price) AS total, supplier FROM fruit GROUP BY supplier, name;
@@ -42,19 +42,19 @@ SELECT name, SUM(price) AS total, supplier FROM fruit GROUP BY supplier, name;
 可以得到如下的结果：
 | name | total | supplier |
 | ---- | ----- | -------- |
-| 苹果 | 11.00 | 供应商A |
-| 香蕉 | 8.00 | 供应商A |
-| 梨 | 7.00 | 供应商C |
-| 西瓜 | 2.00 | 供应商E |
-| 苹果 | 6.00 | 供应商B |
-| 梨 | 3.00 | 供应商D |
+| 苹果 | 11.00 | 供应商 A |
+| 香蕉 | 8.00 | 供应商 A |
+| 梨 | 7.00 | 供应商 C |
+| 西瓜 | 2.00 | 供应商 E |
+| 苹果 | 6.00 | 供应商 B |
+| 梨 | 3.00 | 供应商 D |
 
-可以看到，我们按照`supplier`字段和`name`字段进行了分组，然后对`price`字段进行了求和，得到了每个供应商每种水果的总价。
+可以看到，我们按照 `supplier` 字段和 `name` 字段进行了分组，然后对 `price` 字段进行了求和，得到了每个供应商每种水果的总价。
 
 接下来请完成以下挑战吧～
 
 ## 挑战
 
-假设我们已经有一张学生表 `student`，包含以下字段：`name（姓名）`、`class（班级）`、`subject（学科）`、`score（成绩）`。请你编写一个 SQL 查询，统计学生表中每个班级每个学科的总成绩(`total_score`),分别查询 `class` 、`subject` 和 `total_score`。
+假设我们已经有一张学生表 `student`，包含以下字段：`name`、`className`、`subject`、`score`。请你编写一个 SQL 查询，统计学生表中每个班级每个学科的总成绩 (`total_score`), 分别查询 `class` 、`subject` 和 `total_score`。
 
 PS（数据表已经创建好了，你可以在右下侧查看数据表中查看数据以及其他相关信息）
