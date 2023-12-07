@@ -52,4 +52,4 @@ DROP TABLE customers;
 
 请删除 `customers` 表中的 `email` 和 `birthday` 列。
 
-PS(由于在线 SQL 编辑器的限制，你需要一列一列的删除，不能一次删除多列。)
+PS (由于在线 SQL 编辑器的限制，你需要一列一列的删除，不能一次删除多列。)

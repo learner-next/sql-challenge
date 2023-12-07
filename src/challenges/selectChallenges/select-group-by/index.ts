@@ -4,14 +4,14 @@ import type { Challenge } from '@/type'
 
 const challenge: Challenge = {
   id: 'select-group-by',
-  title: '高级查询 - GROUP BY',
+  title: ' 高级查询 - GROUP BY',
   content,
   initSql,
   author: 'Talljack',
   difficulty: 2,
   sqlType: 'select',
   answerSql:
-    'SELECT class, subject, SUM(score) `total_score` FROM student GROUP by subject;',
+    'SELECT className, subject, SUM(score) `total_score` FROM student GROUP by className, subject;',
   defaultSql: 'SELECT * FROM student;',
   tags: ['select', 'group by'],
   category: 'select',

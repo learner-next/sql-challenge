@@ -2,10 +2,10 @@
 
 ## 简介
 
-在 SQL 中，**一个查询可以嵌套在另一个查询中**。嵌套的查询被称为“子查询”或“子句”。
-**子查询可以用于从一个查询中检索数据，然后在另一个查询中使用这些数据。**
+在 SQL 中，** 一个查询可以嵌套在另一个查询中 **。嵌套的查询被称为 “子查询” 或 “子句”。
+** 子查询可以用于从一个查询中检索数据，然后在另一个查询中使用这些数据。**
 
-### 1.基本的子查询
+### 1. 基本的子查询
 
 子查询可以在 WHERE、FROM 和 SELECT 子句中使用。一个常见的使用场景是在 WHERE 子句中使用子查询，以过滤外部查询的结果。
 
@@ -15,7 +15,7 @@
 SELECT * FROM orders WHERE amount > (SELECT AVG(amount) FROM orders);
 ```
 
-这里，子查询 (SELECT AVG(amount) FROM orders) 计算了 orders 表中所有订单的平均金额。
+这里，子查询 (SELECT AVG (amount) FROM orders) 计算了 orders 表中所有订单的平均金额。
 
 ### 2. FROM 子句中的子查询
 
@@ -64,39 +64,39 @@ WHERE EXISTS (SELECT * FROM orders WHERE orders.customer_id = customers.customer
 
 ## 示例
 
-假设我们已经有一张名为`fruit`表，表中包含水果的`name`，`price`，`supplier`等字段。
+假设我们已经有一张名为 `fruit` 表，表中包含水果的 `name`，`price`，`supplier` 等字段。
 
-`fruit`表如下：
+`fruit` 表如下：
 | name | price | supplier |
 | ---- | ----- | -------- |
-| 苹果 | 5.00 | 供应商A |
-| 香蕉 | 4.00 | 供应商B |
-| 梨 | 4.00 | 供应商C |
-| 西瓜 | 2.00 | 供应商E |
-| 苹果 | 3.00 | 供应商B |
-| 香蕉 | 3.00 | 供应商A |
-| 梨 | 6.00 | 供应商D |
+| 苹果 | 5.00 | 供应商 A |
+| 香蕉 | 4.00 | 供应商 B |
+| 梨 | 4.00 | 供应商 C |
+| 西瓜 | 2.00 | 供应商 E |
+| 苹果 | 3.00 | 供应商 B |
+| 香蕉 | 3.00 | 供应商 A |
+| 梨 | 6.00 | 供应商 D |
 
-接下来我们想要获取供应商中大于供应商A的平均价格的供应商的名称，那么我们可以使用子查询来进行查询，如下：
+接下来我们想要获取供应商中大于供应商 A 的平均价格的供应商的名称，那么我们可以使用子查询来进行查询，如下：
 
 ```sql
 SELECT supplier FROM fruit
-WHERE price > (SELECT AVG(price) FROM fruit WHERE supplier = '供应商A');
+WHERE price > (SELECT AVG (price) FROM fruit WHERE supplier = ' 供应商 A');
 ```
 
 可以得到如下的结果：
 
 | supplier |
 | -------- |
-| 供应商B  |
-| 供应商D  |
+| 供应商 B |
+| 供应商 D |
 
-可以看到，我们成功的获取了供应商中大于供应商A的平均价格的供应商的名称。
+可以看到，我们成功的获取了供应商中大于供应商 A 的平均价格的供应商的名称。
 
 子查询的技巧一般是先把需要的子查询写出来，然后再把外层的查询写出来，这样就可以很容易的写出想要的子查询了。
 
 ## 挑战
 
-假设我们已经有一张学生表 `student`，包含以下字段：`name（姓名）`、`class（班级）`、`subject（学科）`、`score（成绩）`。请你编写一个 SQL 子查询，查询每个学生大于班级平均成绩的学科，返回`name`和`subject`和`score`。
+假设我们已经有一张学生表 `student`，包含以下字段：`name（姓名）`、`class（班级）`、`subject（学科）`、`score（成绩）`。请你编写一个 SQL 子查询，查询每个学生大于班级平均成绩的学科，返回 `name` 和 `subject` 和 `score`。
 
 PS（数据表已经创建好了，你可以在右下侧查看数据表中查看数据以及其他相关信息）
