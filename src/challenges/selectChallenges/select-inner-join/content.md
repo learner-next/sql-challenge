@@ -4,7 +4,7 @@
 
 这一节我们介绍关联查询，关联查询是数据库中非常重要的一部分，也是我们在实际工作中经常使用的一部分。
 
-关联查询是指在查询的时候，我们可以通过 ** 这些表之间的关联列 **，** 将多个表中的数据关联起来，然后一次性查询出来 **。
+关联查询是指在查询的时候，我们可以通过 **这些表之间的关联列**，**将多个表中的数据关联起来，然后一次性查询出来**。
 
 首先我们先介绍 join 语句，join 语句是关联查询的基础，我们先从 join 语句开始学习。
 
@@ -21,7 +21,7 @@ SELECT * FROM table1 [INNER|LEFT|RIGHT|SELF|FULL]JOIN table2 ON table1.column = 
 1. 内连接（inner join）
 2. 左连接（left join）
 3. 右连接（right join）
-4. 全连接（full join）
+4. 全连接（full join）（MySQL 不支持）
 5. 自连接（self join）
 6. 交叉连接（cross join）
 
@@ -31,7 +31,7 @@ SELECT * FROM table1 [INNER|LEFT|RIGHT|SELF|FULL]JOIN table2 ON table1.column = 
 
 `INNER JOIN` 只返回两个表中满足关联条件的交集部分，即在两个表中都存在的匹配行。
 
-内连接是最常用的一种连接方式，使用关键字 `JOIN`(**`INNER` 通常可以省略 **)，它的语法如下：
+内连接是最常用的一种连接方式，使用关键字 `JOIN` (**`INNER` 通常可以省略 **)，它的语法如下：
 
 ```sql
 SELECT * FROM table1 JOIN table2 ON table1.column = table2.column;
@@ -55,6 +55,6 @@ FROM orders o JOIN users u ON o.user_id = u.id;
 
 ## 挑战
 
-假设我们有一个 `student` 表， 表中包含了学生的 `id`, `name`, `age`, `class_id` 等字段，还有一个 `class` 表，表中包含了班级的 `id`, `name`, `teacher` 等字段。
+假设我们有一个 `student` 表， 表中包含了学生的 `id`, `name`, `age`, `class_id` 等字段，还有一个 `class_info` 表，表中包含了班级的 `id`, `name`, `teacher` 等字段。
 
-现在我们需要查询出所有的学生信息，包括学生的 `id`、`s_name`、`age`、`class_id`、`class_name`、`teacher` 等信息，请你来完成挑战吧～
+现在我们需要查询出所有的学生信息，包括学生的 `id`、`s_name`、`age` -> `s_age`、`class_id`、`c_name`、`teacher` -> `c_teacher` 等信息，请你来完成挑战吧～

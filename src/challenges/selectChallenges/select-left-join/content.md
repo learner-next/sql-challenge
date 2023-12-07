@@ -4,9 +4,9 @@
 
 在上一节中，我们学习了如何使用 `INNER JOIN` 来关联两个表。在这一节中，我们将学习如何使用 `LEFT JOIN` 和 `RIGHT JOIN` 来关联两个表。
 
-它们这两种连接类型都是外连接（`OUTER JOIN`），其主要目的是 ** 返回一个表中的记录，即使另一个表中没有匹配的记录 **。(包含没有匹配的行)
+它们这两种连接类型都是外连接（`OUTER JOIN`），其主要目的是 **返回一个表中的记录，即使另一个表中没有匹配的记录**。(包含没有匹配的行)
 
-`LEFT JOIN` 和 `RIGHT JOIN` 的区别在于，`LEFT JOIN` 会返回 ** 左表 ** 中的所有记录，而 `RIGHT JOIN` 会返回 ** 右表 ** 中的所有记录。
+`LEFT JOIN` 和 `RIGHT JOIN` 的区别在于，`LEFT JOIN` 会返回 **左表** 中的所有记录，而 `RIGHT JOIN` 会返回 **右表** 中的所有记录。
 
 ### 语法
 
@@ -16,7 +16,7 @@ SELECT column_name(s) FROM table1 [LEFT|RIGHT] JOIN table2 ON table1.column_name
 
 一般来说 `LEFT JOIN` 和 `RIGHT JOIN` 的语法是一样的，只是关键字不同，而且通过把表的位置调换可以达到同样的效果。
 
-但值得注意的是，并非所有数据库系统都支持 RIGHT JOIN，** 但所有系统都支持 LEFT JOIN。因此，为了跨数据库的兼容性，一些开发者更倾向于使用 LEFT JOIN**。
+但值得注意的是，并非所有数据库系统都支持 RIGHT JOIN，**但所有系统都支持 LEFT JOIN。因此，为了跨数据库的兼容性，一些开发者更倾向于使用 LEFT JOIN**。
 
 ## 示例
 
@@ -62,7 +62,7 @@ SELECT e.id, e.name, e.department, salary, d.manager FROM employee e LEFT JOIN d
 
 ## 挑战
 
-假设我们有一个 `student` 表，表中包含学生的 `id` `name` `age` `class` `score`，还有一个 `class` 表表中包含班级的 `id` `name` `teacher`。
+假设我们有一个 `student` 表，表中包含学生的 `id` `name` `age` `class_name` `score`，还有一个 `class_info` 表表中包含班级的 `id` `name` `teacher`。
 现在请你帮我查询出所有学生的信息，以及他们所在班级的信息。
 
 你需要返回字段 `student.id -> s_id` `student.name -> s_name` `student.age -> s_age` `student.class -> s_class`

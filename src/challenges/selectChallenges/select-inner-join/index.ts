@@ -4,16 +4,16 @@ import type { Challenge } from '@/type'
 
 const challenge: Challenge = {
   id: 'select-inner-join',
-  title: '关联查询 - INNER JOIN',
+  title: ' 关联查询 - INNER JOIN',
   content,
   initSql,
   author: 'Talljack',
   difficulty: 2,
   sqlType: 'select',
   answerSql:
-    'SELECT s.id id, s.name s_name, age, c.id class_id, c.name class_name, teacher FROM student s INNER JOIN class c ON s.class_id = c.id;',
+    'SELECT s.id id, s.name s_name, s.age s_age, c.id class_id, c.name class_name, c.teacher c_teacher FROM student s INNER JOIN class_info c ON s.class_id = c.id;',
   showTableSql:
-    'SELECT s.id id, name, age, c.id class_id, c.name class_name, teacher FROM student s FULL JOIN class c ON s.class_id = c.id;',
+    'SELECT s.id id, s.name name, s.age age, c.id class_id, c.name class_name, c.teacher teacher FROM student s, class_info c WHERE s.class_id = c.id;',
   defaultSql: 'SELECT * FROM student JOIN class;',
   tags: ['select', 'inner-join'],
   category: 'select',

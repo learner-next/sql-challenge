@@ -6,9 +6,9 @@
 
 你估计想到了 `excel` 表中的相关函数比如 `SUM`、`AVG`、`MAX` 等，没错，`SQL` 中也支持这些聚合函数，那么我们该如何使用呢？
 
-接下来我们要学习的正是聚合函数查询 - 也就是对我们 ** 查询出来后 ** 的结果进行处理。
+接下来我们要学习的正是聚合函数查询 - 也就是对我们 **查询出来后** 的结果进行处理。
 
-查询的 SQL 语法是 `SELECT SUM (fieldName), COUNT (fieldName2)  FROM tableName`，`fieldName`、`fieldName2` 代表所需要查询的字段，`tableName` 代表表名，对查询的结果的对应 `fieldName`** 字段结果 ** 进行求和以及对 `fieldName2`** 字段结果 ** 进行求总量。
+查询的 SQL 语法是 `SELECT SUM (fieldName), COUNT (fieldName2)  FROM tableName`，`fieldName`、`fieldName2` 代表所需要查询的字段，`tableName` 代表表名，对查询的结果的对应 `fieldName`**字段结果** 进行求和以及对 `fieldName2`**字段结果** 进行求总量。
 
 ### 聚合函数的种类
 

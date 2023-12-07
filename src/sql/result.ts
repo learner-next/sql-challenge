@@ -31,6 +31,9 @@ export const checkedSqlResult = (
   ) {
     return RESULT_STATUS_ENUM.SUCCEED
   }
+  if (userResults.length === 0 && answerResults.length === 0) {
+    return RESULT_STATUS_ENUM.SUCCEED
+  }
   if (!userResults?.length || !answerResults?.length) {
     return RESULT_STATUS_ENUM.ERROR
   }

@@ -5,7 +5,7 @@
 SQL 是一种用于管理关系数据库的编程语言。在本教程中，我们将介绍 SQL 的两个重要命令：`UNION` 和 `UNION ALL`。
 
 1. `UNION`
-   `UNION` 命令用于 ** 合并两个或多个 ** `SELECT` 语句的结果集。但是，它会 ** 删除重复的行 **。以下是 `UNION` 的基本语法：
+   `UNION` 命令用于 **合并两个或多个** `SELECT` 语句的结果集。但是，它会 **删除重复的行**。以下是 `UNION` 的基本语法：
 
 ```sql
 SELECT column_name(s) FROM table1
@@ -17,7 +17,7 @@ SELECT column_name(s) FROM table2;
 
 2. `UNION ALL`
 
-与 `UNION` 类似，`UNION ALL` 也用于 ** 合并两个 ** `SELECT` 语句的 ** 结果集 **。但是，与 `UNION` 不同，`UNION ALL` 会 ** 保留所有重复的行 **。以下是 `UNION ALL` 的基本语法：
+与 `UNION` 类似，`UNION ALL` 也用于 **合并两个** `SELECT` 语句的 **结果集**。但是，与 `UNION` 不同，`UNION ALL` 会 **保留所有重复的行**。以下是 `UNION ALL` 的基本语法：
 
 ```sql
 SELECT column_name(s) FROM table1
@@ -71,5 +71,5 @@ SELECT name, city FROM suppliers;
 
 ## 挑战
 
-请结合上面👆的示例去查询数据表中所有行的数据，分别查询 `student` 表和 `teacher` 表中的 `age` 字段，进行 ** 不去重 ** 查询🌈～
+请结合上面👆的示例去查询数据表中所有行的数据，分别查询 `student` 表和 `teacher` 表中的 `age` 字段，进行 **不去重** 查询🌈～
 PS（数据表已经创建好了，你可以在右下侧查看数据表（结合成一张表展示了）中查看数据以及其他相关信息）

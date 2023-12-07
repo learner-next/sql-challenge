@@ -1,53 +1,47 @@
 CREATE TABLE IF NOT EXISTS `employees` (
-    employee_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    employee_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     salary INT(11) NOT NULL,
     department_id INT(11) NOT NULL
 );
 
-INSERT INTO `employees` (employee_id, first_name, last_name, salary, department_id) VALUES (
-    1,
+INSERT INTO `employees` (first_name, last_name, salary, department_id) VALUES (
     'John',
     'Doe',
     100000,
     100
 );
 
-INSERT INTO `employees` (employee_id, first_name, last_name, salary, department_id) VALUES (
-    2,
+INSERT INTO `employees` (first_name, last_name, salary, department_id) VALUES (
     'Steven',
     'King',
     120000,
     100
 );
 
-INSERT INTO `employees` (employee_id, first_name, last_name, salary, department_id) VALUES (
-    3,
+INSERT INTO `employees` (first_name, last_name, salary, department_id) VALUES (
     'Nancy',
     'Greenberg',
     120000,
     101
 );
 
-INSERT INTO `employees` (employee_id, first_name, last_name, salary, department_id) VALUES (
-    4,
+INSERT INTO `employees` (first_name, last_name, salary, department_id) VALUES (
     'Steven',
     'Stevenson',
     80000,
     102
 );
 
-INSERT INTO `employees` (employee_id, first_name, last_name, salary, department_id) VALUES (
-    5,
+INSERT INTO `employees` (first_name, last_name, salary, department_id) VALUES (
     'Christopher',
     'Columbus',
     80000,
     102
 );
 
-INSERT INTO `employees` (employee_id, first_name, last_name, salary, department_id) VALUES (
-    6,
+INSERT INTO `employees` (first_name, last_name, salary, department_id) VALUES (
     'John',
     'Smith',
     80000,

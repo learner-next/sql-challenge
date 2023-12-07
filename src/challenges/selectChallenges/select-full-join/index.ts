@@ -4,16 +4,16 @@ import type { Challenge } from '@/type'
 
 const challenge: Challenge = {
   id: 'select-full-join',
-  title: '关联查询 - FULL JOIN',
+  title: ' 关联查询 - FULL JOIN',
   content,
   initSql,
   author: 'Talljack',
   difficulty: 2,
   sqlType: 'select',
   answerSql:
-    'SELECT s.id id, s.name name, age, course, IFNULL(sc.score, 0) score FROM student s FULL JOIN score sc ON s.name = sc.name;',
+    'SELECT s.id id, s.name name, s.age age, s.course course, IFNULL(sc.score, 0) score FROM student s FULL JOIN score_info sc ON s.name = sc.name;',
   showTableSql:
-    'SELECT s.id id, s.name name, age, course, score FROM student s FULL JOIN score sc ON s.name = sc.name;',
+    'SELECT s.id id, s.name name, s.age age, s.course course, sc.score score FROM student s, score_info sc WHERE s.name = sc.name;',
   defaultSql: 'SELECT * FROM student FULL JOIN score;',
   tags: ['select', 'full-join'],
   category: 'select',

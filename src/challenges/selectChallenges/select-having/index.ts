@@ -13,8 +13,8 @@ const challenge: Challenge = {
   category: 'select',
   tags: ['select', 'having'],
   answerSql:
-    'SELECT name, className, AVG(score) AS avg_score FROM student GROUP BY className HAVING avg_score > 80 OR avg_score < 20 ORDER BY avg_score DESC;',
-  defaultSql: 'SELECT name, className, score FROM student;',
+    'SELECT className, AVG(score) avg_score FROM student GROUP BY className HAVING avg_score > 80 OR avg_score < 20 ORDER BY avg_score DESC;',
+  defaultSql: 'SELECT className, score FROM student;',
   showTableSql: 'SELECT * FROM student;',
 
   hit: 'Having 子句用于在 GROUP BY 语句中指定过滤条件。可使用多个聚合函数，如 COUNT ()、SUM ()、AVG () 等来进行过滤。'
