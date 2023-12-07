@@ -12,7 +12,7 @@
 DELETE FROM table_name WHERE condition;
 ```
 
-Condition 是可选的，如果没有指定，那么所有的行都会被删除。** 注意：如果没有指定 Condition，那么所有的行都会被删除！**
+Condition 是可选的，如果没有指定，那么所有的行都会被删除。**注意：如果没有指定 Condition，那么所有的行都会被删除！**
 
 比如说，我们想要删除 `customers` 表中 `name` 为 `John` 的行，我们可以这样写：
 
@@ -40,7 +40,7 @@ DELETE FROM customers WHERE name = 'John' OR name = 'Mary';
 DELETE FROM customers;
 ```
 
-这样会删除表中的所有行，但是 ** 表结构不会被删除 **。
+这样会删除表中的所有行，但是 **表结构不会被删除**。
 
 接下来请完成下面的挑战吧～
 

@@ -64,5 +64,5 @@ HAVING avg_salary > 5000 AND max_salary > 10000;
 
 ## 挑战
 
-假设我们有一个 `student` 表，表中包含 `name` `className` 和 `score` 三个字段，现在我们想要查询每个班级的平均分大于 80 的学生或者小于 20 人的学生信息并返回 `name`、`className` 和 `avg_score` 字段，并按照 `avg_score` 进行降序序返回。
+假设我们有一个 `student` 表，表中包含 `className` 和 `score` 三个字段，现在我们想要查询每个班级的平均分大于 80 的学生或者小于 20 人的学生信息并返回 `className` 和 `avg_score` 字段，并按照 `avg_score` 进行降序序返回。
 PS: 请使用 `HAVING` 子句完成查询。

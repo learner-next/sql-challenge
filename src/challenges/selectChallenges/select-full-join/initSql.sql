@@ -1,4 +1,4 @@
-CREATE TABLE `student` (
+CREATE TABLE IF NOT EXISTS `student` (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     age INT NOT NULL,
@@ -12,13 +12,13 @@ INSERT INTO `student` (name, age, course) VALUES ('David', 27, 'English');
 INSERT INTO `student` (name, age, course) VALUES ('Eve', 23, 'Science');
 INSERT INTO `student` (name, age, course) VALUES ('ToM', 23, 'Computer');
 
-CREATE TABLE IF NOT EXISTS `score` (
+CREATE TABLE IF NOT EXISTS `score_info` (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     score INT NOT NULL
 );
 
-INSERT INTO `score` (
+INSERT INTO `score_info` (
     name,
     score
 ) VALUES (
@@ -26,7 +26,7 @@ INSERT INTO `score` (
     90
 );
 
-INSERT INTO `score` (
+INSERT INTO `score_info` (
     name,
     score
 ) VALUES (
@@ -34,7 +34,7 @@ INSERT INTO `score` (
     80
 );
 
-INSERT INTO `score` (
+INSERT INTO `score_info` (
     name,
     score
 ) VALUES (
@@ -42,7 +42,7 @@ INSERT INTO `score` (
     70
 );
 
-INSERT INTO `score` (
+INSERT INTO `score_info` (
     name,
     score
 ) VALUES (
@@ -50,7 +50,7 @@ INSERT INTO `score` (
     60
 );
 
-INSERT INTO `score` (
+INSERT INTO `score_info` (
     name,
     score
 ) VALUES (
@@ -58,7 +58,7 @@ INSERT INTO `score` (
     50
 );
 
-INSERT INTO `score` (
+INSERT INTO `score_info` (
     name,
     score
 ) VALUES (

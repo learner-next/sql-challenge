@@ -4,16 +4,16 @@ import type { Challenge } from '@/type'
 
 const challenge: Challenge = {
   id: 'select-left-join',
-  title: '关联查询 - LEFT JOIN',
+  title: ' 关联查询 - LEFT JOIN',
   content,
   initSql,
   author: 'Talljack',
   difficulty: 2,
   sqlType: 'select',
   answerSql:
-    'SELECT s.id s_id, s.name s_name, age s_age, s.class s_class, s.score s_score, teacher c_teacher FROM student s LEFT JOIN class c ON s.class = c.name;',
+    'SELECT s.id s_id, s.name s_name, age s_age, s.class_name s_class, s.score s_score, teacher c_teacher FROM student s LEFT JOIN class_info c ON s.class_name = c.name;',
   showTableSql:
-    'SELECT s.id s_id, s.name s_name, age s_age, s.class s_class, s.score s_score, teacher c_teacher FROM student s FULL JOIN class c ON s.class = c.name;',
+    'SELECT s.id s_id, s.name s_name, age s_age, s.class_name s_class, s.score s_score, teacher c_teacher FROM student s, class_info c WHERE s.class_name = c.name;',
   defaultSql: 'SELECT * FROM student LEFT JOIN class;',
   tags: ['select', 'left-join', 'right-join'],
   category: 'select',

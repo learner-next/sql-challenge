@@ -6,7 +6,7 @@
 
 ### 1. `ANY` 运算符
 
-`ANY` 运算符用于 ** 将一个结果集中的每一行 ** 与 ** 外部查询中的每一行 ** 进行比较，** 如果有 _ 任意一行 _ 满足条件 **，则返回 `TRUE`，否则返回 `FALSE`。
+`ANY` 运算符用于 **将一个结果集中的每一行** 与 **外部查询中的每一行** 进行比较，**如果有 _ 任意一行 _ 满足条件**，则返回 `TRUE`，否则返回 `FALSE`。
 
 ```sql
 SELECT * FROM t1 WHERE col1 > ANY (SELECT col2 FROM t2);
@@ -16,7 +16,7 @@ SELECT * FROM t1 WHERE col1 > ANY (SELECT col2 FROM t2);
 
 ### 2. `ALL` 运算符
 
-`ALL` 运算符用于 ** 将一个结果集中的每一行 ** 与 ** 外部查询中的每一行 ** 进行比较，** 如果 _ 所有行 _ 都满足条件 **，则返回 `TRUE`，否则返回 `FALSE`。
+`ALL` 运算符用于 **将一个结果集中的每一行** 与 **外部查询中的每一行** 进行比较，**如果 _ 所有行 _ 都满足条件**，则返回 `TRUE`，否则返回 `FALSE`。
 
 ```sql
 SELECT * FROM t1 WHERE col1 > ALL (SELECT col2 FROM t2);
@@ -30,7 +30,7 @@ SELECT * FROM t1 WHERE col1 > ALL (SELECT col2 FROM t2);
 
 ### 4. 注意事项
 
-- 使用 `ANY` 和 `ALL` 时，子查询必须返回 ** 一列 ** 数据。如果子查询返回多列数据，你会得到一个错误。
+- 使用 `ANY` 和 `ALL` 时，子查询必须返回 **一列** 数据。如果子查询返回多列数据，你会得到一个错误。
 
 - 当子查询没有返回任何数据时，`ALL` 运算符将返回 `TRUE`，而 `ANY` 运算符将返回 `FALSE`。
 
