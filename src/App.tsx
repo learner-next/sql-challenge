@@ -1,13 +1,15 @@
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useCallback } from 'react'
 import SqlChallenge from '/sql-challenge.svg'
 import { Outlet, Link, useNavigate, useRouter } from '@tanstack/react-router'
 import { pathParamMap } from '@/utils'
 import SqlChallengeSearch from '@/components/common/SqlChallengeSearch'
+import { useAtom } from 'jotai'
+import { activeNameAtom } from '@/state/activeName'
 
 function App() {
   const navigate = useNavigate()
   const router = useRouter()
-  const [activeName, setActiveName] = useState('')
+  const [activeName, setActiveName] = useAtom(activeNameAtom)
   useEffect(() => {
     const pathName = router.history.location.pathname
     const [, path, paramChallengeId] = pathName.split('/')
@@ -21,10 +23,9 @@ function App() {
       // path map -> challengeId
       const challengeId = pathParamMap[path as keyof typeof pathParamMap]
       challengeId &&
+        // @ts-ignore
         navigate({
           to: `${path}/$challengeId`,
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
           params: { challengeId }
         })
       return
@@ -32,12 +33,12 @@ function App() {
   }, [navigate, router])
 
   // need to watch immediate
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // react-hooks/exhaustive-deps
   useEffect(() => {
     const pathName = router.history.location.pathname
     const [, path] = pathName.split('/')
     setActiveName(path)
-  })
+  }, [router, setActiveName])
   const getActiveColor = useCallback(
     (linkPath: string) => {
       return activeName === linkPath ? 'text-green-500' : 'text-zinc-600'
@@ -52,6 +53,9 @@ function App() {
           <Link
             to="/create-challenge/$challengeId"
             params={{ challengeId: 'create-table' }}
+            onClick={() => {
+              setActiveName('create-challenge')
+            }}
           >
             <span
               className={` hover:text-green-500 ${getActiveColor(
@@ -64,6 +68,9 @@ function App() {
           <Link
             to="/select-challenge/$challengeId"
             params={{ challengeId: 'select-base' }}
+            onClick={() => {
+              setActiveName('select-challenge')
+            }}
           >
             <span
               className={`hover:text-green-500 ${getActiveColor(
@@ -76,6 +83,9 @@ function App() {
           <Link
             to="/update-challenge/$challengeId"
             params={{ challengeId: 'update-table' }}
+            onClick={() => {
+              setActiveName('update-challenge')
+            }}
           >
             <span
               className={`hover:text-green-500 ${getActiveColor(
@@ -88,6 +98,9 @@ function App() {
           <Link
             to="/delete-challenge/$challengeId"
             params={{ challengeId: 'delete-table' }}
+            onClick={() => {
+              setActiveName('delete-challenge')
+            }}
           >
             <span
               className={`hover:text-green-500 ${getActiveColor(
@@ -97,7 +110,12 @@ function App() {
               Delete
             </span>
           </Link>
-          <Link to="/sql-challenges">
+          <Link
+            to="/sql-challenges"
+            onClick={() => {
+              setActiveName('sql-challenges')
+            }}
+          >
             <span
               className={`hover:text-green-500 ${getActiveColor(
                 'sql-challenges'
@@ -106,7 +124,12 @@ function App() {
               Challenges
             </span>
           </Link>
-          <Link to="/sql-playground">
+          <Link
+            to="/sql-playground"
+            onClick={() => {
+              setActiveName('sql-playground')
+            }}
+          >
             <span
               className={`hover:text-green-500 ${getActiveColor(
                 'sql-playground'

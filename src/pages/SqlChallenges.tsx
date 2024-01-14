@@ -10,6 +10,8 @@ import deleteChallenges from '@/challenges/deleteChallenges'
 import { AiFillStar } from 'react-icons/ai'
 import { BsStarHalf } from 'react-icons/bs'
 import { useNavigate } from '@tanstack/react-router'
+import { useAtom } from 'jotai'
+import { activeNameAtom } from '@/state/activeName'
 
 const tabChallengesMap = {
   Create: createChallenges,
@@ -27,11 +29,12 @@ const tabChallengePathMap = {
 
 function SqlChallenges() {
   const navigate = useNavigate()
+  const [, setActiveName] = useAtom(activeNameAtom)
   const jumpToChallenge = (path: string, challengeId: string) => {
+    setActiveName(path.slice(1))
+    // @ts-ignore
     navigate({
       to: `${path}/$challengeId`,
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
       params: { challengeId }
     })
   }

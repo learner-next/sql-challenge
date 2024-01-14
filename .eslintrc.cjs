@@ -21,6 +21,7 @@ module.exports = {
     "react/no-unknown-property": [2, { "ignore": ["class"] }],
     "react-refresh/only-export-components": "off",
     "react/prop-types": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
   },
   settings: {
     react: { version: 'detect' },

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "packageManager": "bun@1.0.21",
+  "packageManager": "bun@1.0.22",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -12,7 +12,6 @@
     "lint:fix": "eslint . --ext ts,tsx --fix",
     "format": "prettier --cache --write \"src/**/*.{ts,tsx,json,css,scss,md}\"",
     "preview": "vite preview",
-    "preinstall": "npx only-allow bun",
     "postinstall": "simple-git-hooks"
   },
   "simple-git-hooks": {
@@ -49,6 +48,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "github-markdown-css": "^5.5.0",
+    "jotai": "^2.6.1",
     "lucide-react": "^0.308.0",
     "monaco-editor": "^0.45.0",
     "monaco-editor-component": "^0.1.0",
