@@ -39,7 +39,6 @@ const SqlQuestion: FC<SqlQuestionProps> = ({
         willToChallenge = getNextChallenge(challenge, allChallenges)
       }
       navigate({
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         to: `/${path}/$challengeId`,
         params: {

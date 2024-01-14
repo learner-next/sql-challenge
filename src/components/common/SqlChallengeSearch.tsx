@@ -15,6 +15,8 @@ import updateChallenges from '@/challenges/updateChallenges'
 import deleteChallenges from '@/challenges/deleteChallenges'
 import type { Challenge } from '@/type'
 import { Link } from '@tanstack/react-router'
+import { useAtom } from 'jotai'
+import { activeNameAtom } from '@/state/activeName'
 
 const sqlChallengeTypePathMap = {
   create: '/create-challenge',
@@ -37,6 +39,7 @@ const SqlChallengeSearch: FC<SqlChallengeSearchProps> = ({
   type = 'text'
 }) => {
   const [value, setValue] = useState('')
+  const [, setActiveName] = useAtom(activeNameAtom)
   const [filteredChallenges, setFilteredChallenges] = useState<Challenge[]>([])
   const inputRef = useRef<HTMLInputElement>(null)
   const onInteractOutside = (e: Event) => {
@@ -107,16 +110,23 @@ const SqlChallengeSearch: FC<SqlChallengeSearchProps> = ({
           <div>
             {filteredChallenges.map((challenge, index) => (
               <div key={challenge.id}>
+                {/* @ts-ignore */}
                 <Link
                   to={`${
                     sqlChallengeTypePathMap[
                       challenge.sqlType as keyof typeof sqlChallengeTypePathMap
                     ]
                   }/$challengeId`}
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignore
                   params={{ challengeId: challenge.id }}
-                  onClick={() => setFilteredChallenges([])}
+                  onClick={() => {
+                    setActiveName(
+                      sqlChallengeTypePathMap[
+                        challenge.sqlType as keyof typeof sqlChallengeTypePathMap
+                      ].slice(1)
+                    )
+                    setValue('')
+                    setFilteredChallenges([])
+                  }}
                 >
                   <div className="flex items-center justify-between p-2 hover:bg-gray-100">
                     <span className="text-sm font-bold">{challenge.title}</span>

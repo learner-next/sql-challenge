@@ -63,7 +63,6 @@ const SqlResult: FC<SqlResultProps> = ({
                 {sqlResults?.map((row, index) => (
                   <TableRow key={index}>
                     {Object.keys(row)?.map((key, index) => (
-                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                       // @ts-ignore
                       <TableCell key={index}>{row?.[key]}</TableCell>
                     ))}
