@@ -5,7 +5,6 @@ import 'highlight.js/styles/default.css'
 import gemoji from '@bytemd/plugin-gemoji'
 import 'github-markdown-css/github-markdown-light.css'
 import 'bytemd/dist/index.css'
-import 'highlight.js/styles/default.css'
 
 const plugins = [gfm(), highlight(), gemoji()]
 

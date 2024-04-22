@@ -1,3 +1,4 @@
+import { RootRoute, Route, Router } from '@tanstack/react-router'
 import App from '@/App'
 import SelectChallenge from '@/pages/SelectChallenge'
 import SqlChallenges from '@/pages/SqlChallenges'
@@ -5,7 +6,6 @@ import CreateChallenge from '@/pages/CreateChallenge'
 import UpdateChallenge from '@/pages/UpdateChallenge'
 import DeleteChallenge from '@/pages/DeleteChallenge'
 import SqlPlayground from '@/pages/SqlPlayground'
-import { Router, Route, RootRoute } from '@tanstack/react-router'
 
 // Create a root route
 const rootRoute = new RootRoute({

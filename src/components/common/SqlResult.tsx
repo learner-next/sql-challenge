@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import type { FC } from 'react'
 import { RESULT_STATUS_MAP } from '@/sql/result'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import {
@@ -40,7 +40,7 @@ const SqlResult: FC<SqlResultProps> = ({
             <div className="text-lg font-bold">
               {
                 RESULT_STATUS_MAP[
-                  resultStatus as keyof typeof RESULT_STATUS_MAP
+                  resultStatus as unknown as keyof typeof RESULT_STATUS_MAP
                 ]
               }
             </div>
@@ -63,7 +63,6 @@ const SqlResult: FC<SqlResultProps> = ({
                 {sqlResults?.map((row, index) => (
                   <TableRow key={index}>
                     {Object.keys(row)?.map((key, index) => (
-                      // @ts-ignore
                       <TableCell key={index}>{row?.[key]}</TableCell>
                     ))}
                   </TableRow>
@@ -73,7 +72,12 @@ const SqlResult: FC<SqlResultProps> = ({
           </ScrollArea>
         </CardContent>
       ) : (
-        type === 'user' && <div>❌ 语句错误：{errorMessage}</div>
+        type === 'user' && (
+          <div>
+            ❌ 语句错误：
+            {errorMessage}
+          </div>
+        )
       )}
     </Card>
   )

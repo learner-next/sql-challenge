@@ -1,6 +1,6 @@
 import content from './content.md?raw'
-import type { Challenge } from '@/type'
 import initSql from './initSql.sql?raw'
+import type { Challenge } from '@/type'
 
 const challenge: Challenge = {
   id: 'select-base',

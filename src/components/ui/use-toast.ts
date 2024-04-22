@@ -22,6 +22,9 @@ const actionTypes = {
 
 let count = 0
 
+/**
+ *
+ */
 function genId() {
   count = (count + 1) % Number.MAX_VALUE
   return count.toString()
@@ -54,15 +57,13 @@ interface State {
 const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>()
 
 const addToRemoveQueue = (toastId: string) => {
-  if (toastTimeouts.has(toastId)) {
-    return
-  }
+  if (toastTimeouts.has(toastId)) return
 
   const timeout = setTimeout(() => {
     toastTimeouts.delete(toastId)
     dispatch({
       type: 'REMOVE_TOAST',
-      toastId: toastId
+      toastId
     })
   }, TOAST_REMOVE_DELAY)
 
@@ -128,6 +129,10 @@ const listeners: Array<(state: State) => void> = []
 
 let memoryState: State = { toasts: [] }
 
+/**
+ *
+ * @param action
+ */
 function dispatch(action: Action) {
   memoryState = reducer(memoryState, action)
   listeners.forEach(listener => {
@@ -137,6 +142,10 @@ function dispatch(action: Action) {
 
 type Toast = Omit<ToasterToast, 'id'>
 
+/**
+ *
+ * @param root0
+ */
 function toast({ ...props }: Toast) {
   const id = genId()
 
@@ -160,12 +169,15 @@ function toast({ ...props }: Toast) {
   })
 
   return {
-    id: id,
+    id,
     dismiss,
     update
   }
 }
 
+/**
+ *
+ */
 function useToast() {
   const [state, setState] = React.useState<State>(memoryState)
 
@@ -173,9 +185,7 @@ function useToast() {
     listeners.push(setState)
     return () => {
       const index = listeners.indexOf(setState)
-      if (index > -1) {
-        listeners.splice(index, 1)
-      }
+      if (index > -1) listeners.splice(index, 1)
     }
   }, [state])
 

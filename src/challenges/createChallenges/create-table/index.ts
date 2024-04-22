@@ -1,11 +1,11 @@
-import type { Challenge } from '@/type'
 import content from './content.md?raw'
 import initSql from './initSql.sql?raw'
+import type { Challenge } from '@/type'
 
 const challenge: Challenge = {
   id: 'create-table',
   title: '创建表 - 创建数据表',
-  content: content,
+  content,
   difficulty: 1,
   category: '创建表',
   tags: ['create'],

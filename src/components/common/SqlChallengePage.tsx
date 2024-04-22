@@ -1,14 +1,14 @@
-import SqlEditor from '@/components/common/SqlEditor'
 import { useParams } from '@tanstack/react-router'
-import { getChallengeByKey } from '@/challenges'
 import { useEffect, useState } from 'react'
+import type { FC } from 'react'
+import SqlEditor from '@/components/common/SqlEditor'
+import { getChallengeByKey } from '@/challenges'
 import { RESULT_STATUS_ENUM, checkedSqlResult } from '@/sql/result'
 import type { Challenge, SqlResultType } from '@/type'
 import SqlQuestion from '@/components/common/SqlQuestion'
 import SqlResult from '@/components/common/SqlResult'
 import AccordionResult from '@/components/common/AccordionResult'
 import CodeViewer from '@/components/common/CodeViewer'
-import type { FC } from 'react'
 
 interface SqlChallengePageProps {
   allChallenges: Challenge[]

@@ -1,11 +1,11 @@
-import type { Challenge, SqlResultType } from '@/type'
-import { FC, useState, useEffect } from 'react'
-import type { CSSProperties } from 'react'
+import { useEffect, useState } from 'react'
+import type { CSSProperties, FC } from 'react'
 import { Button } from '@components/ui/button'
 import { format } from 'sql-formatter'
+import { MonacoEditor } from 'monaco-editor-component/react'
 import { initSql, runSql } from '@/sql/db'
 import { useToast } from '@/components/ui/use-toast'
-import { MonacoEditor } from 'monaco-editor-component/react'
+import type { Challenge, SqlResultType } from '@/type'
 import '@/monacoEditorWorker'
 
 interface Props {
@@ -40,9 +40,9 @@ const SqlEditor: FC<Props> = ({
         const userResult = runSql(formattedValue)
         // create or update run twice sql will throw error, only validate user's sql return 1
         let answerResult = 0
-        if (challenge?.needRunAnswerSql !== false) {
+        if (challenge?.needRunAnswerSql !== false)
           answerResult = runSql(challenge.answerSql)
-        }
+
         onSubmit(
           formattedValue,
           userResult,
@@ -75,7 +75,6 @@ ${challenge.defaultSql}`
     } catch (error) {
       console.error(error)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [challenge.initSql, challenge.showTableSql, challenge.defaultSql])
   return (
     <div className={className}>

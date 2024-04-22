@@ -1,6 +1,6 @@
+import { useState } from 'react'
 import SqlEditor from '@/components/common/SqlEditor'
 import SqlResult from '@/components/common/SqlResult'
-import { useState } from 'react'
 import type { Challenge, SqlResultType } from '@/type'
 
 const initSql = `

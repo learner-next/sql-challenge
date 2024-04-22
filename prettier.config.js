@@ -4,7 +4,7 @@ const config = {
   singleQuote: true,
   trailingComma: 'none',
   arrowParens: 'avoid',
-  plugins: ['prettier-plugin-tailwindcss']
+  plugins: ['prettier-plugin-tailwindcss'],
 }
 
 export default config

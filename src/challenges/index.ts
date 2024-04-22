@@ -3,6 +3,7 @@ import type { Challenge } from '@/type'
 /**
  * Returns the challenge object with the specified key ID.
  * @param keyId The key ID of the challenge to retrieve.
+ * @param allChallenges
  * @returns The challenge object with the specified key ID, or undefined if not found.
  */
 export const getChallengeByKey = (
@@ -17,6 +18,7 @@ export const getChallengeByKey = (
 /**
  * Returns the index of the current challenge in the mainChallenges array.
  * @param currentChallenge The current challenge to find the index of.
+ * @param allChallenges
  * @returns The index of the current challenge in the mainChallenges array.
  */
 export const getCurrentChallengeNum = (
@@ -31,6 +33,7 @@ export const getCurrentChallengeNum = (
 /**
  * Returns the previous challenge object based on the current challenge object.
  * @param currentChallenge - The current challenge object.
+ * @param allChallenges
  * @returns The previous challenge object.
  */
 export const getPrevChallenge = (
@@ -48,6 +51,7 @@ export const getPrevChallenge = (
 /**
  * Returns the next challenge object based on the current challenge object.
  * @param currentChallenge - The current challenge object.
+ * @param allChallenges
  * @returns The next challenge object.
  */
 export const getNextChallenge = (

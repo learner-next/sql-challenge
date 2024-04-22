@@ -43,7 +43,7 @@ const Tag: FC<TagProps> = ({
       className={`inline-flex items-center justify-center rounded-md p-2 ${
         sizeMap[size]
       } ${variantMap[variant]} ${
-        disabled ? disabledMap['true'] : disabledMap['false']
+        disabled ? disabledMap.true : disabledMap.false
       } ${textColor} ${backgroundColor} ${className}`}
       onClick={onClick}
     >

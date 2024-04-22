@@ -1,11 +1,14 @@
-import { useEffect, useCallback } from 'react'
+import { useCallback, useEffect } from 'react'
 import SqlChallenge from '/sql-challenge.svg'
-import { Outlet, Link, useNavigate, useRouter } from '@tanstack/react-router'
+import { Link, Outlet, useNavigate, useRouter } from '@tanstack/react-router'
+import { useAtom } from 'jotai'
 import { pathParamMap } from '@/utils'
 import SqlChallengeSearch from '@/components/common/SqlChallengeSearch'
-import { useAtom } from 'jotai'
 import { activeNameAtom } from '@/state/activeName'
 
+/**
+ *
+ */
 function App() {
   const navigate = useNavigate()
   const router = useRouter()
@@ -23,9 +26,8 @@ function App() {
       // path map -> challengeId
       const challengeId = pathParamMap[path as keyof typeof pathParamMap]
       challengeId &&
-        // @ts-ignore
         navigate({
-          to: `${path}/$challengeId`,
+          to: `${path as 'select-challenge'}/$challengeId`,
           params: { challengeId }
         })
       return

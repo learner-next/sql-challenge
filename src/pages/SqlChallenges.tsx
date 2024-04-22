@@ -1,3 +1,7 @@
+import { AiFillStar } from 'react-icons/ai'
+import { BsStarHalf } from 'react-icons/bs'
+import { useNavigate } from '@tanstack/react-router'
+import { useAtom } from 'jotai'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -7,10 +11,6 @@ import createChallenges from '@/challenges/createChallenges'
 import selectChallenges from '@/challenges/selectChallenges'
 import updateChallenges from '@/challenges/updateChallenges'
 import deleteChallenges from '@/challenges/deleteChallenges'
-import { AiFillStar } from 'react-icons/ai'
-import { BsStarHalf } from 'react-icons/bs'
-import { useNavigate } from '@tanstack/react-router'
-import { useAtom } from 'jotai'
 import { activeNameAtom } from '@/state/activeName'
 
 const tabChallengesMap = {
@@ -27,14 +27,16 @@ const tabChallengePathMap = {
   Delete: '/delete-challenge'
 }
 
+/**
+ *
+ */
 function SqlChallenges() {
   const navigate = useNavigate()
   const [, setActiveName] = useAtom(activeNameAtom)
   const jumpToChallenge = (path: string, challengeId: string) => {
     setActiveName(path.slice(1))
-    // @ts-ignore
     navigate({
-      to: `${path}/$challengeId`,
+      to: `${path as '/select-challenge'}/$challengeId`,
       params: { challengeId }
     })
   }
@@ -105,6 +107,7 @@ function SqlChallenges() {
                                 tab as keyof typeof tabChallengePathMap
                               ],
                               challenge.id
+                              // eslint-disable-next-line @stylistic/jsx-indent
                             )
                           }
                         >

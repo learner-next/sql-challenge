@@ -1,4 +1,6 @@
-import { useState, type FC, useEffect, useRef } from 'react'
+import { type FC, useEffect, useRef, useState } from 'react'
+import { Link } from '@tanstack/react-router'
+import { useAtom } from 'jotai'
 import { Input } from '@/components/ui/input'
 import type { InputProps } from '@/components/ui/input'
 import {
@@ -14,8 +16,6 @@ import selectChallenges from '@/challenges/selectChallenges'
 import updateChallenges from '@/challenges/updateChallenges'
 import deleteChallenges from '@/challenges/deleteChallenges'
 import type { Challenge } from '@/type'
-import { Link } from '@tanstack/react-router'
-import { useAtom } from 'jotai'
 import { activeNameAtom } from '@/state/activeName'
 
 const sqlChallengeTypePathMap = {
@@ -44,11 +44,8 @@ const SqlChallengeSearch: FC<SqlChallengeSearchProps> = ({
   const inputRef = useRef<HTMLInputElement>(null)
   const onInteractOutside = (e: Event) => {
     const target = e.target as Node
-    if (target && inputRef.current && inputRef.current.contains(target)) {
-      return
-    } else {
-      setFilteredChallenges([])
-    }
+    if (target && inputRef.current && inputRef.current.contains(target)) return
+    else setFilteredChallenges([])
   }
   const getSearchChallenges = () => {
     if (!value) {
@@ -110,13 +107,10 @@ const SqlChallengeSearch: FC<SqlChallengeSearchProps> = ({
           <div>
             {filteredChallenges.map((challenge, index) => (
               <div key={challenge.id}>
-                {/* @ts-ignore */}
+                {/* eslint-disable-next-line ts/ban-ts-comment */}
+                {/* @ts-expect-error */}
                 <Link
-                  to={`${
-                    sqlChallengeTypePathMap[
-                      challenge.sqlType as keyof typeof sqlChallengeTypePathMap
-                    ]
-                  }/$challengeId`}
+                  to={`${sqlChallengeTypePathMap[challenge.sqlType as keyof typeof sqlChallengeTypePathMap]}/$challengeId`}
                   params={{ challengeId: challenge.id }}
                   onClick={() => {
                     setActiveName(

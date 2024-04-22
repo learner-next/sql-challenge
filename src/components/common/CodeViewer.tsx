@@ -1,7 +1,8 @@
-import type { Challenge } from '@/type'
-import { FC, useMemo } from 'react'
+import type { FC } from 'react'
+import { useMemo } from 'react'
 import { format } from 'sql-formatter'
 import { MonacoEditor } from 'monaco-editor-component/react'
+import type { Challenge } from '@/type'
 import '@/monacoEditorWorker'
 
 interface CodeViewerProps {

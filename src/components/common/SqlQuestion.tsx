@@ -1,16 +1,17 @@
-import type { Challenge } from '@/type'
-import { FC, useCallback, useMemo } from 'react'
-import MdViewer from './MdViewer'
-import { ScrollArea } from '@/components/ui/scroll-area'
+import type { FC } from 'react'
+import { useCallback, useMemo } from 'react'
+import { useNavigate, useRouter } from '@tanstack/react-router'
+import clsx from 'clsx'
 import { Button } from '../ui/button'
+import MdViewer from './MdViewer'
+import type { Challenge } from '@/type'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import {
   getCurrentChallengeNum,
   getNextChallenge,
   getPrevChallenge
 } from '@/challenges'
 import { RESULT_STATUS_ENUM } from '@/sql/result'
-import { useNavigate, useRouter } from '@tanstack/react-router'
-import clsx from 'clsx'
 
 interface SqlQuestionProps {
   resultStatus: number
@@ -33,14 +34,12 @@ const SqlQuestion: FC<SqlQuestionProps> = ({
   const jumpTo = useCallback(
     (type: 'prev' | 'next') => {
       let willToChallenge
-      if (type === 'prev') {
+      if (type === 'prev')
         willToChallenge = getPrevChallenge(challenge, allChallenges)
-      } else {
-        willToChallenge = getNextChallenge(challenge, allChallenges)
-      }
+      else willToChallenge = getNextChallenge(challenge, allChallenges)
+
       navigate({
-        // @ts-ignore
-        to: `/${path}/$challengeId`,
+        to: `/${path as 'select-challenge'}/$challengeId`,
         params: {
           challengeId: willToChallenge.id
         }
