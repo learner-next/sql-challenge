@@ -1,10 +1,12 @@
-import { useState, type FC, useEffect, useRef } from 'react'
+import { type FC, useEffect, useRef, useState } from 'react'
+import { Link } from '@tanstack/react-router'
+import { useAtom } from 'jotai'
 import { Input } from '@/components/ui/input'
 import type { InputProps } from '@/components/ui/input'
 import {
   Popover,
   PopoverContent,
-  PopoverTrigger
+  PopoverTrigger,
 } from '@/components/ui/popover'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
@@ -14,29 +16,27 @@ import selectChallenges from '@/challenges/selectChallenges'
 import updateChallenges from '@/challenges/updateChallenges'
 import deleteChallenges from '@/challenges/deleteChallenges'
 import type { Challenge } from '@/type'
-import { Link } from '@tanstack/react-router'
-import { useAtom } from 'jotai'
 import { activeNameAtom } from '@/state/activeName'
 
 const sqlChallengeTypePathMap = {
   create: '/create-challenge',
   select: '/select-challenge',
   update: '/update-challenge',
-  delete: '/delete-challenge'
+  delete: '/delete-challenge',
 }
 
 const allChallenges = [
   ...createChallenges,
   ...selectChallenges,
   ...updateChallenges,
-  ...deleteChallenges
+  ...deleteChallenges,
 ]
 
 interface SqlChallengeSearchProps extends InputProps {}
 
 const SqlChallengeSearch: FC<SqlChallengeSearchProps> = ({
   placeholder = 'Search',
-  type = 'text'
+  type = 'text',
 }) => {
   const [value, setValue] = useState('')
   const [, setActiveName] = useAtom(activeNameAtom)
@@ -44,18 +44,15 @@ const SqlChallengeSearch: FC<SqlChallengeSearchProps> = ({
   const inputRef = useRef<HTMLInputElement>(null)
   const onInteractOutside = (e: Event) => {
     const target = e.target as Node
-    if (target && inputRef.current && inputRef.current.contains(target)) {
-      return
-    } else {
-      setFilteredChallenges([])
-    }
+    if (target && inputRef.current && inputRef.current.contains(target)) return
+    else setFilteredChallenges([])
   }
   const getSearchChallenges = () => {
     if (!value) {
       setFilteredChallenges([])
       return
     }
-    const filteredChallenges = allChallenges.filter(challenge => {
+    const filteredChallenges = allChallenges.filter((challenge) => {
       const titleInclude = challenge.title
         .toLowerCase()
         .includes(value.toLowerCase())
@@ -75,7 +72,7 @@ const SqlChallengeSearch: FC<SqlChallengeSearchProps> = ({
       setFilteredChallenges([])
       return
     }
-    const filteredChallenges = allChallenges.filter(challenge => {
+    const filteredChallenges = allChallenges.filter((challenge) => {
       const titleInclude = challenge.title
         .toLowerCase()
         .includes(value.toLowerCase())
@@ -106,23 +103,20 @@ const SqlChallengeSearch: FC<SqlChallengeSearchProps> = ({
         }`}
         onInteractOutside={onInteractOutside}
       >
-        <ScrollArea className="max-h-72 rounded-md">
+        <ScrollArea className="rounded-md max-h-72">
           <div>
             {filteredChallenges.map((challenge, index) => (
               <div key={challenge.id}>
-                {/* @ts-ignore */}
+                {/* eslint-disable-next-line ts/ban-ts-comment */}
+                {/* @ts-expect-error */}
                 <Link
-                  to={`${
-                    sqlChallengeTypePathMap[
-                      challenge.sqlType as keyof typeof sqlChallengeTypePathMap
-                    ]
-                  }/$challengeId`}
+                  to={`${sqlChallengeTypePathMap[challenge.sqlType as keyof typeof sqlChallengeTypePathMap]}/$challengeId`}
                   params={{ challengeId: challenge.id }}
                   onClick={() => {
                     setActiveName(
                       sqlChallengeTypePathMap[
                         challenge.sqlType as keyof typeof sqlChallengeTypePathMap
-                      ].slice(1)
+                      ].slice(1),
                     )
                     setValue('')
                     setFilteredChallenges([])

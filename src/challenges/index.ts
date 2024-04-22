@@ -3,11 +3,12 @@ import type { Challenge } from '@/type'
 /**
  * Returns the challenge object with the specified key ID.
  * @param keyId The key ID of the challenge to retrieve.
+ * @param allChallenges
  * @returns The challenge object with the specified key ID, or undefined if not found.
  */
 export const getChallengeByKey = (
   keyId: string,
-  allChallenges: Challenge[]
+  allChallenges: Challenge[],
 ) => {
   return (
     allChallenges.find(challenge => challenge.id === keyId) || allChallenges[0]
@@ -17,29 +18,31 @@ export const getChallengeByKey = (
 /**
  * Returns the index of the current challenge in the mainChallenges array.
  * @param currentChallenge The current challenge to find the index of.
+ * @param allChallenges
  * @returns The index of the current challenge in the mainChallenges array.
  */
 export const getCurrentChallengeNum = (
   currentChallenge: Challenge,
-  allChallenges: Challenge[]
+  allChallenges: Challenge[],
 ) => {
   return allChallenges.findIndex(
-    challenge => challenge.id === currentChallenge.id
+    challenge => challenge.id === currentChallenge.id,
   )
 }
 
 /**
  * Returns the previous challenge object based on the current challenge object.
  * @param currentChallenge - The current challenge object.
+ * @param allChallenges
  * @returns The previous challenge object.
  */
 export const getPrevChallenge = (
   currentChallenge: Challenge,
-  allChallenges: Challenge[]
+  allChallenges: Challenge[],
 ) => {
   const currentChallengeNum = getCurrentChallengeNum(
     currentChallenge,
-    allChallenges
+    allChallenges,
   )
   if (currentChallengeNum <= 0) return allChallenges[0]
   return allChallenges[currentChallengeNum - 1]
@@ -48,15 +51,16 @@ export const getPrevChallenge = (
 /**
  * Returns the next challenge object based on the current challenge object.
  * @param currentChallenge - The current challenge object.
+ * @param allChallenges
  * @returns The next challenge object.
  */
 export const getNextChallenge = (
   currentChallenge: Challenge,
-  allChallenges: Challenge[]
+  allChallenges: Challenge[],
 ) => {
   const currentChallengeNum = getCurrentChallengeNum(
     currentChallenge,
-    allChallenges
+    allChallenges,
   )
   if (currentChallengeNum >= allChallenges.length - 1)
     return allChallenges[allChallenges.length - 1]

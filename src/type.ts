@@ -1,4 +1,4 @@
-export type Challenge = {
+export interface Challenge {
   /* challenge id */
   id: string
   /* challenge title */

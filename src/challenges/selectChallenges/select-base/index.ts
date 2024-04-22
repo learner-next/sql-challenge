@@ -1,6 +1,6 @@
 import content from './content.md?raw'
-import type { Challenge } from '@/type'
 import initSql from './initSql.sql?raw'
+import type { Challenge } from '@/type'
 
 const challenge: Challenge = {
   id: 'select-base',
@@ -15,7 +15,7 @@ const challenge: Challenge = {
   initSql,
   defaultSql: 'SELECT * FROM student;',
 
-  sqlType: 'select'
+  sqlType: 'select',
 }
 
 export default challenge

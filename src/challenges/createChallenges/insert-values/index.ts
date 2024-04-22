@@ -1,11 +1,11 @@
-import type { Challenge } from '@/type'
 import content from './content.md?raw'
 import initSql from './initSql.sql?raw'
+import type { Challenge } from '@/type'
 
 const challenge: Challenge = {
   id: 'inert-values',
   title: '创建表 - INSERT VALUES',
-  content: content,
+  content,
   difficulty: 1,
   category: '创建表 - INSERT VALUES',
   tags: ['create', 'insert'],
@@ -16,7 +16,7 @@ INSERT INTO students (first_name, last_name, age) VALUES ('Jane', 'Doe', null), 
   initSql,
   defaultSql: `INSERT INTO students () VALUES();`,
 
-  sqlType: 'create'
+  sqlType: 'create',
 }
 
 export default challenge

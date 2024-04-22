@@ -1,11 +1,11 @@
-import type { Challenge } from '@/type'
 import content from './content.md?raw'
 import initSql from './initSql.sql?raw'
+import type { Challenge } from '@/type'
 
 const challenge: Challenge = {
   id: 'data-types',
   title: '创建表 - 数据类型',
-  content: content,
+  content,
   difficulty: 1,
   category: '创建表 - 数据类型',
   tags: ['create', 'insert'],
@@ -15,7 +15,7 @@ const challenge: Challenge = {
   initSql: '',
   defaultSql: `CREATE TABLE students (id INT NOT NULL PRIMARY KEY AUTOINCREMENT);`,
 
-  sqlType: 'create'
+  sqlType: 'create',
 }
 
 export default challenge

@@ -1,11 +1,11 @@
-import type { Challenge } from '@/type'
 import content from './content.md?raw'
 import initSql from './initSql.sql?raw'
+import type { Challenge } from '@/type'
 
 const challenge: Challenge = {
   id: 'create-view',
   title: '创建视图',
-  content: content,
+  content,
   difficulty: 2,
   category: '创建视图',
   tags: ['create', 'view'],
@@ -20,7 +20,7 @@ const challenge: Challenge = {
   initSql,
   defaultSql: `CREATE VIEW employee_department AS SELECT * FROM employees;`,
 
-  sqlType: 'create'
+  sqlType: 'create',
 }
 
 export default challenge

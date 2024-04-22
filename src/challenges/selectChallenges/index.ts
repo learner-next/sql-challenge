@@ -49,7 +49,7 @@ const selectChallenges = [
   selectFullJoin,
   selectSelfJoin,
   selectCrossJoin,
-  selectWindow
+  selectWindow,
 ]
 
 export default selectChallenges

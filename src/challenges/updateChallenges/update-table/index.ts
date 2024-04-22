@@ -18,7 +18,7 @@ ALTER TABLE user MODIFY COLUMN email TEXT;`,
   defaultSql: 'ALTER TABLE user;',
 
   sqlType: 'update',
-  needRunAnswerSql: false
+  needRunAnswerSql: false,
 }
 
 export default challenge

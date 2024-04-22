@@ -16,7 +16,7 @@ const challenge: Challenge = {
   initSql,
   defaultSql: `DELETE FROM users;`,
 
-  sqlType: 'delete'
+  sqlType: 'delete',
 }
 
 export default challenge

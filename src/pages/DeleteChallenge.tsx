@@ -1,5 +1,6 @@
 import SqlChallengePage from '@components/common/SqlChallengePage'
 import allChallenges from '@/challenges/deleteChallenges'
+
 const DeleteChallenge = () => {
   return (
     <SqlChallengePage

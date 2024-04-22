@@ -17,7 +17,7 @@ const challenge: Challenge = {
   sqlType: 'select',
   showTableSql: 'SELECT * FROM student;',
   defaultSql: 'SELECT * FROM student;',
-  hit: ' 子查询是指嵌套在其他查询中的查询，子查询可以嵌套多层，但是不建议嵌套太多层，会影响性能。子查询可以用于条件查询、插入、更新、删除等语句中。'
+  hit: ' 子查询是指嵌套在其他查询中的查询，子查询可以嵌套多层，但是不建议嵌套太多层，会影响性能。子查询可以用于条件查询、插入、更新、删除等语句中。',
 }
 
 export default challenge

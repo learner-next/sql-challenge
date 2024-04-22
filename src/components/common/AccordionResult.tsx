@@ -1,11 +1,11 @@
+import type { FC, PropsWithChildren } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger
+  AccordionTrigger,
 } from '@/components/ui/accordion'
-import type { PropsWithChildren, FC } from 'react'
-import { useEffect, useState, useCallback } from 'react'
 
 interface AccordionResultProps extends PropsWithChildren {
   title: string

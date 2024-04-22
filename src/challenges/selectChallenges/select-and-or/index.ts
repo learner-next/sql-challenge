@@ -16,7 +16,7 @@ const challenge: Challenge = {
   category: ' 基础语法 ',
   author: 'Talljack',
   showTableSql: 'SELECT * FROM student;',
-  defaultSql: 'SELECT name, age, gender, address FROM student;'
+  defaultSql: 'SELECT name, age, gender, address FROM student;',
 }
 
 export default challenge

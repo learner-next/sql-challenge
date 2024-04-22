@@ -16,7 +16,7 @@ const challenge: Challenge = {
   category: 'select',
 
   showTableSql:
-    'SELECT student.id AS student_id, student.name AS student_name, student.age AS student_age, teacher.id AS teacher_id, teacher.name AS teacher_name, teacher.age AS teacher_age FROM student, teacher;'
+    'SELECT student.id AS student_id, student.name AS student_name, student.age AS student_age, teacher.id AS teacher_id, teacher.name AS teacher_name, teacher.age AS teacher_age FROM student, teacher;',
 }
 
 export default challenge
