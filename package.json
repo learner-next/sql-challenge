@@ -19,6 +19,7 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --cache --write \"src/**/*.{ts,tsx,json,css,scss,md}\"",
     "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
     "postinstall": "simple-git-hooks"
   },
   "dependencies": {
