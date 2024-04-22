@@ -6,7 +6,7 @@ import type { InputProps } from '@/components/ui/input'
 import {
   Popover,
   PopoverContent,
-  PopoverTrigger
+  PopoverTrigger,
 } from '@/components/ui/popover'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import { Separator } from '@/components/ui/separator'
@@ -22,21 +22,21 @@ const sqlChallengeTypePathMap = {
   create: '/create-challenge',
   select: '/select-challenge',
   update: '/update-challenge',
-  delete: '/delete-challenge'
+  delete: '/delete-challenge',
 }
 
 const allChallenges = [
   ...createChallenges,
   ...selectChallenges,
   ...updateChallenges,
-  ...deleteChallenges
+  ...deleteChallenges,
 ]
 
 interface SqlChallengeSearchProps extends InputProps {}
 
 const SqlChallengeSearch: FC<SqlChallengeSearchProps> = ({
   placeholder = 'Search',
-  type = 'text'
+  type = 'text',
 }) => {
   const [value, setValue] = useState('')
   const [, setActiveName] = useAtom(activeNameAtom)
@@ -52,7 +52,7 @@ const SqlChallengeSearch: FC<SqlChallengeSearchProps> = ({
       setFilteredChallenges([])
       return
     }
-    const filteredChallenges = allChallenges.filter(challenge => {
+    const filteredChallenges = allChallenges.filter((challenge) => {
       const titleInclude = challenge.title
         .toLowerCase()
         .includes(value.toLowerCase())
@@ -72,7 +72,7 @@ const SqlChallengeSearch: FC<SqlChallengeSearchProps> = ({
       setFilteredChallenges([])
       return
     }
-    const filteredChallenges = allChallenges.filter(challenge => {
+    const filteredChallenges = allChallenges.filter((challenge) => {
       const titleInclude = challenge.title
         .toLowerCase()
         .includes(value.toLowerCase())
@@ -103,7 +103,7 @@ const SqlChallengeSearch: FC<SqlChallengeSearchProps> = ({
         }`}
         onInteractOutside={onInteractOutside}
       >
-        <ScrollArea className="max-h-72 rounded-md">
+        <ScrollArea className="rounded-md max-h-72">
           <div>
             {filteredChallenges.map((challenge, index) => (
               <div key={challenge.id}>
@@ -116,7 +116,7 @@ const SqlChallengeSearch: FC<SqlChallengeSearchProps> = ({
                     setActiveName(
                       sqlChallengeTypePathMap[
                         challenge.sqlType as keyof typeof sqlChallengeTypePathMap
-                      ].slice(1)
+                      ].slice(1),
                     )
                     setValue('')
                     setFilteredChallenges([])
