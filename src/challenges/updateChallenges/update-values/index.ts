@@ -16,7 +16,7 @@ const challenge: Challenge = {
   initSql,
   defaultSql: `UPDATE user SET email = '';`,
 
-  sqlType: 'update'
+  sqlType: 'update',
 }
 
 export default challenge

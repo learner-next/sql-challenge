@@ -4,7 +4,7 @@ import {
   Accordion,
   AccordionContent,
   AccordionItem,
-  AccordionTrigger
+  AccordionTrigger,
 } from '@/components/ui/accordion'
 
 interface AccordionResultProps extends PropsWithChildren {

@@ -18,7 +18,7 @@ const challenge: Challenge = {
     PRIMARY KEY (id)
 );`,
 
-  sqlType: 'create'
+  sqlType: 'create',
 }
 
 export default challenge

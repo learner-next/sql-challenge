@@ -18,7 +18,7 @@ const challenge: Challenge = {
   tags: ['select', 'full-join'],
   category: 'select',
 
-  hit: 'FULL JOIN 用于全连接，查询两个表的并集数据，通常用于多表关联查询。并且需要使用别名来区分两个表的字段。'
+  hit: 'FULL JOIN 用于全连接，查询两个表的并集数据，通常用于多表关联查询。并且需要使用别名来区分两个表的字段。',
 }
 
 export default challenge

@@ -15,7 +15,7 @@ const challenge: Challenge = {
   tags: ['select', 'limit', 'offset'],
   category: 'select',
 
-  showTableSql: 'SELECT * FROM student;'
+  showTableSql: 'SELECT * FROM student;',
 }
 
 export default challenge

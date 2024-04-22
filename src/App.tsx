@@ -19,17 +19,18 @@ function App() {
     if (!path) {
       navigate({
         to: '/select-challenge/$challengeId',
-        params: { challengeId: 'select-base' }
+        params: { challengeId: 'select-base' },
       })
       return
-    } else if (!paramChallengeId) {
+    }
+    else if (!paramChallengeId) {
       // path map -> challengeId
       const challengeId = pathParamMap[path as keyof typeof pathParamMap]
-      challengeId &&
-        navigate({
-          to: `${path as 'select-challenge'}/$challengeId`,
-          params: { challengeId }
-        })
+      challengeId
+      && navigate({
+        to: `${path as 'select-challenge'}/$challengeId`,
+        params: { challengeId },
+      })
       return
     }
   }, [navigate, router])
@@ -45,7 +46,7 @@ function App() {
     (linkPath: string) => {
       return activeName === linkPath ? 'text-green-500' : 'text-zinc-600'
     },
-    [activeName]
+    [activeName],
   )
   return (
     <div className="flex h-screen flex-col justify-between">
@@ -61,7 +62,7 @@ function App() {
           >
             <span
               className={` hover:text-green-500 ${getActiveColor(
-                'create-challenge'
+                'create-challenge',
               )}`}
             >
               Create
@@ -76,7 +77,7 @@ function App() {
           >
             <span
               className={`hover:text-green-500 ${getActiveColor(
-                'select-challenge'
+                'select-challenge',
               )}`}
             >
               Retrieve
@@ -91,7 +92,7 @@ function App() {
           >
             <span
               className={`hover:text-green-500 ${getActiveColor(
-                'update-challenge'
+                'update-challenge',
               )}`}
             >
               Update
@@ -106,7 +107,7 @@ function App() {
           >
             <span
               className={`hover:text-green-500 ${getActiveColor(
-                'delete-challenge'
+                'delete-challenge',
               )}`}
             >
               Delete
@@ -120,7 +121,7 @@ function App() {
           >
             <span
               className={`hover:text-green-500 ${getActiveColor(
-                'sql-challenges'
+                'sql-challenges',
               )}`}
             >
               Challenges
@@ -134,7 +135,7 @@ function App() {
           >
             <span
               className={`hover:text-green-500 ${getActiveColor(
-                'sql-playground'
+                'sql-playground',
               )}`}
             >
               Playground

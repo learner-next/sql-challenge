@@ -15,7 +15,7 @@ const challenge: Challenge = {
   initSql: '',
   defaultSql: `CREATE TABLE students (id INT NOT NULL PRIMARY KEY AUTOINCREMENT);`,
 
-  sqlType: 'create'
+  sqlType: 'create',
 }
 
 export default challenge

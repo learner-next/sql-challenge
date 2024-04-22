@@ -13,7 +13,7 @@ export const pathParamMap = {
   'select-challenge': 'select-base',
   'create-challenge': 'create-table',
   'delete-challenge': 'delete-table',
-  'update-challenge': 'update-table'
+  'update-challenge': 'update-table',
 }
 
 export const removeSqlSpace = (sql: string) => {

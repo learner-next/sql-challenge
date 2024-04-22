@@ -17,14 +17,14 @@ const tabChallengesMap = {
   Create: createChallenges,
   Retrieve: selectChallenges,
   Update: updateChallenges,
-  Delete: deleteChallenges
+  Delete: deleteChallenges,
 }
 
 const tabChallengePathMap = {
   Create: '/create-challenge',
   Retrieve: '/select-challenge',
   Update: '/update-challenge',
-  Delete: '/delete-challenge'
+  Delete: '/delete-challenge',
 }
 
 /**
@@ -37,7 +37,7 @@ function SqlChallenges() {
     setActiveName(path.slice(1))
     navigate({
       to: `${path as '/select-challenge'}/$challengeId`,
-      params: { challengeId }
+      params: { challengeId },
     })
   }
   return (
@@ -68,18 +68,20 @@ function SqlChallenges() {
                       >
                         <div className="challenge-left flex items-center">
                           <div className="star-show flex w-16 gap-1">
-                            {challenge.difficulty ? (
-                              Array(challenge.difficulty)
-                                .fill(1)
-                                .map((_, index) => (
-                                  <AiFillStar
-                                    key={index}
-                                    className="text-yellow-500"
-                                  />
-                                ))
-                            ) : (
-                              <BsStarHalf className="text-yellow-500" />
-                            )}
+                            {challenge.difficulty
+                              ? (
+                                  Array(challenge.difficulty)
+                                    .fill(1)
+                                    .map((_, index) => (
+                                      <AiFillStar
+                                        key={index}
+                                        className="text-yellow-500"
+                                      />
+                                    ))
+                                )
+                              : (
+                                <BsStarHalf className="text-yellow-500" />
+                                )}
                           </div>
                           <div className="text-lg font-bold">
                             {challenge.title}
@@ -106,10 +108,9 @@ function SqlChallenges() {
                               tabChallengePathMap[
                                 tab as keyof typeof tabChallengePathMap
                               ],
-                              challenge.id
+                              challenge.id,
                               // eslint-disable-next-line @stylistic/jsx-indent
-                            )
-                          }
+                            )}
                         >
                           挑战
                         </Button>

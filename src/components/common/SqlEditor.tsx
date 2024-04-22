@@ -28,7 +28,7 @@ const SqlEditor: FC<Props> = ({
   onSubmit,
   className,
   getAllTableResults,
-  sqlDefaultHit = '-- 请在此处输入 SQL 语句'
+  sqlDefaultHit = '-- 请在此处输入 SQL 语句',
 }) => {
   const { toast } = useToast()
   const [value, setValue] = useState(challenge?.defaultSql)
@@ -46,12 +46,13 @@ const SqlEditor: FC<Props> = ({
         onSubmit(
           formattedValue,
           userResult,
-          answerResult as unknown as SqlResultType
+          answerResult as unknown as SqlResultType,
         )
-      } catch (error) {
+      }
+      catch (error) {
         toast({
           description: (error as Error).message,
-          duration: 5000
+          duration: 5000,
         })
         onSubmit(value, [], [], (error as Error).message)
       }
@@ -66,13 +67,14 @@ const SqlEditor: FC<Props> = ({
   useEffect(() => {
     setValue(
       `${sqlDefaultHit}
-${challenge.defaultSql}`
+${challenge.defaultSql}`,
     )
     initSql(challenge?.initSql)
     try {
       const allTableResults = runSql(challenge?.showTableSql)
       getAllTableResults?.(allTableResults)
-    } catch (error) {
+    }
+    catch (error) {
       console.error(error)
     }
   }, [challenge.initSql, challenge.showTableSql, challenge.defaultSql])
@@ -83,7 +85,7 @@ ${challenge.defaultSql}`
         height={300}
         style={{ ...editorStyle }}
         options={{
-          fontSize: 14
+          fontSize: 14,
         }}
         language="sql"
         onChange={setValue}

@@ -19,24 +19,24 @@ const Tag: FC<TagProps> = ({
   backgroundColor = 'bg-gray-500',
   disabled = false,
   onClick,
-  children
+  children,
 }: TagProps) => {
   const sizeMap = {
     small: 'h-4 px-2 text-xs',
     medium: 'h-6 px-3 text-sm',
-    large: 'h-8 px-4 text-lg'
+    large: 'h-8 px-4 text-lg',
   }
   const variantMap = {
     primary: 'bg-blue-500',
     secondary: 'bg-gray-500',
     destructive: 'bg-red-500',
     success: 'bg-green-500',
-    warning: 'bg-yellow-500'
+    warning: 'bg-yellow-500',
   }
 
   const disabledMap = {
     true: 'opacity-50 cursor-not-allowed',
-    false: 'cursor-pointer'
+    false: 'cursor-pointer',
   }
   return (
     <div

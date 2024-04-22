@@ -18,7 +18,7 @@ const CodeViewer: FC<CodeViewerProps> = ({ initSql }) => {
         height={300}
         options={{
           readOnly: true,
-          fontSize: 14
+          fontSize: 14,
         }}
         language="sql"
       />

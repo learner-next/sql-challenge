@@ -15,7 +15,7 @@ const challenge: Challenge = {
   initSql: '',
   defaultSql: 'CREATE TABLE IF NOT EXISTS student (id INTEGER);',
 
-  sqlType: 'create'
+  sqlType: 'create',
 }
 
 export default challenge

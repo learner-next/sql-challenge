@@ -18,7 +18,7 @@ ALTER TABLE customers DROP COLUMN birthday;`,
   defaultSql: `ALTER TABLE customers;`,
 
   sqlType: 'delete',
-  needRunAnswerSql: false
+  needRunAnswerSql: false,
 }
 
 export default challenge

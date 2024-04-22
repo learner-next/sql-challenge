@@ -35,7 +35,7 @@ const challenge: Challenge = {
   author: '',
   defaultSql: 'SELECT * FROM students;',
   sqlType: 'select',
-  showTableSql: 'SELECT * FROM students;'
+  showTableSql: 'SELECT * FROM students;',
 }
 
 const SqlPlayground = () => {
@@ -45,7 +45,7 @@ const SqlPlayground = () => {
     _sql: string,
     userResults: SqlResultType,
     _answerResults: SqlResultType,
-    message?: string
+    message?: string,
   ) => {
     setUserResults(userResults)
     setErrorMessage(message)

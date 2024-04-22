@@ -9,49 +9,49 @@ import SqlPlayground from '@/pages/SqlPlayground'
 
 // Create a root route
 const rootRoute = new RootRoute({
-  component: App
+  component: App,
 })
 
 // create sqlChallenge route
 const sqlChallengeRoute = new Route({
   getParentRoute: () => rootRoute,
   path: '/select-challenge/$challengeId',
-  component: SelectChallenge
+  component: SelectChallenge,
 })
 
 // create challenges route
 const challengesRoute = new Route({
   getParentRoute: () => rootRoute,
   path: '/sql-challenges',
-  component: SqlChallenges
+  component: SqlChallenges,
 })
 
 // create createChallenge route
 const createChallengeRoute = new Route({
   getParentRoute: () => rootRoute,
   path: '/create-challenge/$challengeId',
-  component: CreateChallenge
+  component: CreateChallenge,
 })
 
 // create updateChallenge route
 const updateChallengeRoute = new Route({
   getParentRoute: () => rootRoute,
   path: '/update-challenge/$challengeId',
-  component: UpdateChallenge
+  component: UpdateChallenge,
 })
 
 // create deleteChallenge route
 const deleteChallengeRoute = new Route({
   getParentRoute: () => rootRoute,
   path: '/delete-challenge/$challengeId',
-  component: DeleteChallenge
+  component: DeleteChallenge,
 })
 
 // create sqlPlayground route
 const sqlPlaygroundRoute = new Route({
   getParentRoute: () => rootRoute,
   path: '/sql-playground',
-  component: SqlPlayground
+  component: SqlPlayground,
 })
 
 const routeTree = rootRoute.addChildren([
@@ -60,7 +60,7 @@ const routeTree = rootRoute.addChildren([
   createChallengeRoute,
   updateChallengeRoute,
   deleteChallengeRoute,
-  sqlPlaygroundRoute
+  sqlPlaygroundRoute,
 ])
 
 // Create the router using your route tree

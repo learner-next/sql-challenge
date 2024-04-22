@@ -11,7 +11,7 @@ const createChallenges = [
   tableConstraints,
   tableIndex,
   insertValues,
-  createView
+  createView,
 ]
 
 export default createChallenges

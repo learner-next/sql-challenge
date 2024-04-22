@@ -17,7 +17,7 @@ const challenge: Challenge = {
   showTableSql:
     'SELECT student.name AS s_name, student.class_name AS s_class, student.score as s_score, class_info.class_name AS c_class_name, class_info.teacher AS c_teacher FROM student, class_info WHERE class_info.class_name = student.class_name;',
 
-  hit: 'EXISTS 用于判断子查询是否存在，如果子查询返回结果集，则返回 true，否则返回 false。'
+  hit: 'EXISTS 用于判断子查询是否存在，如果子查询返回结果集，则返回 true，否则返回 false。',
 }
 
 export default challenge

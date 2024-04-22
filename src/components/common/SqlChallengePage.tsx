@@ -17,19 +17,19 @@ interface SqlChallengePageProps {
 
 const SqlChallengePage: FC<SqlChallengePageProps> = ({
   fromPath = '/select-challenge',
-  allChallenges = []
+  allChallenges = [],
 }) => {
   const [userResults, setUserResults] = useState<SqlResultType>([])
   const [answerResults, setAnswerResults] = useState<SqlResultType>([])
   const [allTableResults, setAllTableResults] = useState<SqlResultType>([])
   const [resultStatus, setResultStatus] = useState<number>(
-    RESULT_STATUS_ENUM.DEFAULT
+    RESULT_STATUS_ENUM.DEFAULT,
   )
   const [errorMessage, setErrorMessage] = useState<string>()
   const [challenge, setChallenge] = useState<Challenge>()
   const [collapsedUserResult, setCollapsedUserOpenResult] = useState(true)
   const params = useParams({
-    from: `${fromPath as '/create-challenge'}/$challengeId`
+    from: `${fromPath as '/create-challenge'}/$challengeId`,
   })
 
   useEffect(() => {
@@ -46,13 +46,13 @@ const SqlChallengePage: FC<SqlChallengePageProps> = ({
     _sql: string,
     userResults: SqlResultType,
     answerResults: SqlResultType,
-    message?: string
+    message?: string,
   ) => {
     setUserResults(userResults)
     setAnswerResults(answerResults)
     setErrorMessage(message)
     setResultStatus(
-      checkedSqlResult(userResults, answerResults, challenge, message, _sql)
+      checkedSqlResult(userResults, answerResults, challenge, message, _sql),
     )
     setCollapsedUserOpenResult(false)
   }
@@ -87,11 +87,13 @@ const SqlChallengePage: FC<SqlChallengePageProps> = ({
           <div>{challenge?.hit ?? '请仔细阅读示例中的相关 SQL 语句'}</div>
         </AccordionResult>
         <AccordionResult title="查看数据表">
-          {allTableResults.length > 0 ? (
-            <SqlResult sqlResults={allTableResults} type="system" />
-          ) : (
-            <div>请先创建数据表</div>
-          )}
+          {allTableResults.length > 0
+            ? (
+              <SqlResult sqlResults={allTableResults} type="system" />
+              )
+            : (
+              <div>请先创建数据表</div>
+              )}
         </AccordionResult>
         <AccordionResult title="查看建表语句">
           <CodeViewer initSql={challenge.initSql || challenge.answerSql} />

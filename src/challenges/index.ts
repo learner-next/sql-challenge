@@ -8,7 +8,7 @@ import type { Challenge } from '@/type'
  */
 export const getChallengeByKey = (
   keyId: string,
-  allChallenges: Challenge[]
+  allChallenges: Challenge[],
 ) => {
   return (
     allChallenges.find(challenge => challenge.id === keyId) || allChallenges[0]
@@ -23,10 +23,10 @@ export const getChallengeByKey = (
  */
 export const getCurrentChallengeNum = (
   currentChallenge: Challenge,
-  allChallenges: Challenge[]
+  allChallenges: Challenge[],
 ) => {
   return allChallenges.findIndex(
-    challenge => challenge.id === currentChallenge.id
+    challenge => challenge.id === currentChallenge.id,
   )
 }
 
@@ -38,11 +38,11 @@ export const getCurrentChallengeNum = (
  */
 export const getPrevChallenge = (
   currentChallenge: Challenge,
-  allChallenges: Challenge[]
+  allChallenges: Challenge[],
 ) => {
   const currentChallengeNum = getCurrentChallengeNum(
     currentChallenge,
-    allChallenges
+    allChallenges,
   )
   if (currentChallengeNum <= 0) return allChallenges[0]
   return allChallenges[currentChallengeNum - 1]
@@ -56,11 +56,11 @@ export const getPrevChallenge = (
  */
 export const getNextChallenge = (
   currentChallenge: Challenge,
-  allChallenges: Challenge[]
+  allChallenges: Challenge[],
 ) => {
   const currentChallengeNum = getCurrentChallengeNum(
     currentChallenge,
-    allChallenges
+    allChallenges,
   )
   if (currentChallengeNum >= allChallenges.length - 1)
     return allChallenges[allChallenges.length - 1]

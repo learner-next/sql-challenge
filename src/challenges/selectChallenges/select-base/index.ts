@@ -15,7 +15,7 @@ const challenge: Challenge = {
   initSql,
   defaultSql: 'SELECT * FROM student;',
 
-  sqlType: 'select'
+  sqlType: 'select',
 }
 
 export default challenge

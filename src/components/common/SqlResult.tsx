@@ -7,7 +7,7 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
+  TableRow,
 } from '@/components/ui/table'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import type { SqlResultType } from '@/type'
@@ -25,7 +25,7 @@ const SqlResult: FC<SqlResultProps> = ({
   errorMessage,
   sqlResults,
   type = 'user',
-  className = ''
+  className = '',
 }) => {
   return (
     <Card
@@ -47,38 +47,40 @@ const SqlResult: FC<SqlResultProps> = ({
           )}
         </div>
       </CardHeader>
-      {!errorMessage ? (
-        <CardContent className="p-2">
-          <ScrollArea className="max-h-[300px] overflow-scroll">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  {sqlResults?.[0] &&
-                    Object.keys(sqlResults?.[0])?.map((column, index) => (
+      {!errorMessage
+        ? (
+          <CardContent className="p-2">
+            <ScrollArea className="max-h-[300px] overflow-scroll">
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    {sqlResults?.[0]
+                    && Object.keys(sqlResults?.[0])?.map((column, index) => (
                       <TableHead key={index}>{column}</TableHead>
                     ))}
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {sqlResults?.map((row, index) => (
-                  <TableRow key={index}>
-                    {Object.keys(row)?.map((key, index) => (
-                      <TableCell key={index}>{row?.[key]}</TableCell>
-                    ))}
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </ScrollArea>
-        </CardContent>
-      ) : (
-        type === 'user' && (
-          <div>
-            ❌ 语句错误：
-            {errorMessage}
-          </div>
-        )
-      )}
+                </TableHeader>
+                <TableBody>
+                  {sqlResults?.map((row, index) => (
+                    <TableRow key={index}>
+                      {Object.keys(row)?.map((key, index) => (
+                        <TableCell key={index}>{row?.[key]}</TableCell>
+                      ))}
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </ScrollArea>
+          </CardContent>
+          )
+        : (
+            type === 'user' && (
+              <div>
+                ❌ 语句错误：
+                {errorMessage}
+              </div>
+            )
+          )}
     </Card>
   )
 }

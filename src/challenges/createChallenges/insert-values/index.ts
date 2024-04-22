@@ -16,7 +16,7 @@ INSERT INTO students (first_name, last_name, age) VALUES ('Jane', 'Doe', null), 
   initSql,
   defaultSql: `INSERT INTO students () VALUES();`,
 
-  sqlType: 'create'
+  sqlType: 'create',
 }
 
 export default challenge
