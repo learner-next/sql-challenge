@@ -42,7 +42,7 @@
     "github-markdown-css": "^5.5.1",
     "jotai": "^2.8.0",
     "lucide-react": "^0.376.0",
-    "monaco-editor": "^0.48.0",
+    "monaco-editor": "^0.50.0",
     "monaco-editor-component": "^0.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
