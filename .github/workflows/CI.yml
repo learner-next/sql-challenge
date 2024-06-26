@@ -15,8 +15,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - uses: oven-sh/setup-bun@v1
-      - run: bun install
+      - uses: pnpm/action-setup@v4
+      - run: pnpm install
       - run: npm run typecheck
   lint:
     name: Lint
@@ -26,6 +26,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - uses: oven-sh/setup-bun@v1
-      - run: bun install
+      - uses: pnpm/action-setup@v4
+      - run: pnpm install
       - run: npm run lint:fix

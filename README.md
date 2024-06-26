@@ -60,7 +60,7 @@
 - [Vite](https://vitejs.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [bun](https://bun.sh/)
+- [pnpm](https://pnpm.io/)
 - [alasql](https://github.com/AlaSQL/alasql)
 - [shadcn/ui](https://ui.shadcn.com/)
 - [TanStack Router](https://tanstack.com/router/v1)
@@ -70,7 +70,7 @@
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/)
-- [bun](https://bun.sh/)
+- [pnpm](https://pnpm.io/)
 
 ### Getting Started
 
@@ -81,12 +81,12 @@ git clone git@github.com:learner-next/sql-challenge.git
 
 ```bash
 # Install dependencies
-bun install
+pnpm install
 ```
 
 ```bash
 # Start the dev server
-bun dev
+pnpm dev
 ```
 
 Then open http://localhost:5173/ to see your app.
