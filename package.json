@@ -36,7 +36,7 @@
     "@radix-ui/react-tabs": "^1.1.0",
     "@radix-ui/react-toast": "^1.2.1",
     "@tanstack/react-router": "beta",
-    "alasql": "^4.5.0",
+    "alasql": "^4.5.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "github-markdown-css": "^5.6.1",
