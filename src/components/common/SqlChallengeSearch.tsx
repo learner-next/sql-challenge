@@ -107,10 +107,8 @@ const SqlChallengeSearch: FC<SqlChallengeSearchProps> = ({
           <div>
             {filteredChallenges.map((challenge, index) => (
               <div key={challenge.id}>
-                {/* eslint-disable-next-line ts/ban-ts-comment */}
-                {/* @ts-expect-error */}
                 <Link
-                  to={`${sqlChallengeTypePathMap[challenge.sqlType as keyof typeof sqlChallengeTypePathMap]}/$challengeId`}
+                  to={`${sqlChallengeTypePathMap[challenge.sqlType as keyof typeof sqlChallengeTypePathMap]}/${challenge.id}`}
                   params={{ challengeId: challenge.id }}
                   onClick={() => {
                     setActiveName(
