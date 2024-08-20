@@ -32,7 +32,7 @@ SQL 需要学习的非常多，重点也是在查询，而我们这篇将会先�
 创建数据表的基本语句
 
 ```sql
-CREATE TABLE IF NOT EXIST table_name (column_name column_type, column_name1 column_type1, ...);
+CREATE TABLE IF NOT EXISTS table_name (column_name column_type, column_name1 column_type1, ...);
 ```
 
 接下来请完成以下的挑战吧～
