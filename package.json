@@ -35,7 +35,7 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-tabs": "^1.1.0",
     "@radix-ui/react-toast": "^1.2.1",
-    "@tanstack/react-router": "^1.46.4",
+    "@tanstack/react-router": "^1.57.18",
     "alasql": "^4.5.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
